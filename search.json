@@ -1,0 +1,1108 @@
+[
+  {
+    "objectID": "slides/slides.html#scope",
+    "href": "slides/slides.html#scope",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Scope",
+    "text": "Scope\n\nImportant topics (50-80%):\n\n Core concepts\n Performance metrics\n Data splitting\n Statistical analysis\n\n\n\n\nFurther considerations (20-50%)\n\n Practical aspects\n topics not covered in this course…\n\n\n\n\n\nLearning goal:\n\nbe able to identify common pitfalls for your ML problem…\n… and find suitable (evaluation) solutions."
+  },
+  {
+    "objectID": "slides/slides.html#general-information",
+    "href": "slides/slides.html#general-information",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "General information",
+    "text": "General information\n\n Slides & reproducible code\n\nhttps://github.com/maxwestphal/evaluation_in_ml_datatrain_2025\nAttribution-ShareAlike 4.0 International (CC BY-SA 4.0) license\n\n\n\n\n Interactive summaries\n\nat the end of each section\n\n\n\n\n\n Questions\n\nat the end of each section\n\n\n\n\n\n Hands-on-sessions\n\napplication of concepts in R\nexample datasets or own problems"
+  },
+  {
+    "objectID": "slides/slides.html#agenda-day-1",
+    "href": "slides/slides.html#agenda-day-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Agenda (Day 1)",
+    "text": "Agenda (Day 1)\n\n Introduction \\(\\longrightarrow\\) \n Core Concepts \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Performance metrics \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n\n\n\n Lunch break\n\n\n\n\n Hands-on session: ML basics\n Data splitting \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Hands-on session: data splitting"
+  },
+  {
+    "objectID": "slides/slides.html#agenda-day-2",
+    "href": "slides/slides.html#agenda-day-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Agenda (Day 2)",
+    "text": "Agenda (Day 2)\n\n Statistical inference for performance measures (Werner Brannath)\n A brief introduction to fairness assessment (Werner Brannath)\n Statistical analysis for model evaluation \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n\n\n\n Lunch break\n\n\n\n\n Practical aspects \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Hands-on session: Statistical analysis for model evaluation\n\n Wrap-up"
+  },
+  {
+    "objectID": "slides/slides.html#example-project-kiperiop",
+    "href": "slides/slides.html#example-project-kiperiop",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Example project: KIPeriOP",
+    "text": "Example project: KIPeriOP\n\n\n\n\n\n\n\n\nhttps://www.kiperiop.de/de/home.html"
+  },
+  {
+    "objectID": "slides/slides.html#example-project-bmdeep",
+    "href": "slides/slides.html#example-project-bmdeep",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Example project: BMDeep",
+    "text": "Example project: BMDeep\n\n\n\n\n\nhttps://www.gesundheitsforschung-bmbf.de/de/bmdeep-comprehensive-bone-marrow-analysis-integrating-deep-learning-based-pattern-13645.php\nhttps://www.mevis.fraunhofer.de/de/press-and-scicom/institute-news/2021/kick-off-fuer-bmbf-projekt-bmdeep.html"
+  },
+  {
+    "objectID": "slides/slides.html#example-project-ctg",
+    "href": "slides/slides.html#example-project-ctg",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Example project: CTG",
+    "text": "Example project: CTG\n\n2126 fetal cardiotocograms (CTGs) were automatically processed and the respective diagnostic features measured. The CTGs were also classified by three expert obstetricians and a consensus classification label assigned to each of them. Classification was both with respect to a morphologic pattern (A, B, C. …) and to a fetal state (N, S, P). Therefore the dataset can be used either for 10-class or 3-class experiments\n\n\nThe dataset consists of 2070 observations of 23 features.\nIn the following, we consider the binary classification task {suspect, pathological} vs. normal\n\n\n\n\nD. Campos, J. B. (n.d.). Cardiotocography. https://doi.org/10.24432/C51S4N\nhttps://en.wikipedia.org/w/index.php?title=Cardiotocography&oldid=1168651380"
+  },
+  {
+    "objectID": "slides/slides.html#example-project-ctg-1",
+    "href": "slides/slides.html#example-project-ctg-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Example project: CTG",
+    "text": "Example project: CTG\n\n\n\n“Cardiotocography (CTG) is a technique used to monitor the fetal heartbeat and uterine contractions during pregnancy and labour. The machine used to perform the monitoring is called a cardiotocograph.”\n“CTG monitoring is widely used to assess fetal well-being by identifying babies at risk of hypoxia (lack of oxygen). CTG is mainly used during labour.”\nFigure: “The display of a cardiotocograph. The fetal heartbeat is shown in orange, uterine contractions are shown in green, and the small green numbers (lower right) show the mother’s heartbeat.”\n\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Cardiotocography"
+  },
+  {
+    "objectID": "slides/slides.html#task-types-in-supervised-learning",
+    "href": "slides/slides.html#task-types-in-supervised-learning",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Task types in supervised learning",
+    "text": "Task types in supervised learning\n\n\n\n\n\n\nflowchart TB\n  ML(Machine learning) --&gt; UL(Unsupervised learning)\n  ML --&gt; SL(Supervised learning)\n  ML --&gt; RL(Reinforcement learning)\n  ML --&gt; dots1(...)\n  SL --&gt; BC(binary classification)\n  SL --&gt; MCC(multi-class classification)\n  SL --&gt; MLC(multi-label classification)\n  SL --&gt; TTE(time-to-event analysis)\n  SL --&gt; REG(regression)\n  SL --&gt; dots2(...)\n\n\n\n\n\n\n\nFocus in this course: binary classification"
+  },
+  {
+    "objectID": "slides/slides.html#ml-workflow",
+    "href": "slides/slides.html#ml-workflow",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "ML workflow",
+    "text": "ML workflow\n\n\n\n\n\n\n\nJäckle, S., Alpers, R., Westphal, M. (2023). mlguide – First concept of a machine learning guidance toolkit. Poster presentation at 68. GMDS-Jahrestagung, Heilbronn, 2023."
+  },
+  {
+    "objectID": "slides/slides.html#types-of-evaluation-studies",
+    "href": "slides/slides.html#types-of-evaluation-studies",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Types of evaluation studies",
+    "text": "Types of evaluation studies\n\nThis course is about evaluation studies assessing (some sort of) performance of prediction models or algorithms\nThis course is not about assessing the downstream / real-world (clinical) utility\n\n\n\nFurthermore, we may distinguish between:\n\ninternal validation: development and evaluation take place in different samples from the same population (in-distrubution)\nexternal validation: an independent evaluation (different time and/or reseach group)\ninternal-external validation: during development, we try to assess the generalizability (transferability) to another context\n\n\n\n\n\n\nBossuyt, P. M., Reitsma, J. B., Linnet, K., & Moons, K. G. (2012). Beyond diagnostic accuracy: the clinical utility of diagnostic tests. Clinical chemistry, 58(12), 1636-1643.\nSteyerberg, E. W., & Harrell, F. E. (2016). Prediction models need appropriate internal, internal–external, and external validation. Journal of clinical epidemiology, 69, 245-247."
+  },
+  {
+    "objectID": "slides/slides.html#applied-ml-standard-pipeline",
+    "href": "slides/slides.html#applied-ml-standard-pipeline",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Applied ML: “standard” pipeline",
+    "text": "Applied ML: “standard” pipeline\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#ml-terminology-is-a-mess",
+    "href": "slides/slides.html#ml-terminology-is-a-mess",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "ML terminology is a mess",
+    "text": "ML terminology is a mess\n\nTraining, aka\n\nDevelopment\nDerivation\nLearning\n\n\n\n\nTuning, aka\n\nValidation\nDevelopment\n\n\n\n\n\nTesting, aka\n\nValidation\nEvaluation"
+  },
+  {
+    "objectID": "slides/slides.html#bias-variance-trade-off",
+    "href": "slides/slides.html#bias-variance-trade-off",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Bias variance trade-off",
+    "text": "Bias variance trade-off\n\n\n\n\n\n\n\n\nRaschka, S. (2018). Model evaluation, model selection, and algorithm selection in machine learning. arXiv preprint arXiv:1811.12808."
+  },
+  {
+    "objectID": "slides/slides.html#bias-variance-trade-off-in-ml",
+    "href": "slides/slides.html#bias-variance-trade-off-in-ml",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Bias variance trade-off in ML",
+    "text": "Bias variance trade-off in ML\n\n\n\n\n\n\n\n\nBelkin, M., Hsu, D., Ma, S., & Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854."
+  },
+  {
+    "objectID": "slides/slides.html#bias-variance-trade-off-in-ml-modern",
+    "href": "slides/slides.html#bias-variance-trade-off-in-ml-modern",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Bias variance trade-off in ML (modern)",
+    "text": "Bias variance trade-off in ML (modern)\n\n\n\n\n\n\n\n\nBelkin, M., Hsu, D., Ma, S., & Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854."
+  },
+  {
+    "objectID": "slides/slides.html#selection-induced-bias",
+    "href": "slides/slides.html#selection-induced-bias",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Selection-induced bias",
+    "text": "Selection-induced bias\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#selection-induced-bias-1",
+    "href": "slides/slides.html#selection-induced-bias-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Selection-induced bias",
+    "text": "Selection-induced bias\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#no-free-lunch-theorem",
+    "href": "slides/slides.html#no-free-lunch-theorem",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "No-free-lunch theorem",
+    "text": "No-free-lunch theorem\n\nNo single model (architecture) works best in all possible scenarios.\n\n\nSolutions\n\nextensive experiments\ninductive bias (prior knowledge)\na mixture of both\n\n\n\n\nSterkenburg, T. F., & Grünwald, P. D. (2021). The no-free-lunch theorems of supervised learning. Synthese, 199(3-4), 9979-10015."
+  },
+  {
+    "objectID": "slides/slides.html#aleatoric-and-epistemic-uncertainty-in-machine-learning",
+    "href": "slides/slides.html#aleatoric-and-epistemic-uncertainty-in-machine-learning",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Aleatoric and epistemic uncertainty in machine learning",
+    "text": "Aleatoric and epistemic uncertainty in machine learning\n\n“Aleatoric (aka statistical) uncertainty refers to the notion of randomness, that is, the variability in the outcome of an experiment which is due to inherently random effects.”\n“Epistemic (aka systematic) uncertainty refers to uncertainty caused by a lack of knowledge, i.e., to the epistemic state of the agent.”\n\n\n\n\nEyke Hüllermeier, 2021, https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf"
+  },
+  {
+    "objectID": "slides/slides.html#typical-ml-evaluation-pitfalls",
+    "href": "slides/slides.html#typical-ml-evaluation-pitfalls",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Typical ML evaluation pitfalls",
+    "text": "Typical ML evaluation pitfalls\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
+  },
+  {
+    "objectID": "slides/slides.html#typical-ml-pitfalls",
+    "href": "slides/slides.html#typical-ml-pitfalls",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Typical ML pitfalls",
+    "text": "Typical ML pitfalls\n\n\n\n\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies",
+    "href": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a typical pitfall in ML evaluation studies?",
+    "text": "Q1: What is NOT a typical pitfall in ML evaluation studies?\n\ndata augmentation before data splitting\nignoring temporal dependencies\nonly evaluate each model once on the test data\ncombined model tuning and evaluation on the test data"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1",
+    "href": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a typical pitfall in ML evaluation studies?",
+    "text": "Q1: What is NOT a typical pitfall in ML evaluation studies?\n\ndata augmentation before data splitting \nignoring temporal dependencies \nonly evaluate each model once on the test data \ncombined model tuning and evaluation on the test data"
+  },
+  {
+    "objectID": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose",
+    "href": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …",
+    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\noverfitting and underfitting\noverfitting and selection-induced bias\nunderfitting and selection-induced bias\noverfitting, underfitting and selection-induced bias"
+  },
+  {
+    "objectID": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1",
+    "href": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …",
+    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\noverfitting and underfitting \noverfitting and selection-induced bias \nunderfitting and selection-induced bias \noverfitting, underfitting and selection-induced bias"
+  },
+  {
+    "objectID": "slides/slides.html#q3-what-type-of-validation-does-not-exist",
+    "href": "slides/slides.html#q3-what-type-of-validation-does-not-exist",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: What type of validation does NOT exist?",
+    "text": "Q3: What type of validation does NOT exist?\n\nexternal-internal\ninternal-external\nexternal\ninternal"
+  },
+  {
+    "objectID": "slides/slides.html#q3-what-type-of-validation-does-not-exist-1",
+    "href": "slides/slides.html#q3-what-type-of-validation-does-not-exist-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: What type of validation does NOT exist?",
+    "text": "Q3: What type of validation does NOT exist?\n\nexternal-internal \ninternal-external \nexternal \ninternal"
+  },
+  {
+    "objectID": "slides/slides.html#q4-what-is-not-a-valid-ml-task",
+    "href": "slides/slides.html#q4-what-is-not-a-valid-ml-task",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: What is NOT a valid ML task?",
+    "text": "Q4: What is NOT a valid ML task?\n\nmulti-label classification\ntime-to-event analysis\nbinary classification\nmulti-class regression"
+  },
+  {
+    "objectID": "slides/slides.html#q4-what-is-not-a-valid-ml-task-1",
+    "href": "slides/slides.html#q4-what-is-not-a-valid-ml-task-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: What is NOT a valid ML task?",
+    "text": "Q4: What is NOT a valid ML task?\n\nmulti-label classification \ntime-to-event analysis \nbinary classification \nmulti-class regression"
+  },
+  {
+    "objectID": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias",
+    "href": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…",
+    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\ndecreases with model similarity\ndecreases with the number of models\ndecreases with spread of true performances\nincreases with spread of true performances"
+  },
+  {
+    "objectID": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1",
+    "href": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…",
+    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\ndecreases with model similarity \ndecreases with the number of models \ndecreases with spread of true performances \nincreases with spread of true performances"
+  },
+  {
+    "objectID": "slides/slides.html#performance-dimensions",
+    "href": "slides/slides.html#performance-dimensions",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Performance dimensions",
+    "text": "Performance dimensions\n\nDiscrimintation: can the model distinguish between the target classes?\nCalibration: are probability prediction accurate?\nFairness: is discrimination similar in important subgroups?\n\n\n\nUncertainty quantification: how good is the coverage of prediction intervals?\nExplainability: usually assessed in user studies…\n\n\n\n\n\nHoffman, R. R., Mueller, S. T., Klein, G., & Litman, J. (2018). Metrics for explainable AI: Challenges and prospects. arXiv preprint arXiv:1812.04608.\nBazionis, I. K., & Georgilakis, P. S. (2021). Review of deterministic and probabilistic wind power forecasting: Models, methods, and future research. Electricity, 2(1), 13-47.\nZhou, J., Gandomi, A. H., Chen, F., & Holzinger, A. (2021). Evaluating the quality of machine learning explanations: A survey on methods and metrics. Electronics, 10(5), 593."
+  },
+  {
+    "objectID": "slides/slides.html#metric-choice",
+    "href": "slides/slides.html#metric-choice",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Metric choice",
+    "text": "Metric choice\n\nA deliberate metric choice is very important for a successful ML project.\n\na sensible metric supports/guides development\nan unreasonable metric hinders development\n\n\n\n\nWhat is an optimal solution worth, if it is optimal w.r.t. to a suboptimal metric?\n\n\n\n\nFinding an adequate metric can be time consuming\n\nshould be done early on (before any developments)\nshould be based on discussion with important stakeholders (e.g. potential users)\n\n\n\n\n\n“Standard” / “default” metrics in the field:\n\nusually a good idea to report as well (secondary)\noften not sufficient as primary / sole metric\n\n\n\n\n\nMultiple interesting metrics?\n\ndevelopment usually facilitated if there is a clear decision rule how to rank models (e.g. primary metric)"
+  },
+  {
+    "objectID": "slides/slides.html#metrics-r-packages",
+    "href": "slides/slides.html#metrics-r-packages",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Metrics: R packages",
+    "text": "Metrics: R packages\n\nMetrics: https://CRAN.R-project.org/package=Metrics (2018-07-09)\nModelMetrics: https://CRAN.R-project.org/package=ModelMetrics ( 2020-03-17)\nmetrica: https://CRAN.R-project.org/package=metrica (2023-04-14)\nSurvMetrics: https://CRAN.R-project.org/package=SurvMetrics (2022-09-03)\nMetricsWeighted: https://CRAN.R-project.org/package=Metrics (2023-06-05)"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-confusion-matrix",
+    "href": "slides/slides.html#binary-classification-confusion-matrix",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: confusion matrix",
+    "text": "Binary classification: confusion matrix\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Confusion_matrix"
+  },
+  {
+    "objectID": "slides/slides.html#evaluation-data-for-ctg-example-train-tune-test",
+    "href": "slides/slides.html#evaluation-data-for-ctg-example-train-tune-test",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Evaluation data for CTG example (train-tune-test)",
+    "text": "Evaluation data for CTG example (train-tune-test)\n\ndim(data_eval_ttt_1)\n\n[1] 412   5\n\n\n\n\nhead(data_eval_ttt_1)\n\n  row_ids  truth response prob.suspect prob.normal\n1       3 normal   normal   0.42001441   0.5799856\n2      19 normal   normal   0.00000000   1.0000000\n3      28 normal   normal   0.03574335   0.9642566\n4      31 normal   normal   0.04821049   0.9517895\n5      47 normal   normal   0.00000000   1.0000000\n6      48 normal   normal   0.00000000   1.0000000\n\n\n\n\nmean((data_eval_ttt_1$response == \"suspect\") == \n       (data_eval_ttt_1$prob.suspect &gt; 0.5))\n\n[1] 1"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-confusion-matrix-1",
+    "href": "slides/slides.html#binary-classification-confusion-matrix-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: confusion matrix",
+    "text": "Binary classification: confusion matrix\n\ncaret::confusionMatrix(reference = data_eval_ttt_1$truth,\n                       data = data_eval_ttt_1$response,\n                       positive = \"suspect\")\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction suspect normal\n   suspect      75      3\n   normal       15    319\n                                          \n               Accuracy : 0.9563          \n                 95% CI : (0.9318, 0.9739)\n    No Information Rate : 0.7816          \n    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       \n                                          \n                  Kappa : 0.8656          \n                                          \n Mcnemar's Test P-Value : 0.009522        \n                                          \n            Sensitivity : 0.8333          \n            Specificity : 0.9907          \n         Pos Pred Value : 0.9615          \n         Neg Pred Value : 0.9551          \n             Prevalence : 0.2184          \n         Detection Rate : 0.1820          \n   Detection Prevalence : 0.1893          \n      Balanced Accuracy : 0.9120          \n                                          \n       'Positive' Class : suspect"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-discrimination-metrics",
+    "href": "slides/slides.html#binary-classification-discrimination-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: discrimination metrics",
+    "text": "Binary classification: discrimination metrics\n\nAccuracy: Probability of correct classification (actual \\(=\\) predicted)\nSensitivity: Accuracy in positive class (cases, diseased, 1, TRUE)\nSpecificity: Accuracy in negative class (controls, healthy, 0, FALSE)\nPPV: Accuracy in positive predictions\nNPV: Accuracy in negative predictions\nBalanced accuracy: Average of sensitivity and specificiy\n\n\n\n\nHand, D. J. (2012). Assessing the performance of classification methods. International Statistical Review, 80(3), 400-414."
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-weighted-accuracy",
+    "href": "slides/slides.html#binary-classification-weighted-accuracy",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: weighted accuracy",
+    "text": "Binary classification: weighted accuracy\n\na &lt;- data_eval_ttt_1$truth == \"suspect\"\np &lt;- data_eval_ttt_1$response == \"suspect\"\nMetrics::accuracy(actual = a, predicted = p)\n\n[1] 0.9563107\n\n\n\n\nm &lt;- 5 # sensitvity to be weighted m times higher compared to specificity\nw &lt;- m / (1+m) # weight for sensitivity\n\nw*ModelMetrics::sensitivity(a, p) + \n  (1-w)*ModelMetrics::specificity(a, p)\n\n[1] 0.8595583"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-risk-prediction",
+    "href": "slides/slides.html#binary-classification-risk-prediction",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: Risk prediction",
+    "text": "Binary classification: Risk prediction\n\nBinary classifier which not only predict the target variable (TRUE vs. FALSE), but also a probability of an event (TRUE), may also be called risk prediction models\nOften fundamental requirement in clinical predictive modelling\nAs domain experts shall usually be supported (not replaced) by ML models / algorithms, a predicted risk can be much more informative and interpretable compared to a model only capable of predicting class labels\n\n\n\n\nhttps://en.wikipedia.org/wiki/Receiver_operating_characteristic"
+  },
+  {
+    "objectID": "slides/slides.html#receiver-operating-characteristic-roc",
+    "href": "slides/slides.html#receiver-operating-characteristic-roc",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Receiver operating characteristic (ROC)",
+    "text": "Receiver operating characteristic (ROC)\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Receiver_operating_characteristic"
+  },
+  {
+    "objectID": "slides/slides.html#receiver-operating-characteristic-roc-1",
+    "href": "slides/slides.html#receiver-operating-characteristic-roc-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Receiver operating characteristic (ROC)",
+    "text": "Receiver operating characteristic (ROC)\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Receiver_operating_characteristic"
+  },
+  {
+    "objectID": "slides/slides.html#receiver-operating-characteristic-roc-2",
+    "href": "slides/slides.html#receiver-operating-characteristic-roc-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Receiver operating characteristic (ROC)",
+    "text": "Receiver operating characteristic (ROC)\n\nrocc &lt;- pROC::roc(data_eval_ttt_1, response=\"truth\", predictor=\"prob.suspect\", levels=c(\"normal\", \"suspect\"))\n\nplot(rocc)"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-area-under-the-curve-auc",
+    "href": "slides/slides.html#binary-classification-area-under-the-curve-auc",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: Area under the curve (AUC)",
+    "text": "Binary classification: Area under the curve (AUC)\n\nArea under the (ROC) curve (also “c-statistic”, “concordance statistic”)\nInterpretation: probability that for a randomly selected pair of patients, the diseased patient (true positive class) has a higher predicted risk compared to the healthy patient (true negative class).\nPartial AUC: restrict specificity range\nMany different implementations (smoothed, with CI)"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-area-under-the-curve-auc-1",
+    "href": "slides/slides.html#binary-classification-area-under-the-curve-auc-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: Area under the curve (AUC)",
+    "text": "Binary classification: Area under the curve (AUC)\n\npROC::auc(rocc)\n\nArea under the curve: 0.9831\n\n\n\n\npROC::auc(rocc, partial.auc=c(0.5, 1), partial.auc.correct=TRUE)\n\nCorrected partial area under the curve (specificity 1-0.5): 0.9775"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-plot",
+    "href": "slides/slides.html#binary-classification-calibration-plot",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration plot",
+    "text": "Binary classification: calibration plot\n\ncaret::calibration(truth ~ prob.suspect, data=data_eval_ttt_1) %&gt;% plot()"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-plot-1",
+    "href": "slides/slides.html#binary-classification-calibration-plot-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration plot",
+    "text": "Binary classification: calibration plot\n\ndf &lt;- data_eval_ttt_1 %&gt;% mutate(truth = truth==\"suspect\")\npredtools::calibration_plot(df, obs=\"truth\", pred=\"prob.suspect\")\n\n$calibration_plot\n\n\n\n\n\n\n\n\n\n\n\n\nhttps://cran.r-project.org/web/packages/predtools/vignettes/calibPlot.html"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-plot-2",
+    "href": "slides/slides.html#binary-classification-calibration-plot-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration plot",
+    "text": "Binary classification: calibration plot\n\nCalibratR::reliability_diagramm(actual = data_eval_ttt_1$truth == \"suspect\",\n                                predicted = data_eval_ttt_1$prob.suspect)$diagram_plot"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-metrics",
+    "href": "slides/slides.html#binary-classification-calibration-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration metrics",
+    "text": "Binary classification: calibration metrics\n\nExpected calibration error (ECE)\nMaximum calibration error (MCE)\nRoot mean squared error (from diagonal) (RSME)\n\n\n\nCalibration intercept (calibration-in-the-large)\nCalibration slope"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-metrics-1",
+    "href": "slides/slides.html#binary-classification-calibration-metrics-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration metrics",
+    "text": "Binary classification: calibration metrics\n\na &lt;- data_eval_ttt_1$truth == \"suspect\"\np &lt;- data_eval_ttt_1$prob.suspect\n\nCalibratR::getECE(actual = a, predicted=p, n_bins=10)\n\n[1] 0.02858147\n\n\n\n\nCalibratR::getECE(actual = a, predicted=p, n_bins=20)\n\n[1] 0.03823656\n\n\n\n\n\n\nhttps://cran.r-project.org/web/packages/CalibratR/index.html"
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-calibration-metrics-2",
+    "href": "slides/slides.html#binary-classification-calibration-metrics-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: calibration metrics",
+    "text": "Binary classification: calibration metrics\n\nCalibratR::getMCE(actual = a, predicted=p, n_bins=10)\n\n[1] 0.01754832\n\n\n\n\nCalibratR::getMCE(actual = a, predicted=p, n_bins=20)\n\n[1] 0.01209066\n\n\n\n\n\n\nhttps://cran.r-project.org/web/packages/CalibratR/index.html"
+  },
+  {
+    "objectID": "slides/slides.html#calibration-slope-and-intercept",
+    "href": "slides/slides.html#calibration-slope-and-intercept",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Calibration slope and intercept",
+    "text": "Calibration slope and intercept\n\n\n\n\n\n\n\n\nVan Calster, B., McLernon, D. J., Van Smeden, M., Wynants, L., & Steyerberg, E. W. (2019). Calibration: the Achilles heel of predictive analytics. BMC medicine, 17(1), 1-7."
+  },
+  {
+    "objectID": "slides/slides.html#calibration-slope-and-intercept-1",
+    "href": "slides/slides.html#calibration-slope-and-intercept-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Calibration slope and intercept",
+    "text": "Calibration slope and intercept\n\n\n\n\n\n\n\n\nVan Calster, B., McLernon, D. J., Van Smeden, M., Wynants, L., & Steyerberg, E. W. (2019). Calibration: the Achilles heel of predictive analytics. BMC medicine, 17(1), 1-7."
+  },
+  {
+    "objectID": "slides/slides.html#binary-classification-fairness---overview",
+    "href": "slides/slides.html#binary-classification-fairness---overview",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Binary classification: fairness - overview",
+    "text": "Binary classification: fairness - overview\n\nPredictive rate parity\nFalse positive rate parity\nFalse negative rate parity\nAccuracy parity\nNegative predictive value parity\nSpecificity parity\nROC AUC parity\n…\n\n\n\n\nhttps://CRAN.R-project.org/package=fairness"
+  },
+  {
+    "objectID": "slides/slides.html#multi-class-classification",
+    "href": "slides/slides.html#multi-class-classification",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multi-class classification",
+    "text": "Multi-class classification\n\nIn principle, performance measures for binary classification can be generalized to multi-class problems by considering multiple relevant binary classification tasks, e.g.\n\none-vs-rest\none-vs-one\n\nThis can result in many performance metrics to calculate and interpret and thus make ranking of models more difficult\nPotential solutions\n\naggregation of metrics to single (or few) overall metric, e.g. via weighting (by cost)\nspecialized metrics for multiclass problems\n\n\n\n\n\nAllwein, E. L., Schapire, R. E., & Singer, Y. (2000). Reducing multiclass to binary: A unifying approach for margin classifiers. Journal of machine learning research, 1(Dec), 113-141.\nhttps://www.datascienceblog.net/post/machine-learning/performance-measures-multi-class-problems/"
+  },
+  {
+    "objectID": "slides/slides.html#multi-class-classification-confusion-matrix",
+    "href": "slides/slides.html#multi-class-classification-confusion-matrix",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multi-class classification: Confusion matrix",
+    "text": "Multi-class classification: Confusion matrix\n\nset.seed(123)\na &lt;- rep(letters[1:5], times= (1:5)*20)\np &lt;- sample(a, length(a))\n\ncaret::confusionMatrix(data = as.factor(p), reference=as.factor(a))\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction  a  b  c  d  e\n         a  2  4  2  5  7\n         b  1  7  9 11 12\n         c  4  9 14 15 18\n         d  5  6 20 22 27\n         e  8 14 15 27 36\n\nOverall Statistics\n                                         \n               Accuracy : 0.27           \n                 95% CI : (0.2206, 0.324)\n    No Information Rate : 0.3333         \n    P-Value [Acc &gt; NIR] : 0.9924         \n                                         \n                  Kappa : 0.0338         \n                                         \n Mcnemar's Test P-Value : 0.8813         \n\nStatistics by Class:\n\n                     Class: a Class: b Class: c Class: d Class: e\nSensitivity          0.100000  0.17500  0.23333  0.27500   0.3600\nSpecificity          0.935714  0.87308  0.80833  0.73636   0.6800\nPos Pred Value       0.100000  0.17500  0.23333  0.27500   0.3600\nNeg Pred Value       0.935714  0.87308  0.80833  0.73636   0.6800\nPrevalence           0.066667  0.13333  0.20000  0.26667   0.3333\nDetection Rate       0.006667  0.02333  0.04667  0.07333   0.1200\nDetection Prevalence 0.066667  0.13333  0.20000  0.26667   0.3333\nBalanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200"
+  },
+  {
+    "objectID": "slides/slides.html#multi-class-classification-cost-sensitive-metrics",
+    "href": "slides/slides.html#multi-class-classification-cost-sensitive-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multi-class classification: cost-sensitive metrics",
+    "text": "Multi-class classification: cost-sensitive metrics\n\n\n\nDifferent errors can be weighted by (relative) missclassification costs and then be aggregated to a single accuracy measure\nThis reduces the complexity of (interpreting) evaluation results\nThis a in particular relevant when the number of classes is large\nIn the BMDeep project, the cost specification for leukemia subtype prediction is simplified by considering the (coarser) task of predicting the (guideline) recommended treatment"
+  },
+  {
+    "objectID": "slides/slides.html#multi-class-classification-auc",
+    "href": "slides/slides.html#multi-class-classification-auc",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multi-class classification: AUC",
+    "text": "Multi-class classification: AUC\n\nThe AUC can be generalized to multi-class problems in a simple fashion, by considering the mean of multiple binary AUCs (Hand & Till, 2001)\nSee e.g. ?pROC::multiclass.roc() in R, however fewer features available (w.r.t. visualization, uncertainty quantification)\nA “true” multi-class AUC was developed by Kleiman & Page (2019)\n\n\n\n\nHand, D. J., & Till, R. J. (2001). A simple generalisation of the area under the ROC curve for multiple class classification problems. Machine learning, 45, 171-186.\nhttps://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html\nKleiman, R., & Page, D. (2019, May). Aucμ: A performance metric for multi-class machine learning models. In International Conference on Machine Learning (pp. 3439-3447). PMLR."
+  },
+  {
+    "objectID": "slides/slides.html#regression-loss-functions",
+    "href": "slides/slides.html#regression-loss-functions",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Regression: loss functions",
+    "text": "Regression: loss functions\n\n\n\n\n\n\n\n\nhttps://commons.wikimedia.org/wiki/File:Regressionlosses.png"
+  },
+  {
+    "objectID": "slides/slides.html#regression-loss-functions-1",
+    "href": "slides/slides.html#regression-loss-functions-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Regression: loss functions",
+    "text": "Regression: loss functions\n\nSymmetric loss functions used to define frequently used regression performance metrics, e.g.\n\nmean squared error\nmean absolute error\n\nFor some regression tasks, custom performance metrics (based on asymmetric loss functions) may be more suitable\n\nfor details, see references below\n\n\n\n\n\nChristoffersen, P. F., & Diebold, F. X. (1997). Optimal prediction under asymmetric loss. Econometric theory, 13(6), 808-817.\nTolstikov, A., Janssen, F., & Fürnkranz, J. (2017). Evaluation of different heuristics for accommodating asymmetric loss functions in regression. In Discovery Science: 20th International Conference, DS 2017, Kyoto, Japan, October 15–17, 2017, Proceedings 20 (pp. 67-81). Springer International Publishing."
+  },
+  {
+    "objectID": "slides/slides.html#survival-analysis-overview",
+    "href": "slides/slides.html#survival-analysis-overview",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Survival analysis: overview",
+    "text": "Survival analysis: overview\n\nMean absolute error (and other regression metrics)\n\nNot recommended as censoring is ignored\n\nConcordance index/measure\n\nprobability that of a randomly selected pair of patients, the patient with the shorter survival time has the higher predicted risk.\nmost freuqently used\nseveral versions do exist\n\n(Integrated) Brier score\nCalibration slope\n\n\n\n\nRahman, M. S., Ambler, G., Choodari-Oskooei, B., & Omar, R. Z. (2017). Review and evaluation of performance measures for survival prediction models in external validation settings. BMC medical research methodology, 17(1), 1-15.\nhttps://cran.r-project.org/web/packages/SurvMetrics/vignettes/SurvMetrics-vignette.html"
+  },
+  {
+    "objectID": "slides/slides.html#metric-choice-1",
+    "href": "slides/slides.html#metric-choice-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Metric choice",
+    "text": "Metric choice\n\nA deliberate metric choice is very important for a successful ML project.\n\na sensible metric supports/guides development\nan unreasonable metric hinders development\n\n\n\n\nWhat is an optimal solution worth, if it is optimal w.r.t. to a suboptimal metric?\n\n\n\n\nFinding an adequate metric can be time consuming\n\nshould be done early on (before any developments)\nshould be based on discussion with important stakeholders (e.g. potential users)\n\n\n\n\n\n“Standard” / “default” metrics in the field:\n\nusually a good idea to report as well (secondary)\noften not sufficient as primary / sole metric\n\n\n\n\n\nMultiple interesting metrics?\n\ndevelopment usually facilitated if there is a clear decision rule how to rank models (e.g. primary metric)"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix",
+    "href": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is displayed in the confusion matrix?",
+    "text": "Q1: What is displayed in the confusion matrix?\n\nactual labels vs. predicted labels\npredicted labels vs. estimated probabilities\nactual labels vs. observed frequencies\nobserved frequencies vs. estimated probabilities"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix-1",
+    "href": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is displayed in the confusion matrix?",
+    "text": "Q1: What is displayed in the confusion matrix?\n\nactual labels vs. predicted labels \npredicted labels vs. estimated probabilities \nactual labels vs. observed frequencies \nobserved frequencies vs. estimated probabilities"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers",
+    "href": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?",
+    "text": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?\n\nspecificity\naccuracy\npositive predictive value\narea under the curve"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1",
+    "href": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?",
+    "text": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?\n\nspecificity \naccuracy \npositive predictive value \narea under the curve"
+  },
+  {
+    "objectID": "slides/slides.html#q3-calibration-assesses",
+    "href": "slides/slides.html#q3-calibration-assesses",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: Calibration assesses …",
+    "text": "Q3: Calibration assesses …\n\npredicted probabilities relative to observed class labels\npredicted probabilities relative to observed class frequencies\npredicted class labels relative to the majority class\npredicted class labels relative to the minority class"
+  },
+  {
+    "objectID": "slides/slides.html#q3-calibration-assesses-1",
+    "href": "slides/slides.html#q3-calibration-assesses-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: Calibration assesses …",
+    "text": "Q3: Calibration assesses …\n\npredicted probabilities relative to observed class labels \npredicted probabilities relative to observed class frequencies \npredicted class labels relative to the majority class \npredicted class labels relative to the minority class"
+  },
+  {
+    "objectID": "slides/slides.html#q4-which-of-the-following-statements-is-true",
+    "href": "slides/slides.html#q4-which-of-the-following-statements-is-true",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: Which of the following statements is true?",
+    "text": "Q4: Which of the following statements is true?\n\nonly sensitivity OR specificity should be considered, not both\nbalanced accuracy can be calculated from the confusing matrix\noverall accuracy is independent of class prevalences\nall classification metrics can be calculated from the confusion matrix"
+  },
+  {
+    "objectID": "slides/slides.html#q4-which-of-the-following-statements-is-true-1",
+    "href": "slides/slides.html#q4-which-of-the-following-statements-is-true-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: Which of the following statements is true?",
+    "text": "Q4: Which of the following statements is true?\n\nonly sensitivity OR specificity should be considered, not both \nbalanced accuracy can be calculated from the confusing matrix \noverall accuracy is independent of class prevalences \nall classification metrics can be calculated from the confusion matrix"
+  },
+  {
+    "objectID": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task",
+    "href": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Which metrics can be used for the same ML task?",
+    "text": "Q5: Which metrics can be used for the same ML task?\n\nbalanced accuracy and mean squared error\nmean squared error and maximum calibration error\narea under the curve and maximum calibration error\nmean squared error and area under the curve"
+  },
+  {
+    "objectID": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task-1",
+    "href": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Which metrics can be used for the same ML task?",
+    "text": "Q5: Which metrics can be used for the same ML task?\n\nbalanced accuracy and mean squared error \nmean squared error and maximum calibration error \narea under the curve and maximum calibration error \nmean squared error and area under the curve"
+  },
+  {
+    "objectID": "slides/slides.html#motivation-overfitting",
+    "href": "slides/slides.html#motivation-overfitting",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Motivation: overfitting",
+    "text": "Motivation: overfitting\n\n\n\n\n\n\n\n\nBelkin, M., Hsu, D., Ma, S., & Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854."
+  },
+  {
+    "objectID": "slides/slides.html#motivation-selection-induced-bias",
+    "href": "slides/slides.html#motivation-selection-induced-bias",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Motivation: selection-induced bias",
+    "text": "Motivation: selection-induced bias\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#overview-of-approaches",
+    "href": "slides/slides.html#overview-of-approaches",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Overview of approaches",
+    "text": "Overview of approaches\n\nTrain-tune-test split\nCross-validation (CV)\nBootstrapping\n\n\n\nStratified splitting\nGrouped (blocked) splitting\n\n\n\n\nNested splitting (nested CV)\n\n\n\n\nSpecial variants (e.g. for time-series data)"
+  },
+  {
+    "objectID": "slides/slides.html#the-default-train-tune-test-split",
+    "href": "slides/slides.html#the-default-train-tune-test-split",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "The “default” train-tune-test split",
+    "text": "The “default” train-tune-test split\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#the-default-train-tune-test-split-1",
+    "href": "slides/slides.html#the-default-train-tune-test-split-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "The “default” train-tune-test split",
+    "text": "The “default” train-tune-test split\n\n(Was used so far in the previous section)\nSimple to implement\nLow computational effort\nSimple statistical inference\nTarget: conditional performance, either of…\n\nmodel trained on “train” dataset\nmodel trained on “train” & “tune” datasets combined"
+  },
+  {
+    "objectID": "slides/slides.html#cross-validation-independent-test-set",
+    "href": "slides/slides.html#cross-validation-independent-test-set",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Cross-validation (+ independent test set)",
+    "text": "Cross-validation (+ independent test set)\n\n\n\n\n\n\n\n\nFigure by Sebastian Raschka, 2023 (https://twitter.com/rasbt/status/1628427006386884614)"
+  },
+  {
+    "objectID": "slides/slides.html#cross-validation-independent-test-set-1",
+    "href": "slides/slides.html#cross-validation-independent-test-set-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Cross-validation (+ independent test set)",
+    "text": "Cross-validation (+ independent test set)\n\nCross-validation (cross-tuning):\n\nunconditional performance assessed\nincreased computational burden (by number of folds \\(K\\))\nreduces danger of bad model selection for small samples\n\n\n\n\nIs the independent test set really required?\nIt depends:\n\nOnly model comparison needed: no\nOnly performance assessment: no\nBoth needed: yes, as (CV based) performance estimate of (CV) selected model can still be biased\n\n\n\n\n\nSolution: Nested cross-validation"
+  },
+  {
+    "objectID": "slides/slides.html#nested-cross-validation",
+    "href": "slides/slides.html#nested-cross-validation",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Nested cross-validation",
+    "text": "Nested cross-validation\n\n\n\n\n\n\n\n\nhttps://mlr.mlr-org.com/articles/tutorial/nested_resampling.html"
+  },
+  {
+    "objectID": "slides/slides.html#computational-complexity",
+    "href": "slides/slides.html#computational-complexity",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Computational complexity",
+    "text": "Computational complexity\n\nTrain-tune-test: \\(1\\)\nK-fold CV: \\(K\\) (number of folds)\nNested CV: \\(K_{\\text{inner}}\\ \\cdot K_{\\text{outer}}\\)\nBootstrap: \\(B\\) (number of bootstrap repetitions)\nR-repeated K-fold CV: \\(R \\cdot K\\)\nLeave-one-out CV: \\(n_{\\text{obs}}\\) (number of observations)"
+  },
+  {
+    "objectID": "slides/slides.html#general-recommendations",
+    "href": "slides/slides.html#general-recommendations",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "General recommendations",
+    "text": "General recommendations\n\nTrade off of between complexity (implementation, computation, analysis) and sample efficiency\n\n\n\nLarge n: train-tune-test\n\nsimple (implementation, computation, analysis)\n\n\n\n\n\nSmall n: (nested) CV\n\nhigher compute due to repeated sampling/training\n\n\n\n\n\nOptimal splitting (number of folds, ratio)\n\nno general accepted solution\nsimulation…\npower calculation can guide minimal test set size"
+  },
+  {
+    "objectID": "slides/slides.html#splitting-variants",
+    "href": "slides/slides.html#splitting-variants",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Splitting variants",
+    "text": "Splitting variants\n\nStratification: should the distribution of certain variables be (approximately) equal in all datasets?\n\nIn particular relevant for the outcome variable (classification)\nNo/low costs, medium/high reward\n\n\n\n\nGrouping (also: blocking): Very relevant for hierarchical data\nRelevant question: What is the observational unit of your study?\n\na (e.g. bone marrow) cell\nan image (= a collection of cells)\na patient (= potentially multiple images)\n\nIf a lower hierarchy level is chosen, then splitting should be grouped by highest level\n\n\n\n\n\nhttps://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html"
+  },
+  {
+    "objectID": "slides/slides.html#there-is-more-to-it",
+    "href": "slides/slides.html#there-is-more-to-it",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "There is more to it…",
+    "text": "There is more to it…\n\nAlmost all data splitting techniques so far relied on random partitioning or sub-sampling\nFor non-IID observations, e.g. time-series data, special data splitting methods are required (Schnaubelt, 2019)\nQuestion: What quantity are we really interested in?\nObservation: “generalization performance” is usually not defined very precisely in ML\n\n\n\n\nSchnaubelt, M. (2019). A comparison of machine learning model validation schemes for non-stationary time series data (No. 11/2019). FAU Discussion Papers in Economics."
+  },
+  {
+    "objectID": "slides/slides.html#generalizability-vs.-transferability",
+    "href": "slides/slides.html#generalizability-vs.-transferability",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Generalizability vs. transferability",
+    "text": "Generalizability vs. transferability\n\n\n\n\n\n\n\n\nParady, G., Ory, D., & Walker, J. (2021). The overreliance on statistical goodness-of-fit and under-reliance on model validation in discrete choice models: A review of validation practices in the transportation academic literature. Journal of Choice Modelling, 38, 100257."
+  },
+  {
+    "objectID": "slides/slides.html#estimand-framework",
+    "href": "slides/slides.html#estimand-framework",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Estimand framework",
+    "text": "Estimand framework\n\n\n\n\n\n\n\n\n\nAlpers, R. and Westphal, M. (2023). An estimand framework to guide model and algorithm evaluation in predictive modelling. Manuscript in preparation."
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique",
+    "href": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is a commonly used data splitting technique?",
+    "text": "Q1: What is a commonly used data splitting technique?\n\ntrain-validation-test\ntrain-tune-test\ntune-validation\ncross-validation"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique-1",
+    "href": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is a commonly used data splitting technique?",
+    "text": "Q1: What is a commonly used data splitting technique?\n\ntrain-validation-test \ntrain-tune-test \ntune-validation \ncross-validation"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training",
+    "href": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?",
+    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n5-fold cross-validation and the bootstrap\nthe bootstrap and leave-one-out cross-validation\n100-fold cross-validation and the train-tune-test split\nthe bootstrap and the train-tune-test split"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1",
+    "href": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?",
+    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n5-fold cross-validation and the bootstrap \nthe bootstrap and leave-one-out cross-validation \n100-fold cross-validation and the train-tune-test split \nthe bootstrap and the train-tune-test split"
+  },
+  {
+    "objectID": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to",
+    "href": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…",
+    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\nsimple statistical analysis\nutilization of all observations for testing\nbeing the default method in many packages\nminimal computational effort"
+  },
+  {
+    "objectID": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1",
+    "href": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…",
+    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\nsimple statistical analysis \nutilization of all observations for testing \nbeing the default method in many packages \nminimal computational effort"
+  },
+  {
+    "objectID": "slides/slides.html#q4-for-small-datasets",
+    "href": "slides/slides.html#q4-for-small-datasets",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: For small datasets, …",
+    "text": "Q4: For small datasets, …\n\na proper model comparison and evaluation is usually simpler\nnested data splitting techniques have increased relevance\nno data should be wasted for method evaluation\nthe importance of power estimation is increased"
+  },
+  {
+    "objectID": "slides/slides.html#q4-for-small-datasets-1",
+    "href": "slides/slides.html#q4-for-small-datasets-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: For small datasets, …",
+    "text": "Q4: For small datasets, …\n\na proper model comparison and evaluation is usually simpler \nnested data splitting techniques have increased relevance \nno data should be wasted for method evaluation \nthe importance of power estimation is increased"
+  },
+  {
+    "objectID": "slides/slides.html#q5-which-of-the-following-statements-is-true",
+    "href": "slides/slides.html#q5-which-of-the-following-statements-is-true",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Which of the following statements is true?",
+    "text": "Q5: Which of the following statements is true?\n\nstratification is required for hierarchical data structures\ngrouping is required for hierarchical data structures\nstratification is required to retain the class distribution\ngrouping is required to retain the class distribution"
+  },
+  {
+    "objectID": "slides/slides.html#q5-which-of-the-following-statements-is-true-1",
+    "href": "slides/slides.html#q5-which-of-the-following-statements-is-true-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Which of the following statements is true?",
+    "text": "Q5: Which of the following statements is true?\n\nstratification is required for hierarchical data structures \ngrouping is required for hierarchical data structures \nstratification is required to retain the class distribution \ngrouping is required to retain the class distribution"
+  },
+  {
+    "objectID": "slides/slides.html#goals-of-statistical-inference",
+    "href": "slides/slides.html#goals-of-statistical-inference",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Goals of statistical inference",
+    "text": "Goals of statistical inference\n\nEstimation\nUncertainty quantification\n\nstandard error\nconfidence interval\n\nDecision making\n\nhypothesis testing"
+  },
+  {
+    "objectID": "slides/slides.html#overview",
+    "href": "slides/slides.html#overview",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Overview",
+    "text": "Overview\n\nClassical (frequentist) inference\nNonparametric methods\n\nbootstrap\nhierarchical bootstrap\n\nComplex procedures\n\nmixed models\nBayesian inference"
+  },
+  {
+    "objectID": "slides/slides.html#choice-of-comparator",
+    "href": "slides/slides.html#choice-of-comparator",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Choice of comparator",
+    "text": "Choice of comparator\n\nnone (descriptive analysis)\n\n\n\nfixed performance threshold \\(\\vartheta_0 = 0.8\\)\n\n\n\n\nanother (established) prediction model: \\(\\vartheta_0 = \\vartheta(\\hat{f}_0)\\)\n\nsame test data\npaired comparison (!)"
+  },
+  {
+    "objectID": "slides/slides.html#evaluation-data-train-tune-test-model-comparison",
+    "href": "slides/slides.html#evaluation-data-train-tune-test-model-comparison",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Evaluation data: train-tune-test (model comparison)",
+    "text": "Evaluation data: train-tune-test (model comparison)\n\nScenario: a random forest model was (hyperparameter) tuned on the train/tune data. The best/final model (w.r.t. tuning AUC) shall now be compared against an established elastic net model.\nNull hypothesis: \\(\\vartheta^\\text{ranger}_* = \\vartheta^\\text{glmnet}_0\\) (no difference in performance)\n\n\nhead(data_eval_ttt_2)\n\n   row_ids  truth response_glmnet prob.suspect_glmnet prob.normal_glmnet\n     &lt;int&gt; &lt;fctr&gt;          &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;\n1:       3 normal          normal        2.663412e-02          0.9733659\n2:      19 normal          normal        7.350806e-03          0.9926492\n3:      28 normal          normal        2.207659e-04          0.9997792\n4:      31 normal          normal        2.015005e-05          0.9999798\n5:      47 normal          normal        1.646076e-04          0.9998354\n6:      48 normal          normal        4.657763e-04          0.9995342\n   response_ranger prob.suspect_ranger prob.normal_ranger\n            &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;\n1:          normal          0.42001441          0.5799856\n2:          normal          0.00000000          1.0000000\n3:          normal          0.03574335          0.9642566\n4:          normal          0.04821049          0.9517895\n5:          normal          0.00000000          1.0000000\n6:          normal          0.00000000          1.0000000"
+  },
+  {
+    "objectID": "slides/slides.html#data-preparation",
+    "href": "slides/slides.html#data-preparation",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Data preparation",
+    "text": "Data preparation\n\nactual &lt;- data_eval_ttt_2$truth\nactual_01 &lt;- (actual == \"suspect\") %&gt;% as.numeric()\n\npred_glmnet &lt;- data_eval_ttt_2$response_glmnet \npred_glmnet_01 &lt;- (pred_glmnet== \"suspect\") %&gt;% as.numeric()\ncorrect_glmnet_01 &lt;- (pred_glmnet_01 == actual_01) %&gt;% as.numeric()\n\npred_ranger &lt;- data_eval_ttt_2$response_ranger \npred_ranger_01 &lt;- (pred_ranger== \"suspect\") %&gt;% as.numeric()\ncorrect_ranger_01 &lt;- (pred_ranger_01 == actual_01) %&gt;% as.numeric()"
+  },
+  {
+    "objectID": "slides/slides.html#model-1-elastic-net-glmnet",
+    "href": "slides/slides.html#model-1-elastic-net-glmnet",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Model 1: elastic net (glmnet)",
+    "text": "Model 1: elastic net (glmnet)\n\ncaret::confusionMatrix(data = pred_glmnet, reference = actual)\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction suspect normal\n   suspect      69      8\n   normal       21    314\n                                          \n               Accuracy : 0.9296          \n                 95% CI : (0.9005, 0.9524)\n    No Information Rate : 0.7816          \n    P-Value [Acc &gt; NIR] : 2.668e-16       \n                                          \n                  Kappa : 0.7825          \n                                          \n Mcnemar's Test P-Value : 0.02586         \n                                          \n            Sensitivity : 0.7667          \n            Specificity : 0.9752          \n         Pos Pred Value : 0.8961          \n         Neg Pred Value : 0.9373          \n             Prevalence : 0.2184          \n         Detection Rate : 0.1675          \n   Detection Prevalence : 0.1869          \n      Balanced Accuracy : 0.8709          \n                                          \n       'Positive' Class : suspect"
+  },
+  {
+    "objectID": "slides/slides.html#model-2-random-forest-ranger",
+    "href": "slides/slides.html#model-2-random-forest-ranger",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Model 2: random forest (ranger)",
+    "text": "Model 2: random forest (ranger)\n\ncaret::confusionMatrix(data = pred_ranger, reference = actual)\n\nConfusion Matrix and Statistics\n\n          Reference\nPrediction suspect normal\n   suspect      75      3\n   normal       15    319\n                                          \n               Accuracy : 0.9563          \n                 95% CI : (0.9318, 0.9739)\n    No Information Rate : 0.7816          \n    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       \n                                          \n                  Kappa : 0.8656          \n                                          \n Mcnemar's Test P-Value : 0.009522        \n                                          \n            Sensitivity : 0.8333          \n            Specificity : 0.9907          \n         Pos Pred Value : 0.9615          \n         Neg Pred Value : 0.9551          \n             Prevalence : 0.2184          \n         Detection Rate : 0.1820          \n   Detection Prevalence : 0.1893          \n      Balanced Accuracy : 0.9120          \n                                          \n       'Positive' Class : suspect"
+  },
+  {
+    "objectID": "slides/slides.html#difference-in-proportions-t-test",
+    "href": "slides/slides.html#difference-in-proportions-t-test",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Difference in proportions: t-test",
+    "text": "Difference in proportions: t-test\n\nt.test(x=correct_ranger_01, \n       y=correct_glmnet_01,\n       conf.level=0.95)\n\n\n    Welch Two Sample t-test\n\ndata:  correct_ranger_01 and correct_glmnet_01\nt = 1.6531, df = 783.85, p-value = 0.09872\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.005005757  0.058403816\nsample estimates:\nmean of x mean of y \n0.9563107 0.9296117"
+  },
+  {
+    "objectID": "slides/slides.html#difference-in-proportions-paired-t-test",
+    "href": "slides/slides.html#difference-in-proportions-paired-t-test",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Difference in proportions: paired t-test",
+    "text": "Difference in proportions: paired t-test\n\nt.test(x=correct_ranger_01, \n       y=correct_glmnet_01,\n       paired = TRUE,\n       conf.level=0.95)\n\n\n    Paired t-test\n\ndata:  correct_ranger_01 and correct_glmnet_01\nt = 2.126, df = 411, p-value = 0.0341\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 0.002012143 0.051385915\nsample estimates:\nmean difference \n     0.02669903"
+  },
+  {
+    "objectID": "slides/slides.html#difference-in-proportions-newcombe-interval",
+    "href": "slides/slides.html#difference-in-proportions-newcombe-interval",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Difference in proportions: Newcombe interval",
+    "text": "Difference in proportions: Newcombe interval\n\nmisty::ci.prop.diff(x = correct_ranger_01,\n                    y = correct_glmnet_01,\n                    method =\"newcombe\",\n                    paired = TRUE, \n                    conf.level = 0.95, \n                    digits = 4)\n\n Two-Sided 95% Confidence Interval: Difference in Proportions from Paired Samples\n\n    n nNA     p1     p2  p.Diff     Low     Upp\n  412   0 0.9563 0.9296 -0.0267 -0.0534 -0.0019\n\n\n\n\n\nNewcombe, R. G. (1998a). Interval estimation for the difference between independent proportions: Comparison of eleven methods. Statistics in Medicine, 17, 873-890.\nNewcombe, R. G. (1998b). Improved confidence intervals for the difference between binomial proportions based on paired data. Statistics in Medicine, 17, 2635-2650.\nhttps://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval\nhttps://CRAN.R-project.org/package=misty"
+  },
+  {
+    "objectID": "slides/slides.html#nonparametric-inference-bootstrap",
+    "href": "slides/slides.html#nonparametric-inference-bootstrap",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Nonparametric inference: Bootstrap",
+    "text": "Nonparametric inference: Bootstrap\n\nVery versatile tool\nMinimal assumptions\nNot depending on asymptotics (large sample size) \n\n\n\n\nEfron, B., & Tibshirani, R. J. (1994). An introduction to the bootstrap. CRC press."
+  },
+  {
+    "objectID": "slides/slides.html#nonparametric-inference-bootstrap-1",
+    "href": "slides/slides.html#nonparametric-inference-bootstrap-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Nonparametric inference: Bootstrap",
+    "text": "Nonparametric inference: Bootstrap\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Bootstrapping_(statistics)"
+  },
+  {
+    "objectID": "slides/slides.html#boostrap-inference-for-single-metric",
+    "href": "slides/slides.html#boostrap-inference-for-single-metric",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Boostrap inference for single metric",
+    "text": "Boostrap inference for single metric\n\nDescTools::BootCI(\n  x = actual,\n  y = pred_ranger,\n  FUN = Metrics::accuracy,\n  bci.method = \"bca\",\n  conf.level = 0.95\n)\n\nMetrics::accuracy            lwr.ci            upr.ci \n        0.9563107         0.9248697         0.9708738 \n\n\n\n\n\nhttps://CRAN.R-project.org/package=DescTools"
+  },
+  {
+    "objectID": "slides/slides.html#bootstrap-inference-for-model-comparison",
+    "href": "slides/slides.html#bootstrap-inference-for-model-comparison",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Bootstrap inference for model comparison",
+    "text": "Bootstrap inference for model comparison\n\ndelta_acc_paired &lt;- function(correct_model_a, correct_model_b){\n  mean(correct_model_a - correct_model_b)\n}\n\nDescTools::BootCI(\n  x = correct_ranger_01,\n  y = correct_glmnet_01,\n  FUN = delta_acc_paired,\n  bci.method = \"bca\",\n  conf.level = 0.95\n)\n\ndelta_acc_paired           lwr.ci           upr.ci \n     0.026699029      0.002427184      0.049784828"
+  },
+  {
+    "objectID": "slides/slides.html#bootstrap-inference-for-model-comparison-1",
+    "href": "slides/slides.html#bootstrap-inference-for-model-comparison-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Bootstrap inference for model comparison",
+    "text": "Bootstrap inference for model comparison\n\ndelta_acc_paired_df &lt;- function(df, i=1:nrow(df)){\n  df &lt;- df[i,]\n  Metrics::accuracy(df$actual, df$pred_model_a) - \n    Metrics::accuracy(df$actual, df$pred_model_b)\n}\n\ndf &lt;- data.frame(actual = actual_01,\n                 pred_model_a = pred_ranger_01,\n                 pred_model_b = pred_glmnet_01)\n\nboot::boot(data = df, \n           statistic = delta_acc_paired_df,\n           R = 1000) %&gt;% \n  boot::boot.ci(conv=0.95, type=\"bca\")\n\nBOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS\nBased on 1000 bootstrap replicates\n\nCALL : \nboot::boot.ci(boot.out = ., type = \"bca\", conv = 0.95)\n\nIntervals : \nLevel       BCa          \n95%   ( 0.0000,  0.0494 )  \nCalculations and Intervals on Original Scale"
+  },
+  {
+    "objectID": "slides/slides.html#ci-for-difference-in-aucs",
+    "href": "slides/slides.html#ci-for-difference-in-aucs",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "CI for difference in AUCs",
+    "text": "CI for difference in AUCs\n\nrocc_glmnet &lt;- pROC::roc(data_eval_ttt_2, response=\"truth\", predictor=\"prob.suspect_glmnet\", levels=c(\"normal\", \"suspect\"))\n\nrocc_ranger &lt;- pROC::roc(data_eval_ttt_2, response=\"truth\", predictor=\"prob.suspect_ranger\", levels=c(\"normal\", \"suspect\"))\n\nplot(rocc_glmnet, col=\"blue\")\nplot(rocc_ranger, add=TRUE, col=\"orange\")"
+  },
+  {
+    "objectID": "slides/slides.html#ci-for-difference-in-aucs-delong",
+    "href": "slides/slides.html#ci-for-difference-in-aucs-delong",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "CI for difference in AUCs (Delong)",
+    "text": "CI for difference in AUCs (Delong)\n\npROC::roc.test(rocc_ranger, rocc_glmnet, \n               paired=TRUE, method=\"delong\")\n\n\n    DeLong's test for two correlated ROC curves\n\ndata:  rocc_ranger and rocc_glmnet\nZ = 0.40273, p-value = 0.6871\nalternative hypothesis: true difference in AUC is not equal to 0\n95 percent confidence interval:\n -0.009339915  0.014170832\nsample estimates:\nAUC of roc1 AUC of roc2 \n  0.9830918   0.9806763"
+  },
+  {
+    "objectID": "slides/slides.html#ci-for-difference-in-aucs-bootstrap",
+    "href": "slides/slides.html#ci-for-difference-in-aucs-bootstrap",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "CI for difference in AUCs (bootstrap)",
+    "text": "CI for difference in AUCs (bootstrap)\n\npROC::roc.test(rocc_ranger, rocc_glmnet, \n               paired=TRUE, method=\"bootstrap\")\n\n\n    Bootstrap test for two correlated ROC curves\n\ndata:  rocc_ranger and rocc_glmnet\nD = 0.39739, boot.n = 2000, boot.stratified = 1, p-value = 0.6911\nalternative hypothesis: true difference in AUC is not equal to 0\nsample estimates:\nAUC of roc1 AUC of roc2 \n  0.9830918   0.9806763"
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv",
+    "href": "slides/slides.html#uq-for-nested-cv",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV",
+    "text": "UQ for (nested) CV\n\nScenario: Algorithm evaluation or comparison in the outer loop of nested CV\n\nglmnet, ranger were tuned in the inner loop\ncomparison of best hyperparameter combination of each approach\non each fold (1:5), compare model that was trained on remaining observations\n\n\n\n\nHow can we quantify uncertainty for (difference of) performance estimate?\n\n\n\n\nA few recommendations do exist (Raschka, 2018)\nWe will focus again on the bootstrap and a hierarchical bootstrap variant\n\n\n\n\n\nRaschka, S. (2018). Model evaluation, model selection, and algorithm selection in machine learning. arXiv preprint arXiv:1811.12808."
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv-1",
+    "href": "slides/slides.html#uq-for-nested-cv-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV",
+    "text": "UQ for (nested) CV\n\nhead(data_eval_ncv_2)\n\n    fold row_ids  truth response_glmnet prob.suspect_glmnet prob.normal_glmnet\n   &lt;int&gt;   &lt;int&gt; &lt;fctr&gt;          &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;\n1:     1       3 normal          normal        3.057173e-02          0.9694283\n2:     1      15 normal          normal        4.057469e-04          0.9995943\n3:     1      27 normal          normal        7.387341e-07          0.9999993\n4:     1      30 normal          normal        1.959313e-04          0.9998041\n5:     1      33 normal          normal        1.123090e-04          0.9998877\n6:     1      34 normal          normal        8.422928e-04          0.9991577\n   response_ranger prob.suspect_ranger prob.normal_ranger\n            &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;\n1:          normal         0.306187443          0.6938126\n2:          normal         0.000000000          1.0000000\n3:          normal         0.001503821          0.9984962\n4:          normal         0.004442368          0.9955576\n5:          normal         0.004255131          0.9957449\n6:          normal         0.000000000          1.0000000"
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches",
+    "href": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV - bootstrap approaches",
+    "text": "UQ for (nested) CV - bootstrap approaches\n\nSimple bootstrap\n\nresample observations/rows of original evaluation data with replacement\napply function (metric/statistic) to each resampled dataset\nrepeat…\n\n\n\n\nHierarchical bootstrap\n\nresample fold id (in this case 1:5) with replacement\nresample observations within these folds with replacement\napply function (metric/statistic) to each resampled dataset\nrepeat…"
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv---hierarchical-bootstrap-in-r",
+    "href": "slides/slides.html#uq-for-nested-cv---hierarchical-bootstrap-in-r",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV - hierarchical bootstrap in R",
+    "text": "UQ for (nested) CV - hierarchical bootstrap in R\n\nfabricatr::resample_data(data_eval_ncv_2,\n                         N=c(n_fold, n_obs_per_fold),\n                         ID_labels = c(\"fold\", \"row_ids\"))\n\n\n\n\n\nhttps://cran.r-project.org/web/packages/fabricatr/index.html"
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches-1",
+    "href": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV - bootstrap approaches",
+    "text": "UQ for (nested) CV - bootstrap approaches\n\nsummary(resampled_cv_simple$delta)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n0.01122 0.02110 0.02334 0.02344 0.02568 0.03747 \n\n\n\n\nsummary(resampled_cv_nested$delta)\n\n    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. \n0.008422 0.020422 0.023595 0.023605 0.026817 0.040722"
+  },
+  {
+    "objectID": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches-2",
+    "href": "slides/slides.html#uq-for-nested-cv---bootstrap-approaches-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "UQ for (nested) CV - bootstrap approaches",
+    "text": "UQ for (nested) CV - bootstrap approaches\n\ndelta = AUC(ranger) - AUC(glmnet)\nquantile computation below amounts to type “percentile” in boot::boot.ci \n\n\nquantile(resampled_cv_simple$delta, c(0.025, 0.975))\n\n      2.5%      97.5% \n0.01693917 0.03068130 \n\n\n\n\nquantile(resampled_cv_nested$delta, c(0.025, 0.975))\n\n      2.5%      97.5% \n0.01454324 0.03271745"
+  },
+  {
+    "objectID": "slides/slides.html#multiple-metrics",
+    "href": "slides/slides.html#multiple-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multiple metrics",
+    "text": "Multiple metrics\n\nWhen multiple metrics are assessed simultaneously (on the same test dataset), an adjustment for multiple comparisons may be appropriate/required (e.g. Bonferroni, maxT)\nThis is at least true, when multiple metrics for the same performance dimension are considered (discrimination, calibration, …)\nSuch adjustments are rarely performed in practice\nAlternatively / in addition (per performance dimension):\n\ndefine primary metric of interest,\nadditional secondary metrics can be investigated."
+  },
+  {
+    "objectID": "slides/slides.html#train-tune-test-with-single-test-model",
+    "href": "slides/slides.html#train-tune-test-with-single-test-model",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Train-tune-test with single “test” model",
+    "text": "Train-tune-test with single “test” model\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#train-tune-test-with-multiple-comparisons",
+    "href": "slides/slides.html#train-tune-test-with-multiple-comparisons",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Train-tune-test with multiple comparisons",
+    "text": "Train-tune-test with multiple comparisons\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#train-tune-test-with-multiple-comparisons-1",
+    "href": "slides/slides.html#train-tune-test-with-multiple-comparisons-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Train-tune-test with multiple comparisons",
+    "text": "Train-tune-test with multiple comparisons\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#train-tune-test-with-multiple-comparisons-2",
+    "href": "slides/slides.html#train-tune-test-with-multiple-comparisons-2",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Train-tune-test with multiple comparisons",
+    "text": "Train-tune-test with multiple comparisons\n\n\n\n\n\n\n\n\nWestphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen)."
+  },
+  {
+    "objectID": "slides/slides.html#multiple-models-multiple-metrics",
+    "href": "slides/slides.html#multiple-models-multiple-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Multiple models, multiple metrics",
+    "text": "Multiple models, multiple metrics\n\n\n\n\n\n\n\n\n\nWestphal, M., & Zapf, A. (2021). Statistical Inference for Diagnostic Test Accuracy Studies with Multiple Comparisons. arXiv preprint arXiv:2105.13469.\nhttps://CRAN.R-project.org/package=cases"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
+    "href": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?",
+    "text": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?\n\nhyperparameter optimization\nperformance estimation\nhypothesis testing\nuncertainty quantification"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
+    "href": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?",
+    "text": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?\n\nhyperparameter optimization \nperformance estimation \nhypothesis testing \nuncertainty quantification"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator",
+    "href": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which is a valid choice of a comparator?",
+    "text": "Q2: Which is a valid choice of a comparator?\n\nanother performance metric\nanother prediction model\na fixed threshold\na significance level of 0.05"
+  },
+  {
+    "objectID": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator-1",
+    "href": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: Which is a valid choice of a comparator?",
+    "text": "Q2: Which is a valid choice of a comparator?\n\nanother performance metric \nanother prediction model \na fixed threshold \na significance level of 0.05"
+  },
+  {
+    "objectID": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if",
+    "href": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: The width of a confidence interval for model performance is usually smaller if …",
+    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\nless test data is available\nthe test similarity values have smaller variance\nthe test similarity values have larger variance\nmore test data is available"
+  },
+  {
+    "objectID": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1",
+    "href": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: The width of a confidence interval for model performance is usually smaller if …",
+    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\nless test data is available \nthe test similarity values have smaller variance \nthe test similarity values have larger variance \nmore test data is available"
+  },
+  {
+    "objectID": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used",
+    "href": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: The classical boostrap should in general NOT be used…",
+    "text": "Q4: The classical boostrap should in general NOT be used…\n\nfor data resampling\nas part of learning algorithms\nfor uncertainty quantification in simple scenarios\nfor statistical anaylsis of hierarchical data"
+  },
+  {
+    "objectID": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used-1",
+    "href": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: The classical boostrap should in general NOT be used…",
+    "text": "Q4: The classical boostrap should in general NOT be used…\n\nfor data resampling \nas part of learning algorithms \nfor uncertainty quantification in simple scenarios \nfor statistical anaylsis of hierarchical data"
+  },
+  {
+    "objectID": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless",
+    "href": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Multiple models should not be assessed on the test dataset, unless…",
+    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\nthey are all trained by the same learning algorithm\nthey have been developed by different persons/groups\na correction for multiple comparisons is employed\nthe paper will be submitted to “Nature Machine Intelligence”"
+  },
+  {
+    "objectID": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1",
+    "href": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: Multiple models should not be assessed on the test dataset, unless…",
+    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\nthey are all trained by the same learning algorithm \nthey have been developed by different persons/groups \na correction for multiple comparisons is employed \nthe paper will be submitted to “Nature Machine Intelligence”"
+  },
+  {
+    "objectID": "slides/slides.html#reporting-guidelines",
+    "href": "slides/slides.html#reporting-guidelines",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Reporting guidelines",
+    "text": "Reporting guidelines\n\nTRIPOD: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)\nTRIPOD-AI (in preparation)\nREFORMS: Reporting Standards for ML-based Science (2023)\n\n\n\n\nCollins, G. S., Reitsma, J. B., Altman, D. G., & Moons, K. G. (2015). Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD) the TRIPOD statement. Circulation, 131(2), 211-219.\nhttps://www.equator-network.org/reporting-guidelines/tripod-statement/\nhttps://www.tripod-statement.org/\nhttps://osf.io/zyacb/\nhttps://reforms.cs.princeton.edu/"
+  },
+  {
+    "objectID": "slides/slides.html#tripod",
+    "href": "slides/slides.html#tripod",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "TRIPOD",
+    "text": "TRIPOD"
+  },
+  {
+    "objectID": "slides/slides.html#planning-ahead",
+    "href": "slides/slides.html#planning-ahead",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Planning ahead",
+    "text": "Planning ahead\n\n\n\n\n\nflowchart LR\n  MS(Metric selection) --&gt; SA(Statistical analysis)\n  DS(Data splitting) --&gt; SA\n  SA --&gt; R(Reporting)\n\n\n\n\n\n\n\nStudy protocol (e.g. for prospective data aquisition)\nStatistical analysis plan"
+  },
+  {
+    "objectID": "slides/slides.html#project-organization",
+    "href": "slides/slides.html#project-organization",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Project organization",
+    "text": "Project organization\n\nThe “conflict of interest” of applied ML\n\nwe want high numbers (empirical performance estimates)\nwe want meaningful numbers (e.g. unbiased estimates)\n\n\n\n\nSplitting up work for development, evaluation (between persons, teams, institutions) makes things a whole lot easier\n\ndifferent teams should still work together\na good evaluation effort can support model development"
+  },
+  {
+    "objectID": "slides/slides.html#requirement-analysis",
+    "href": "slides/slides.html#requirement-analysis",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Requirement analysis",
+    "text": "Requirement analysis\n\nTypical requirements for ML solutions\n\nneed for predicted probabilities\nsufficient interpretability (limited complexity)\nfast inference speed\n…\n\n\n\n\nRequirements should be assessed initially, not after performance evaluation.\nThis usually requires discussion with domain experts."
+  },
+  {
+    "objectID": "slides/slides.html#power-calculation",
+    "href": "slides/slides.html#power-calculation",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Power calculation",
+    "text": "Power calculation\n\nPower: probability to be able to demonstrate suitability of a/your (new) model/algorithm\nFor evaluation on test set after training and tuning: a wide variety of methods exists (classification \\(\\leftrightarrow\\) diagnostic accuracy studies)\n\nHypothesis testing based\nPrecision based, e.g. here: https://shiny.ctu.unibe.ch/app_direct/presize/ \n\n\n\n\n\nPepe, M. S. (2003). The statistical evaluation of medical tests for classification and prediction. Oxford university press.\nHaynes, A. G., Lenz, A., Stalder, O., & Limacher, A. (2021). presize: An R-package for precision-based sample size calculation in clinical research. Journal of Open Source Software, 6(60), 3118.\nHomeyer, A., Geißler, C., Schwen, L. O., Zakrzewski, F., Evans, T., Strohmenger, K., … & Zerbe, N. (2022). Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology. Modern Pathology, 35(12), 1759-1769."
+  },
+  {
+    "objectID": "slides/slides.html#target-populationsetting",
+    "href": "slides/slides.html#target-populationsetting",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Target population/setting",
+    "text": "Target population/setting\n\nWhat is the target population/setting?\n\nDefine sensible inclusion/exclusion criteria\nHelps to assemble the test set (IEC are met)\n\n\n\n\nDuring development, things may well be (and often are) a little “wilder”:\n\nSynthetic data\nTransfer learning (other population/setting)\nData augmentation (e.g. manipulation of medical images)\n\n\n\n\n\nNone of these is sensible in an evaluation context!\nException: sensitivity analyses…"
+  },
+  {
+    "objectID": "slides/slides.html#reproducibility",
+    "href": "slides/slides.html#reproducibility",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Reproducibility",
+    "text": "Reproducibility\n\nReproducibility is important but also hard (in particular in ML)\n\nmany sources of variability\nvolatile software packages\nnon-deterministic learning\n\n\n\n\nSome practical considerations\n\nrandom seed(ing) (set.seed(123))\nversion control (e.g. github)\nexperiment handling (e.g. batchtools package)\npipeline management (e.g. targets package)\n\n\n\n\n\n\n\nHeil, B. J., Hoffman, M. M., Markowetz, F., Lee, S. I., Greene, C. S., & Hicks, S. C. (2021). Reproducibility standards for machine learning in the life sciences. Nature Methods, 18(10), 1132-1135."
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies",
+    "href": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a reporting guideline for predictive modelling studies?",
+    "text": "Q1: What is NOT a reporting guideline for predictive modelling studies?\n\nTRIPOD\nTRIPOD-AI\nREPORT-AI\nREFORMS"
+  },
+  {
+    "objectID": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1",
+    "href": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q1: What is NOT a reporting guideline for predictive modelling studies?",
+    "text": "Q1: What is NOT a reporting guideline for predictive modelling studies?\n\nTRIPOD \nTRIPOD-AI \nREPORT-AI \nREFORMS"
+  },
+  {
+    "objectID": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially",
+    "href": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?",
+    "text": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?\n\ndata splitting\nstatistical analysis\nmetric selection\nreporting"
+  },
+  {
+    "objectID": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1",
+    "href": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?",
+    "text": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?\n\ndata splitting \nstatistical analysis \nmetric selection \nreporting"
+  },
+  {
+    "objectID": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by",
+    "href": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…",
+    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\navoiding any claims on statistical significance\nseparating model development and model evaluation\nadequate & transparent study planning\nnontransparent reporting"
+  },
+  {
+    "objectID": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1",
+    "href": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…",
+    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\navoiding any claims on statistical significance \nseparating model development and model evaluation \nadequate & transparent study planning \nnontransparent reporting"
+  },
+  {
+    "objectID": "slides/slides.html#q4-power-analyses",
+    "href": "slides/slides.html#q4-power-analyses",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: Power analyses…",
+    "text": "Q4: Power analyses…\n\ncan help to avoid conducting unreasonably large studies\nare independent of the chosen evaluation metric\nare only useful if hypothesis testing is planned for evaluation\nshould be reported according to the TRIPOD statement"
+  },
+  {
+    "objectID": "slides/slides.html#q4-power-analyses-1",
+    "href": "slides/slides.html#q4-power-analyses-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q4: Power analyses…",
+    "text": "Q4: Power analyses…\n\ncan help to avoid conducting unreasonably large studies \nare independent of the chosen evaluation metric \nare only useful if hypothesis testing is planned for evaluation \nshould be reported according to the TRIPOD statement"
+  },
+  {
+    "objectID": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required",
+    "href": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: For prospective studies, additional care is required…",
+    "text": "Q5: For prospective studies, additional care is required…\n\nto avoid leakage\nto avoid statistically significant results\nto end up with an adequate test set\nto define the performance metric(s)"
+  },
+  {
+    "objectID": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required-1",
+    "href": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Q5: For prospective studies, additional care is required…",
+    "text": "Q5: For prospective studies, additional care is required…\n\nto avoid leakage \nto avoid statistically significant results \nto end up with an adequate test set \nto define the performance metric(s)"
+  },
+  {
+    "objectID": "slides/slides.html#learnings",
+    "href": "slides/slides.html#learnings",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Learnings",
+    "text": "Learnings\n\n Several pitfalls are very prevalent in applied ML.\n Overfitting and selection-induced bias cause overoptimistic evaluation results.\n Performance metric(s) should be chosen deliberately.\n Multiple dimensions can/should to be considered: discrimination, calibration, fairness, …\n Data splitting is mandatory to avoid overoptimism.\n Large(r) samples: train-tune-test \\(\\rightarrow\\) simple(r).\n Fewe(r) samples: (nested) CV (+test) \\(\\rightarrow\\) (more) complex.\n Statistical analysis depends on metric choice and data splitting approach.\n Bootstrap can deal with any metric and requires minimal assumptions.\n Plan ahead (requirement analysis) and involve important stakeholders.\n Evaluation should guide/support development, still be conducted independently."
+  },
+  {
+    "objectID": "slides/slides.html#contact",
+    "href": "slides/slides.html#contact",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Contact",
+    "text": "Contact\n\n max.westphal at mevis dot fraunhofer dot de\n\nFeedback\nFurther questions\nCollaboration requests\n\n @MaxWestphal89\n\nGet/stay in touch\n\n  https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues\n\nIssues with slides/code"
+  },
+  {
+    "objectID": "slides/slides.html#have-15-minutes-to-spare",
+    "href": "slides/slides.html#have-15-minutes-to-spare",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Have 15 minutes to spare?",
+    "text": "Have 15 minutes to spare?\n\nIn a current research project, we develop an interactive expert system for methodological guidance in applied ML (beyond model evaluation).\nWe have setup a short survey to assess user needs and requirements.\nThank you for your time!\n\nhttps://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23"
+  }
+]

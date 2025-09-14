@@ -1,0 +1,3268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Max Westphal">
+  <meta name="dcterms.date" content="2025-09-16">
+  <title>evaluation_in_supervised_ml_cen2025 – Evaluating machine learning and artificial intelligence algorithms</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-247075aecf3f9639a51eb2efb03e21d0.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <meta name="mermaid-theme" content="forest">
+  <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Evaluating machine learning and artificial intelligence algorithms</h1>
+  <p class="subtitle">Data Train course 2025</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Max Westphal 
+</div>
+        <p class="quarto-title-affiliation">
+            Fraunhofer Institute for Digital Medicine MEVIS
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-09-16</p>
+</section>
+<section class="slide level2">
+
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+
+<section>
+<section id="int-introduction" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-play" aria-label="play"></i> Introduction</h1>
+
+</section>
+<section id="scope" class="slide level2">
+<h2>Scope</h2>
+<ul>
+<li>Important topics (50-80%):
+<ul>
+<li><i class="fa-solid fa-power-off" aria-label="power-off"></i> Core concepts</li>
+<li><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Performance metrics</li>
+<li><i class="fa-solid fa-database" aria-label="database"></i> Data splitting</li>
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Statistical analysis</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Further considerations (20-50%)
+<ul>
+<li><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Practical aspects</li>
+<li><i class="fa-solid fa-circle-minus" aria-label="circle-minus"></i> topics not covered in this course…</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Learning goal:
+<ul>
+<li>be able to identify common pitfalls for your ML problem…</li>
+<li>… and find suitable (evaluation) solutions.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="general-information" class="slide level2">
+<h2>General information</h2>
+<ul>
+<li><i class="fa-brands fa-github" aria-label="github"></i> Slides &amp; reproducible code
+<ul>
+<li><a href="https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025" class="uri">https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025</a></li>
+<li><a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-users" aria-label="users"></i> Interactive summaries
+<ul>
+<li>at the end of each section</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions
+<ul>
+<li>at the end of each section</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on-sessions
+<ul>
+<li>application of concepts in R</li>
+<li>example datasets or own problems</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="agenda-day-1" class="slide level2 scrollable">
+<h2>Agenda (Day 1)</h2>
+<ol type="1">
+<li><i class="fa-solid fa-play" aria-label="play"></i> Introduction <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i></li>
+<li><i class="fa-solid fa-power-off" aria-label="power-off"></i> Core Concepts <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
+<li><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Performance metrics <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
+</ol>
+<div class="fragment">
+<ol start="4" type="1">
+<li><i class="fa-solid fa-mug-saucer" aria-label="mug-saucer"></i> Lunch break</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="5" type="1">
+<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: ML basics</li>
+<li><i class="fa-solid fa-database" aria-label="database"></i> Data splitting <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
+<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: data splitting</li>
+</ol>
+</div>
+</section>
+<section id="agenda-day-2" class="slide level2 scrollable">
+<h2>Agenda (Day 2)</h2>
+<ol type="1">
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Statistical inference for performance measures (Werner Brannath)</li>
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> A brief introduction to fairness assessment (Werner Brannath)</li>
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Statistical analysis for model evaluation <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
+</ol>
+<div class="fragment">
+<ol start="4" type="1">
+<li><i class="fa-solid fa-mug-saucer" aria-label="mug-saucer"></i> Lunch break</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="5" type="1">
+<li><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Practical aspects <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
+<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: Statistical analysis for model evaluation<br>
+</li>
+<li><i class="fa-solid fa-flag" aria-label="flag"></i> Wrap-up</li>
+</ol>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+</section></section>
+<section>
+<section id="cc-core-concepts" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-power-off" aria-label="power-off"></i> Core Concepts</h1>
+
+</section>
+<section id="example-project-kiperiop" class="slide level2">
+<h2>Example project: KIPeriOP</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/kiperiop_diagram.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://www.kiperiop.de/de/home.html" class="uri">https://www.kiperiop.de/de/home.html</a></li>
+</ul>
+</div></aside></section>
+<section id="example-project-bmdeep" class="slide level2">
+<h2>Example project: BMDeep</h2>
+<p><br></p>
+<p><img data-src="figures/bmdeep.png"></p>
+
+<aside><div>
+<ul>
+<li><a href="https://www.gesundheitsforschung-bmbf.de/de/bmdeep-comprehensive-bone-marrow-analysis-integrating-deep-learning-based-pattern-13645.php" class="uri">https://www.gesundheitsforschung-bmbf.de/de/bmdeep-comprehensive-bone-marrow-analysis-integrating-deep-learning-based-pattern-13645.php</a></li>
+<li><a href="https://www.mevis.fraunhofer.de/de/press-and-scicom/institute-news/2021/kick-off-fuer-bmbf-projekt-bmdeep.html" class="uri">https://www.mevis.fraunhofer.de/de/press-and-scicom/institute-news/2021/kick-off-fuer-bmbf-projekt-bmdeep.html</a></li>
+</ul>
+</div></aside></section>
+<section id="example-project-ctg" class="slide level2">
+<h2>Example project: CTG</h2>
+<blockquote>
+<p>2126 fetal cardiotocograms (CTGs) were automatically processed and the respective diagnostic features measured. The CTGs were also classified by three expert obstetricians and a consensus classification label assigned to each of them. Classification was both with respect to a morphologic pattern (A, B, C. …) and to a fetal state (N, S, P). Therefore the dataset can be used either for 10-class or 3-class experiments</p>
+</blockquote>
+<ul>
+<li>The dataset consists of 2070 observations of 23 features.</li>
+<li>In the following, we consider the binary classification task {<strong>suspect</strong>, pathological} vs.&nbsp;<strong>normal</strong></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>D. Campos, J. B. (n.d.). Cardiotocography. <a href="https://doi.org/10.24432/C51S4N" class="uri">https://doi.org/10.24432/C51S4N</a></li>
+<li><a href="https://en.wikipedia.org/w/index.php?title=Cardiotocography&amp;oldid=1168651380" class="uri">https://en.wikipedia.org/w/index.php?title=Cardiotocography&amp;oldid=1168651380</a></li>
+</ul>
+</div></aside></section>
+<section id="example-project-ctg-1" class="slide level2">
+<h2>Example project: CTG</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li>“Cardiotocography (CTG) is a technique used to monitor the fetal heartbeat and uterine contractions during pregnancy and labour. The machine used to perform the monitoring is called a cardiotocograph.”</li>
+<li>“CTG monitoring is widely used to assess fetal well-being by identifying babies at risk of hypoxia (lack of oxygen). CTG is mainly used during labour.”</li>
+<li>Figure: “The display of a cardiotocograph. The fetal heartbeat is shown in orange, uterine contractions are shown in green, and the small green numbers (lower right) show the mother’s heartbeat.”</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<p><img data-src="figures/cardiotocography.jpg" height="600"></p>
+</div></div>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cardiotocography" class="uri">https://en.wikipedia.org/wiki/Cardiotocography</a></li>
+</ul>
+</div></aside></section>
+<section id="task-types-in-supervised-learning" class="slide level2">
+<h2>Task types in supervised learning</h2>
+<!-- https://mermaid.js.org/syntax/flowchart.html -->
+<div class="cell" data-reveal="true" data-fig-responsive="false" data-fig-width="16" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  ML(Machine learning) --&gt; UL(Unsupervised learning)
+  ML --&gt; SL(Supervised learning)
+  ML --&gt; RL(Reinforcement learning)
+  ML --&gt; dots1(...)
+  SL --&gt; BC(binary classification)
+  SL --&gt; MCC(multi-class classification)
+  SL --&gt; MLC(multi-label classification)
+  SL --&gt; TTE(time-to-event analysis)
+  SL --&gt; REG(regression)
+  SL --&gt; dots2(...)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Focus in this course: <strong>binary classification</strong></li>
+</ul>
+</section>
+<section id="ml-workflow" class="slide level2">
+<h2>ML workflow</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/mlguide_workflow.jpg" class="quarto-figure quarto-figure-center" size="70%"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Jäckle, S., Alpers, R., Westphal, M. (2023). mlguide – First concept of a machine learning guidance toolkit. Poster presentation at 68. GMDS-Jahrestagung, Heilbronn, 2023.</p>
+</div></aside></section>
+<section id="types-of-evaluation-studies" class="slide level2">
+<h2>Types of evaluation studies</h2>
+<ul>
+<li>This course is about evaluation studies assessing (some sort of) <strong>performance</strong> of prediction models or algorithms</li>
+<li>This course is <strong>not</strong> about assessing the downstream / real-world (clinical) <strong>utility</strong></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Furthermore, we may distinguish between:
+<ul>
+<li><strong>internal validation</strong>: development and evaluation take place in different samples from the same population (in-distrubution)</li>
+<li><strong>external validation</strong>: an independent evaluation (different time and/or reseach group)</li>
+<li><strong>internal-external validation</strong>: during development, we try to assess the generalizability (transferability) to another context</li>
+</ul></li>
+</ul>
+
+</div>
+<aside><div>
+<ul>
+<li>Bossuyt, P. M., Reitsma, J. B., Linnet, K., &amp; Moons, K. G. (2012). Beyond diagnostic accuracy: the clinical utility of diagnostic tests. Clinical chemistry, 58(12), 1636-1643.</li>
+<li>Steyerberg, E. W., &amp; Harrell, F. E. (2016). Prediction models need appropriate internal, internal–external, and external validation. Journal of clinical epidemiology, 69, 245-247.</li>
+</ul>
+</div></aside></section>
+<section id="applied-ml-standard-pipeline" class="slide level2">
+<h2>Applied ML: “standard” pipeline</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ttt_westphal_single.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="ml-terminology-is-a-mess" class="slide level2">
+<h2>ML terminology is a mess</h2>
+<ul>
+<li><strong>Training</strong>, aka
+<ul>
+<li>Development</li>
+<li>Derivation</li>
+<li>Learning</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Tuning</strong>, aka
+<ul>
+<li>Validation</li>
+<li>Development</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Testing</strong>, aka
+<ul>
+<li>Validation</li>
+<li>Evaluation</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="bias-variance-trade-off" class="slide level2">
+<h2>Bias variance trade-off</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/bias_variance_raschka.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Raschka, S. (2018). Model evaluation, model selection, and algorithm selection in machine learning. arXiv preprint arXiv:1811.12808.</li>
+</ul>
+</div></aside></section>
+<section id="bias-variance-trade-off-in-ml" class="slide level2">
+<h2>Bias variance trade-off in ML</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/bias_variance_belkin_simple.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Belkin, M., Hsu, D., Ma, S., &amp; Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854.</li>
+</ul>
+</div></aside></section>
+<section id="bias-variance-trade-off-in-ml-modern" class="slide level2">
+<h2>Bias variance trade-off in ML (modern)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/bias_variance_belkin_modern.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Belkin, M., Hsu, D., Ma, S., &amp; Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854.</li>
+</ul>
+</div></aside></section>
+<section id="selection-induced-bias" class="slide level2">
+<h2>Selection-induced bias</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SIB_BIAS_wide.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="selection-induced-bias-1" class="slide level2">
+<h2>Selection-induced bias</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SIB_FWER_wide.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="no-free-lunch-theorem" class="slide level2">
+<h2>No-free-lunch theorem</h2>
+<blockquote>
+<p>No single model (architecture) works best in all possible scenarios.</p>
+</blockquote>
+<ul>
+<li>Solutions
+<ul>
+<li>extensive experiments</li>
+<li>inductive bias (prior knowledge)</li>
+<li>a mixture of both</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<p>Sterkenburg, T. F., &amp; Grünwald, P. D. (2021). The no-free-lunch theorems of supervised learning. Synthese, 199(3-4), 9979-10015.</p>
+</div></aside></section>
+<section id="aleatoric-and-epistemic-uncertainty-in-machine-learning" class="slide level2">
+<h2>Aleatoric and epistemic uncertainty in machine learning</h2>
+<ul>
+<li>“<strong>Aleatoric (aka statistical) uncertainty</strong> refers to the notion of randomness, that is, the variability in the outcome of an experiment which is due to inherently random effects.”</li>
+<li>“<strong>Epistemic (aka systematic) uncertainty</strong> refers to uncertainty caused by a lack of knowledge, i.e., to the epistemic state of the agent.”</li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Eyke Hüllermeier, 2021, <a href="https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf" class="uri">https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf</a></li>
+</ul>
+</div></aside></section>
+<section id="typical-ml-evaluation-pitfalls" class="slide level2">
+<h2>Typical ML evaluation pitfalls</h2>
+<img data-src="figures/lones_2023_toc_detail.png" class="r-stretch">
+
+<aside><div>
+<ul>
+<li>Lones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497.</li>
+</ul>
+</div></aside></section>
+<section id="typical-ml-pitfalls" class="slide level2">
+<h2>Typical ML pitfalls</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/lones_2023_toc.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Lones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497.</li>
+</ul>
+</div></aside></section></section>
+<section>
+<section id="is-interactive-summary" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
+
+</section>
+<section id="q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies" class="slide level2">
+<h2>Q1: What is NOT a typical pitfall in ML evaluation studies?</h2>
+<ul>
+<li>data augmentation before data splitting</li>
+<li>ignoring temporal dependencies</li>
+<li>only evaluate each model once on the test data</li>
+<li>combined model tuning and evaluation on the test data</li>
+</ul>
+</section>
+<section id="q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1" class="slide level2">
+<h2>Q1: What is NOT a typical pitfall in ML evaluation studies?</h2>
+<ul>
+<li>data augmentation before data splitting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>ignoring temporal dependencies <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>only evaluate each model once on the test data <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>combined model tuning and evaluation on the test data <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose" class="slide level2">
+<h2>Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …</h2>
+<ul>
+<li>overfitting and underfitting</li>
+<li>overfitting and selection-induced bias</li>
+<li>underfitting and selection-induced bias</li>
+<li>overfitting, underfitting and selection-induced bias</li>
+</ul>
+</section>
+<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1" class="slide level2">
+<h2>Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …</h2>
+<ul>
+<li>overfitting and underfitting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>overfitting and selection-induced bias <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>underfitting and selection-induced bias <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>overfitting, underfitting and selection-induced bias <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q3-what-type-of-validation-does-not-exist" class="slide level2">
+<h2>Q3: What type of validation does NOT exist?</h2>
+<ul>
+<li>external-internal</li>
+<li>internal-external</li>
+<li>external</li>
+<li>internal</li>
+</ul>
+</section>
+<section id="q3-what-type-of-validation-does-not-exist-1" class="slide level2">
+<h2>Q3: What type of validation does NOT exist?</h2>
+<ul>
+<li>external-internal <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>internal-external <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>external <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>internal <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q4-what-is-not-a-valid-ml-task" class="slide level2">
+<h2>Q4: What is NOT a valid ML task?</h2>
+<ul>
+<li>multi-label classification</li>
+<li>time-to-event analysis</li>
+<li>binary classification</li>
+<li>multi-class regression</li>
+</ul>
+</section>
+<section id="q4-what-is-not-a-valid-ml-task-1" class="slide level2">
+<h2>Q4: What is NOT a valid ML task?</h2>
+<ul>
+<li>multi-label classification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>time-to-event analysis <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>binary classification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>multi-class regression <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias" class="slide level2">
+<h2>Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…</h2>
+<ul>
+<li>decreases with model similarity</li>
+<li>decreases with the number of models</li>
+<li>decreases with spread of true performances</li>
+<li>increases with spread of true performances</li>
+</ul>
+</section>
+<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1" class="slide level2">
+<h2>Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…</h2>
+<ul>
+<li>decreases with model similarity <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>decreases with the number of models <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>decreases with spread of true performances <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>increases with spread of true performances <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section></section>
+<section id="que-questions" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section>
+<section id="pm-performance-metrics" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Performance metrics</h1>
+
+</section>
+<section id="performance-dimensions" class="slide level2">
+<h2>Performance dimensions</h2>
+<ul>
+<li><strong>Discrimintation</strong>: can the model distinguish between the target classes?</li>
+<li><strong>Calibration</strong>: are probability prediction accurate?</li>
+<li><strong>Fairness</strong>: is discrimination similar in important subgroups?</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Uncertainty quantification: how good is the coverage of prediction intervals?</li>
+<li>Explainability: usually assessed in user studies…</li>
+</ul>
+
+</div>
+<aside><div>
+<ul>
+<li>Hoffman, R. R., Mueller, S. T., Klein, G., &amp; Litman, J. (2018). Metrics for explainable AI: Challenges and prospects. arXiv preprint arXiv:1812.04608.</li>
+<li>Bazionis, I. K., &amp; Georgilakis, P. S. (2021). Review of deterministic and probabilistic wind power forecasting: Models, methods, and future research. Electricity, 2(1), 13-47.</li>
+<li>Zhou, J., Gandomi, A. H., Chen, F., &amp; Holzinger, A. (2021). Evaluating the quality of machine learning explanations: A survey on methods and metrics. Electronics, 10(5), 593.</li>
+</ul>
+</div></aside></section>
+<section id="metric-choice" class="slide level2">
+<h2>Metric choice</h2>
+<ul>
+<li>A deliberate metric choice is very important for a successful ML project.
+<ul>
+<li>a sensible metric supports/guides development</li>
+<li>an unreasonable metric hinders development</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>What is an <em>optimal</em> solution worth, if it is optimal w.r.t. to a suboptimal metric?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Finding an adequate metric can be time consuming
+<ul>
+<li>should be done early on (before any developments)</li>
+<li>should be based on discussion with important stakeholders (e.g.&nbsp;potential users)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>“Standard” / “default” metrics in the field:
+<ul>
+<li>usually a good idea to report as well (secondary)</li>
+<li>often not sufficient as primary / sole metric</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Multiple interesting metrics?
+<ul>
+<li>development usually facilitated if there is a clear decision rule how to rank models (e.g.&nbsp;primary metric)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="metrics-r-packages" class="slide level2">
+<h2>Metrics: R packages</h2>
+<ul>
+<li><strong>Metrics</strong>: <a href="https://CRAN.R-project.org/package=Metrics" class="uri">https://CRAN.R-project.org/package=Metrics</a> (2018-07-09)</li>
+<li><strong>ModelMetrics</strong>: <a href="https://CRAN.R-project.org/package=ModelMetrics" class="uri">https://CRAN.R-project.org/package=ModelMetrics</a> ( 2020-03-17)</li>
+<li><strong>metrica</strong>: <a href="https://CRAN.R-project.org/package=metrica" class="uri">https://CRAN.R-project.org/package=metrica</a> (2023-04-14)</li>
+<li><strong>SurvMetrics</strong>: <a href="https://CRAN.R-project.org/package=SurvMetrics" class="uri">https://CRAN.R-project.org/package=SurvMetrics</a> (2022-09-03)</li>
+<li><strong>MetricsWeighted</strong>: <a href="https://CRAN.R-project.org/package=Metrics" class="uri">https://CRAN.R-project.org/package=Metrics</a> (2023-06-05)</li>
+</ul>
+</section>
+<section id="binary-classification-confusion-matrix" class="slide level2">
+<h2>Binary classification: confusion matrix</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/wikipedia_confusion_matrix.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Confusion_matrix" class="uri">https://en.wikipedia.org/wiki/Confusion_matrix</a></li>
+</ul>
+</div></aside></section>
+<section id="evaluation-data-for-ctg-example-train-tune-test" class="slide level2">
+<h2>Evaluation data for CTG example (train-tune-test)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">dim</span>(data_eval_ttt_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 412   5</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">head</span>(data_eval_ttt_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  row_ids  truth response prob.suspect prob.normal
+1       3 normal   normal   0.42001441   0.5799856
+2      19 normal   normal   0.00000000   1.0000000
+3      28 normal   normal   0.03574335   0.9642566
+4      31 normal   normal   0.04821049   0.9517895
+5      47 normal   normal   0.00000000   1.0000000
+6      48 normal   normal   0.00000000   1.0000000</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">mean</span>((data_eval_ttt_1<span class="sc">$</span>response <span class="sc">==</span> <span class="st">"suspect"</span>) <span class="sc">==</span> </span>
+<span id="cb7-2"><a></a>       (data_eval_ttt_1<span class="sc">$</span>prob.suspect <span class="sc">&gt;</span> <span class="fl">0.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="binary-classification-confusion-matrix-1" class="slide level2">
+<h2>Binary classification: confusion matrix</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>caret<span class="sc">::</span><span class="fu">confusionMatrix</span>(<span class="at">reference =</span> data_eval_ttt_1<span class="sc">$</span>truth,</span>
+<span id="cb9-2"><a></a>                       <span class="at">data =</span> data_eval_ttt_1<span class="sc">$</span>response,</span>
+<span id="cb9-3"><a></a>                       <span class="at">positive =</span> <span class="st">"suspect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction suspect normal
+   suspect      75      3
+   normal       15    319
+                                          
+               Accuracy : 0.9563          
+                 95% CI : (0.9318, 0.9739)
+    No Information Rate : 0.7816          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.8656          
+                                          
+ Mcnemar's Test P-Value : 0.009522        
+                                          
+            Sensitivity : 0.8333          
+            Specificity : 0.9907          
+         Pos Pred Value : 0.9615          
+         Neg Pred Value : 0.9551          
+             Prevalence : 0.2184          
+         Detection Rate : 0.1820          
+   Detection Prevalence : 0.1893          
+      Balanced Accuracy : 0.9120          
+                                          
+       'Positive' Class : suspect         
+                                          </code></pre>
+</div>
+</div>
+</section>
+<section id="binary-classification-discrimination-metrics" class="slide level2">
+<h2>Binary classification: discrimination metrics</h2>
+<ul>
+<li><strong>Accuracy</strong>: Probability of correct classification (actual <span class="math inline">\(=\)</span> predicted)</li>
+<li><strong>Sensitivity</strong>: Accuracy in positive class (cases, diseased, 1, TRUE)</li>
+<li><strong>Specificity</strong>: Accuracy in negative class (controls, healthy, 0, FALSE)</li>
+<li><strong>PPV</strong>: Accuracy in positive predictions</li>
+<li><strong>NPV</strong>: Accuracy in negative predictions</li>
+<li><strong>Balanced accuracy</strong>: Average of sensitivity and specificiy</li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Hand, D. J. (2012). Assessing the performance of classification methods. International Statistical Review, 80(3), 400-414.</li>
+</ul>
+</div></aside></section>
+<section id="binary-classification-weighted-accuracy" class="slide level2">
+<h2>Binary classification: weighted accuracy</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>a <span class="ot">&lt;-</span> data_eval_ttt_1<span class="sc">$</span>truth <span class="sc">==</span> <span class="st">"suspect"</span></span>
+<span id="cb11-2"><a></a>p <span class="ot">&lt;-</span> data_eval_ttt_1<span class="sc">$</span>response <span class="sc">==</span> <span class="st">"suspect"</span></span>
+<span id="cb11-3"><a></a>Metrics<span class="sc">::</span><span class="fu">accuracy</span>(<span class="at">actual =</span> a, <span class="at">predicted =</span> p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9563107</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>m <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co"># sensitvity to be weighted m times higher compared to specificity</span></span>
+<span id="cb13-2"><a></a>w <span class="ot">&lt;-</span> m <span class="sc">/</span> (<span class="dv">1</span><span class="sc">+</span>m) <span class="co"># weight for sensitivity</span></span>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a>w<span class="sc">*</span>ModelMetrics<span class="sc">::</span><span class="fu">sensitivity</span>(a, p) <span class="sc">+</span> </span>
+<span id="cb13-5"><a></a>  (<span class="dv">1</span><span class="sc">-</span>w)<span class="sc">*</span>ModelMetrics<span class="sc">::</span><span class="fu">specificity</span>(a, p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8595583</code></pre>
+</div>
+</div>
+</section>
+<section id="binary-classification-risk-prediction" class="slide level2">
+<h2>Binary classification: Risk prediction</h2>
+<ul>
+<li>Binary classifier which not only predict the target variable (TRUE vs.&nbsp;FALSE), but also a probability of an event (TRUE), may also be called risk prediction models</li>
+<li>Often fundamental requirement in clinical predictive modelling</li>
+<li>As domain experts shall usually be supported (not replaced) by ML models / algorithms, a predicted risk can be much more informative and interpretable compared to a model only capable of predicting class labels</li>
+</ul>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" class="uri">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a></li>
+</ul>
+</div></aside></section>
+<section id="receiver-operating-characteristic-roc" class="slide level2">
+<h2>Receiver operating characteristic (ROC)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/wikipedia_roc_space_1.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" class="uri">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a></li>
+</ul>
+</div></aside></section>
+<section id="receiver-operating-characteristic-roc-1" class="slide level2">
+<h2>Receiver operating characteristic (ROC)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/wikipedia_roc_space_2.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic" class="uri">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a></li>
+</ul>
+</div></aside></section>
+<section id="receiver-operating-characteristic-roc-2" class="slide level2">
+<h2>Receiver operating characteristic (ROC)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>rocc <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(data_eval_ttt_1, <span class="at">response=</span><span class="st">"truth"</span>, <span class="at">predictor=</span><span class="st">"prob.suspect"</span>, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"normal"</span>, <span class="st">"suspect"</span>))</span>
+<span id="cb15-2"><a></a></span>
+<span id="cb15-3"><a></a><span class="fu">plot</span>(rocc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section id="binary-classification-area-under-the-curve-auc" class="slide level2">
+<h2>Binary classification: Area under the curve (AUC)</h2>
+<ul>
+<li>Area under the (ROC) curve (also “c-statistic”, “concordance statistic”)</li>
+<li>Interpretation: probability that for a randomly selected pair of patients, the diseased patient (true positive class) has a higher predicted risk compared to the healthy patient (true negative class).</li>
+<li>Partial AUC: restrict specificity range</li>
+<li>Many different implementations (smoothed, with CI)</li>
+</ul>
+</section>
+<section id="binary-classification-area-under-the-curve-auc-1" class="slide level2">
+<h2>Binary classification: Area under the curve (AUC)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>pROC<span class="sc">::</span><span class="fu">auc</span>(rocc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.9831</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>pROC<span class="sc">::</span><span class="fu">auc</span>(rocc, <span class="at">partial.auc=</span><span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>), <span class="at">partial.auc.correct=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corrected partial area under the curve (specificity 1-0.5): 0.9775</code></pre>
+</div>
+</div>
+</section>
+<section id="binary-classification-calibration-plot" class="slide level2">
+<h2>Binary classification: calibration plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>caret<span class="sc">::</span><span class="fu">calibration</span>(truth <span class="sc">~</span> prob.suspect, <span class="at">data=</span>data_eval_ttt_1) <span class="sc">%&gt;%</span> <span class="fu">plot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="binary-classification-calibration-plot-1" class="slide level2">
+<h2>Binary classification: calibration plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>df <span class="ot">&lt;-</span> data_eval_ttt_1 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">truth =</span> truth<span class="sc">==</span><span class="st">"suspect"</span>)</span>
+<span id="cb21-2"><a></a>predtools<span class="sc">::</span><span class="fu">calibration_plot</span>(df, <span class="at">obs=</span><span class="st">"truth"</span>, <span class="at">pred=</span><span class="st">"prob.suspect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$calibration_plot</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/predtools/vignettes/calibPlot.html" class="uri">https://cran.r-project.org/web/packages/predtools/vignettes/calibPlot.html</a></li>
+</ul>
+</div></aside></section>
+<section id="binary-classification-calibration-plot-2" class="slide level2">
+<h2>Binary classification: calibration plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>CalibratR<span class="sc">::</span><span class="fu">reliability_diagramm</span>(<span class="at">actual =</span> data_eval_ttt_1<span class="sc">$</span>truth <span class="sc">==</span> <span class="st">"suspect"</span>,</span>
+<span id="cb23-2"><a></a>                                <span class="at">predicted =</span> data_eval_ttt_1<span class="sc">$</span>prob.suspect)<span class="sc">$</span>diagram_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<section id="binary-classification-calibration-metrics" class="slide level2">
+<h2>Binary classification: calibration metrics</h2>
+<ul>
+<li><strong>Expected calibration error</strong> (ECE)</li>
+<li><strong>Maximum calibration error</strong> (MCE)</li>
+<li><strong>Root mean squared error</strong> (from diagonal) (RSME)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Calibration intercept</strong> (calibration-in-the-large)</li>
+<li><strong>Calibration slope</strong></li>
+</ul>
+</div>
+</section>
+<section id="binary-classification-calibration-metrics-1" class="slide level2">
+<h2>Binary classification: calibration metrics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>a <span class="ot">&lt;-</span> data_eval_ttt_1<span class="sc">$</span>truth <span class="sc">==</span> <span class="st">"suspect"</span></span>
+<span id="cb24-2"><a></a>p <span class="ot">&lt;-</span> data_eval_ttt_1<span class="sc">$</span>prob.suspect</span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a>CalibratR<span class="sc">::</span><span class="fu">getECE</span>(<span class="at">actual =</span> a, <span class="at">predicted=</span>p, <span class="at">n_bins=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02858147</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>CalibratR<span class="sc">::</span><span class="fu">getECE</span>(<span class="at">actual =</span> a, <span class="at">predicted=</span>p, <span class="at">n_bins=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03823656</code></pre>
+</div>
+</div>
+<p><br></p>
+
+<aside><div>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/CalibratR/index.html" class="uri">https://cran.r-project.org/web/packages/CalibratR/index.html</a></li>
+</ul>
+</div></aside></section>
+<section id="binary-classification-calibration-metrics-2" class="slide level2">
+<h2>Binary classification: calibration metrics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>CalibratR<span class="sc">::</span><span class="fu">getMCE</span>(<span class="at">actual =</span> a, <span class="at">predicted=</span>p, <span class="at">n_bins=</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01754832</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>CalibratR<span class="sc">::</span><span class="fu">getMCE</span>(<span class="at">actual =</span> a, <span class="at">predicted=</span>p, <span class="at">n_bins=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01209066</code></pre>
+</div>
+</div>
+<p><br></p>
+
+<aside><div>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/CalibratR/index.html" class="uri">https://cran.r-project.org/web/packages/CalibratR/index.html</a></li>
+</ul>
+</div></aside></section>
+<section id="calibration-slope-and-intercept" class="slide level2">
+<h2>Calibration slope and intercept</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/calster_2019_calibration_1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Van Calster, B., McLernon, D. J., Van Smeden, M., Wynants, L., &amp; Steyerberg, E. W. (2019). Calibration: the Achilles heel of predictive analytics. BMC medicine, 17(1), 1-7.</li>
+</ul>
+</div></aside></section>
+<section id="calibration-slope-and-intercept-1" class="slide level2">
+<h2>Calibration slope and intercept</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/calster_2019_calibration_2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Van Calster, B., McLernon, D. J., Van Smeden, M., Wynants, L., &amp; Steyerberg, E. W. (2019). Calibration: the Achilles heel of predictive analytics. BMC medicine, 17(1), 1-7.</li>
+</ul>
+</div></aside></section>
+<section id="binary-classification-fairness---overview" class="slide level2">
+<h2>Binary classification: fairness - overview</h2>
+<ul>
+<li>Predictive rate parity</li>
+<li>False positive rate parity</li>
+<li>False negative rate parity</li>
+<li>Accuracy parity</li>
+<li>Negative predictive value parity</li>
+<li>Specificity parity</li>
+<li>ROC AUC parity</li>
+<li>…</li>
+</ul>
+
+<aside><div>
+<ul>
+<li><a href="https://CRAN.R-project.org/package=fairness" class="uri">https://CRAN.R-project.org/package=fairness</a></li>
+</ul>
+</div></aside></section>
+<section id="multi-class-classification" class="slide level2">
+<h2>Multi-class classification</h2>
+<ul>
+<li>In principle, performance measures for binary classification can be generalized to multi-class problems by considering multiple relevant binary classification tasks, e.g.
+<ul>
+<li>one-vs-rest</li>
+<li>one-vs-one</li>
+</ul></li>
+<li>This can result in many performance metrics to calculate and interpret and thus make ranking of models more difficult</li>
+<li>Potential solutions
+<ul>
+<li>aggregation of metrics to single (or few) overall metric, e.g.&nbsp;via weighting (by cost)</li>
+<li>specialized metrics for multiclass problems</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Allwein, E. L., Schapire, R. E., &amp; Singer, Y. (2000). Reducing multiclass to binary: A unifying approach for margin classifiers. Journal of machine learning research, 1(Dec), 113-141.</li>
+<li><a href="https://www.datascienceblog.net/post/machine-learning/performance-measures-multi-class-problems/" class="uri">https://www.datascienceblog.net/post/machine-learning/performance-measures-multi-class-problems/</a></li>
+</ul>
+</div></aside></section>
+<section id="multi-class-classification-confusion-matrix" class="slide level2">
+<h2>Multi-class classification: Confusion matrix</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb32-2"><a></a>a <span class="ot">&lt;-</span> <span class="fu">rep</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">times=</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)<span class="sc">*</span><span class="dv">20</span>)</span>
+<span id="cb32-3"><a></a>p <span class="ot">&lt;-</span> <span class="fu">sample</span>(a, <span class="fu">length</span>(a))</span>
+<span id="cb32-4"><a></a></span>
+<span id="cb32-5"><a></a>caret<span class="sc">::</span><span class="fu">confusionMatrix</span>(<span class="at">data =</span> <span class="fu">as.factor</span>(p), <span class="at">reference=</span><span class="fu">as.factor</span>(a))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction  a  b  c  d  e
+         a  2  4  2  5  7
+         b  1  7  9 11 12
+         c  4  9 14 15 18
+         d  5  6 20 22 27
+         e  8 14 15 27 36
+
+Overall Statistics
+                                         
+               Accuracy : 0.27           
+                 95% CI : (0.2206, 0.324)
+    No Information Rate : 0.3333         
+    P-Value [Acc &gt; NIR] : 0.9924         
+                                         
+                  Kappa : 0.0338         
+                                         
+ Mcnemar's Test P-Value : 0.8813         
+
+Statistics by Class:
+
+                     Class: a Class: b Class: c Class: d Class: e
+Sensitivity          0.100000  0.17500  0.23333  0.27500   0.3600
+Specificity          0.935714  0.87308  0.80833  0.73636   0.6800
+Pos Pred Value       0.100000  0.17500  0.23333  0.27500   0.3600
+Neg Pred Value       0.935714  0.87308  0.80833  0.73636   0.6800
+Prevalence           0.066667  0.13333  0.20000  0.26667   0.3333
+Detection Rate       0.006667  0.02333  0.04667  0.07333   0.1200
+Detection Prevalence 0.066667  0.13333  0.20000  0.26667   0.3333
+Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
+</div>
+</div>
+</section>
+<section id="multi-class-classification-cost-sensitive-metrics" class="slide level2">
+<h2>Multi-class classification: cost-sensitive metrics</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Different errors can be weighted by (relative) missclassification costs and then be aggregated to a single accuracy measure</li>
+<li>This reduces the complexity of (interpreting) evaluation results</li>
+<li>This a in particular relevant when the number of classes is large</li>
+<li>In the BMDeep project, the cost specification for leukemia subtype prediction is simplified by considering the (coarser) task of predicting the (guideline) recommended treatment</li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:55%;">
+<p><img data-src="figures/bmdeep_multiclass_1.png" class="quarto-figure quarto-figure-center" height="360"> <img data-src="figures/bmdeep_multiclass_2.png" class="quarto-figure quarto-figure-center" height="360"></p>
+</div></div>
+</section>
+<section id="multi-class-classification-auc" class="slide level2">
+<h2>Multi-class classification: AUC</h2>
+<ul>
+<li>The AUC can be generalized to multi-class problems in a simple fashion, by considering the mean of multiple binary AUCs (Hand &amp; Till, 2001)</li>
+<li>See e.g.&nbsp;<code>?pROC::multiclass.roc()</code> in R, however fewer features available (w.r.t. visualization, uncertainty quantification)</li>
+<li>A “true” multi-class AUC was developed by Kleiman &amp; Page (2019)</li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Hand, D. J., &amp; Till, R. J. (2001). A simple generalisation of the area under the ROC curve for multiple class classification problems. Machine learning, 45, 171-186.</li>
+<li><a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html" class="uri">https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html</a></li>
+<li>Kleiman, R., &amp; Page, D. (2019, May). Aucμ: A performance metric for multi-class machine learning models. In International Conference on Machine Learning (pp.&nbsp;3439-3447). PMLR.</li>
+</ul>
+</div></aside></section>
+<section id="regression-loss-functions" class="slide level2">
+<h2>Regression: loss functions</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/regression_loss_functions.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Regressionlosses.png" class="uri">https://commons.wikimedia.org/wiki/File:Regressionlosses.png</a></li>
+</ul>
+</div></aside></section>
+<section id="regression-loss-functions-1" class="slide level2">
+<h2>Regression: loss functions</h2>
+<ul>
+<li>Symmetric loss functions used to define frequently used regression performance metrics, e.g.
+<ul>
+<li>mean squared error</li>
+<li>mean absolute error</li>
+</ul></li>
+<li>For some regression tasks, custom performance metrics (based on asymmetric loss functions) may be more suitable
+<ul>
+<li>for details, see references below</li>
+</ul></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Christoffersen, P. F., &amp; Diebold, F. X. (1997). Optimal prediction under asymmetric loss. Econometric theory, 13(6), 808-817.</li>
+<li>Tolstikov, A., Janssen, F., &amp; Fürnkranz, J. (2017). Evaluation of different heuristics for accommodating asymmetric loss functions in regression. In Discovery Science: 20th International Conference, DS 2017, Kyoto, Japan, October 15–17, 2017, Proceedings 20 (pp.&nbsp;67-81). Springer International Publishing.</li>
+</ul>
+</div></aside></section>
+<section id="survival-analysis-overview" class="slide level2">
+<h2>Survival analysis: overview</h2>
+<ul>
+<li><p><strong>Mean absolute error</strong> (and other regression metrics)</p>
+<ul>
+<li>Not recommended as censoring is ignored</li>
+</ul></li>
+<li><p><strong>Concordance index/measure</strong></p>
+<ul>
+<li>probability that of a randomly selected pair of patients, the patient with the shorter survival time has the higher predicted risk.</li>
+<li>most freuqently used</li>
+<li>several versions do exist</li>
+</ul></li>
+<li><p><strong>(Integrated) Brier score</strong></p></li>
+<li><p><strong>Calibration slope</strong></p></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Rahman, M. S., Ambler, G., Choodari-Oskooei, B., &amp; Omar, R. Z. (2017). Review and evaluation of performance measures for survival prediction models in external validation settings. BMC medical research methodology, 17(1), 1-15.</li>
+<li><a href="https://cran.r-project.org/web/packages/SurvMetrics/vignettes/SurvMetrics-vignette.html" class="uri">https://cran.r-project.org/web/packages/SurvMetrics/vignettes/SurvMetrics-vignette.html</a></li>
+</ul>
+</div></aside></section>
+<section id="metric-choice-1" class="slide level2">
+<h2>Metric choice</h2>
+<ul>
+<li>A deliberate metric choice is very important for a successful ML project.
+<ul>
+<li>a sensible metric supports/guides development</li>
+<li>an unreasonable metric hinders development</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>What is an <em>optimal</em> solution worth, if it is optimal w.r.t. to a suboptimal metric?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Finding an adequate metric can be time consuming
+<ul>
+<li>should be done early on (before any developments)</li>
+<li>should be based on discussion with important stakeholders (e.g.&nbsp;potential users)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>“Standard” / “default” metrics in the field:
+<ul>
+<li>usually a good idea to report as well (secondary)</li>
+<li>often not sufficient as primary / sole metric</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Multiple interesting metrics?
+<ul>
+<li>development usually facilitated if there is a clear decision rule how to rank models (e.g.&nbsp;primary metric)</li>
+</ul></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+</section></section>
+<section>
+<section id="is-interactive-summary-1" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
+
+</section>
+<section id="q1-what-is-displayed-in-the-confusion-matrix" class="slide level2">
+<h2>Q1: What is displayed in the confusion matrix?</h2>
+<ul>
+<li>actual labels vs.&nbsp;predicted labels</li>
+<li>predicted labels vs.&nbsp;estimated probabilities</li>
+<li>actual labels vs.&nbsp;observed frequencies</li>
+<li>observed frequencies vs.&nbsp;estimated probabilities</li>
+</ul>
+</section>
+<section id="q1-what-is-displayed-in-the-confusion-matrix-1" class="slide level2">
+<h2>Q1: What is displayed in the confusion matrix?</h2>
+<ul>
+<li>actual labels vs.&nbsp;predicted labels <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>predicted labels vs.&nbsp;estimated probabilities <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>actual labels vs.&nbsp;observed frequencies <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>observed frequencies vs.&nbsp;estimated probabilities <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers" class="slide level2">
+<h2>Q2: Which of the following metrics is NOT applicable to all binary classifiers?</h2>
+<ul>
+<li>specificity</li>
+<li>accuracy</li>
+<li>positive predictive value</li>
+<li>area under the curve</li>
+</ul>
+</section>
+<section id="q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1" class="slide level2">
+<h2>Q2: Which of the following metrics is NOT applicable to all binary classifiers?</h2>
+<ul>
+<li>specificity <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>accuracy <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>positive predictive value <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>area under the curve <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q3-calibration-assesses" class="slide level2">
+<h2>Q3: Calibration assesses …</h2>
+<ul>
+<li>predicted probabilities relative to observed class labels</li>
+<li>predicted probabilities relative to observed class frequencies</li>
+<li>predicted class labels relative to the majority class</li>
+<li>predicted class labels relative to the minority class</li>
+</ul>
+</section>
+<section id="q3-calibration-assesses-1" class="slide level2">
+<h2>Q3: Calibration assesses …</h2>
+<ul>
+<li>predicted probabilities relative to observed class labels <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>predicted probabilities relative to observed class frequencies <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>predicted class labels relative to the majority class <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>predicted class labels relative to the minority class <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q4-which-of-the-following-statements-is-true" class="slide level2">
+<h2>Q4: Which of the following statements is true?</h2>
+<ul>
+<li>only sensitivity OR specificity should be considered, not both</li>
+<li>balanced accuracy can be calculated from the confusing matrix</li>
+<li>overall accuracy is independent of class prevalences</li>
+<li>all classification metrics can be calculated from the confusion matrix</li>
+</ul>
+</section>
+<section id="q4-which-of-the-following-statements-is-true-1" class="slide level2">
+<h2>Q4: Which of the following statements is true?</h2>
+<ul>
+<li>only sensitivity OR specificity should be considered, not both <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>balanced accuracy can be calculated from the confusing matrix <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>overall accuracy is independent of class prevalences <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>all classification metrics can be calculated from the confusion matrix <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q5-which-metrics-can-be-used-for-the-same-ml-task" class="slide level2">
+<h2>Q5: Which metrics can be used for the same ML task?</h2>
+<ul>
+<li>balanced accuracy and mean squared error</li>
+<li>mean squared error and maximum calibration error</li>
+<li>area under the curve and maximum calibration error</li>
+<li>mean squared error and area under the curve</li>
+</ul>
+</section>
+<section id="q5-which-metrics-can-be-used-for-the-same-ml-task-1" class="slide level2">
+<h2>Q5: Which metrics can be used for the same ML task?</h2>
+<ul>
+<li>balanced accuracy and mean squared error <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>mean squared error and maximum calibration error <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>area under the curve and maximum calibration error <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>mean squared error and area under the curve <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section></section>
+<section id="que-questions-1" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="bre-break" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-mug-saucer" aria-label="mug-saucer"></i> Break</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="hos-hands-on-session" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section>
+<section id="ds-data-splitting" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-database" aria-label="database"></i> Data splitting</h1>
+
+</section>
+<section id="motivation-overfitting" class="slide level2">
+<h2>Motivation: overfitting</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/bias_variance_belkin_simple.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Belkin, M., Hsu, D., Ma, S., &amp; Mandal, S. (2019). Reconciling modern machine-learning practice and the classical bias–variance trade-off. Proceedings of the National Academy of Sciences, 116(32), 15849-15854.</li>
+</ul>
+</div></aside></section>
+<section id="motivation-selection-induced-bias" class="slide level2">
+<h2>Motivation: selection-induced bias</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SIB_BIAS_wide.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="overview-of-approaches" class="slide level2">
+<h2>Overview of approaches</h2>
+<ul>
+<li>Train-tune-test split</li>
+<li>Cross-validation (CV)</li>
+<li>Bootstrapping</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Stratified splitting</li>
+<li>Grouped (blocked) splitting</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Nested splitting (nested CV)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Special variants (e.g.&nbsp;for time-series data)</li>
+</ul>
+</div>
+</section>
+<section id="the-default-train-tune-test-split" class="slide level2">
+<h2>The “default” train-tune-test split</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ttt_westphal_single.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="the-default-train-tune-test-split-1" class="slide level2">
+<h2>The “default” train-tune-test split</h2>
+<ul>
+<li>(Was used so far in the previous section)</li>
+<li>Simple to implement</li>
+<li>Low computational effort</li>
+<li>Simple statistical inference</li>
+<li>Target: <strong>conditional performance</strong>, either of…
+<ul>
+<li>model trained on “train” dataset</li>
+<li>model trained on “train” &amp; “tune” datasets combined</li>
+</ul></li>
+</ul>
+</section>
+<section id="cross-validation-independent-test-set" class="slide level2">
+<h2>Cross-validation (+ independent test set)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cross-validation_raschka.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Figure by Sebastian Raschka, 2023 (<a href="https://twitter.com/rasbt/status/1628427006386884614" class="uri">https://twitter.com/rasbt/status/1628427006386884614</a>)</li>
+</ul>
+</div></aside></section>
+<section id="cross-validation-independent-test-set-1" class="slide level2">
+<h2>Cross-validation (+ independent test set)</h2>
+<ul>
+<li>Cross-validation (cross-tuning):
+<ul>
+<li>unconditional performance assessed</li>
+<li>increased computational burden (by number of folds <span class="math inline">\(K\)</span>)</li>
+<li>reduces danger of bad model selection for small samples</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Is the <strong>independent test set</strong> really required?</li>
+<li>It depends:
+<ul>
+<li>Only model comparison needed: no</li>
+<li>Only performance assessment: no</li>
+<li>Both needed: yes, as (CV based) performance estimate of (CV) selected model can still be biased</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Solution: Nested cross-validation</li>
+</ul>
+</div>
+</section>
+<section id="nested-cross-validation" class="slide level2">
+<h2>Nested cross-validation</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/nested_resampling.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://mlr.mlr-org.com/articles/tutorial/nested_resampling.html" class="uri">https://mlr.mlr-org.com/articles/tutorial/nested_resampling.html</a></li>
+</ul>
+</div></aside></section>
+<section id="computational-complexity" class="slide level2">
+<h2>Computational complexity</h2>
+<ul>
+<li>Train-tune-test: <span class="math inline">\(1\)</span></li>
+<li>K-fold CV: <span class="math inline">\(K\)</span> (number of folds)</li>
+<li>Nested CV: <span class="math inline">\(K_{\text{inner}}\ \cdot K_{\text{outer}}\)</span></li>
+<li>Bootstrap: <span class="math inline">\(B\)</span> (number of bootstrap repetitions)</li>
+<li>R-repeated K-fold CV: <span class="math inline">\(R \cdot K\)</span></li>
+<li>Leave-one-out CV: <span class="math inline">\(n_{\text{obs}}\)</span> (number of observations)</li>
+</ul>
+</section>
+<section id="general-recommendations" class="slide level2">
+<h2>General recommendations</h2>
+<ul>
+<li>Trade off of between complexity (implementation, computation, analysis) and sample efficiency</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Large n: train-tune-test
+<ul>
+<li>simple (implementation, computation, analysis)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Small n: (nested) CV
+<ul>
+<li>higher compute due to repeated sampling/training</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Optimal splitting (number of folds, ratio)
+<ul>
+<li>no general accepted solution</li>
+<li>simulation…</li>
+<li>power calculation can guide minimal test set size</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="splitting-variants" class="slide level2">
+<h2>Splitting variants</h2>
+<ul>
+<li><strong>Stratification</strong>: should the distribution of certain variables be (approximately) equal in all datasets?
+<ul>
+<li>In particular relevant for the outcome variable (classification)</li>
+<li>No/low costs, medium/high reward</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Grouping</strong> (also: blocking): Very relevant for hierarchical data</li>
+<li>Relevant question: What is the <strong>observational unit</strong> of your study?
+<ul>
+<li>a (e.g.&nbsp;bone marrow) cell</li>
+<li>an image (= a collection of cells)</li>
+<li>a patient (= potentially multiple images)</li>
+</ul></li>
+<li>If a lower hierarchy level is chosen, then splitting should be grouped by highest level</li>
+</ul>
+
+</div>
+<aside><div>
+<ul>
+<li><a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html" class="uri">https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html</a></li>
+</ul>
+</div></aside></section>
+<section id="there-is-more-to-it" class="slide level2">
+<h2>There is more to it…</h2>
+<ul>
+<li>Almost all data splitting techniques so far relied on <strong>random</strong> partitioning or sub-sampling</li>
+<li>For <strong>non-IID</strong> observations, e.g.&nbsp;time-series data, special data splitting methods are required (Schnaubelt, 2019)</li>
+<li>Question: What quantity are we really interested in?</li>
+<li>Observation: “generalization performance” is usually not defined very precisely in ML</li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Schnaubelt, M. (2019). A comparison of machine learning model validation schemes for non-stationary time series data (No.&nbsp;11/2019). FAU Discussion Papers in Economics.</li>
+</ul>
+</div></aside></section>
+<section id="generalizability-vs.-transferability" class="slide level2">
+<h2>Generalizability vs.&nbsp;transferability</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/overview_internal_external_validation.jpg" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Parady, G., Ory, D., &amp; Walker, J. (2021). The overreliance on statistical goodness-of-fit and under-reliance on model validation in discrete choice models: A review of validation practices in the transportation academic literature. Journal of Choice Modelling, 38, 100257.</li>
+</ul>
+</div></aside></section>
+<section id="estimand-framework" class="slide level2">
+<h2>Estimand framework</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/estiml_rwd_results_auc_naive.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<!-- -------------------------------------------------------------------------------- -->
+<aside><div>
+<ul>
+<li>Alpers, R. and Westphal, M. (2023). An estimand framework to guide model and algorithm evaluation in predictive modelling. Manuscript in preparation.</li>
+</ul>
+</div></aside></section></section>
+<section>
+<section id="is-interactive-summary-2" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
+
+</section>
+<section id="q1-what-is-a-commonly-used-data-splitting-technique" class="slide level2">
+<h2>Q1: What is a commonly used data splitting technique?</h2>
+<ul>
+<li>train-validation-test</li>
+<li>train-tune-test</li>
+<li>tune-validation</li>
+<li>cross-validation</li>
+</ul>
+</section>
+<section id="q1-what-is-a-commonly-used-data-splitting-technique-1" class="slide level2">
+<h2>Q1: What is a commonly used data splitting technique?</h2>
+<ul>
+<li>train-validation-test <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>train-tune-test <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>tune-validation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>cross-validation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training" class="slide level2">
+<h2>Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?</h2>
+<ul>
+<li>5-fold cross-validation and the bootstrap</li>
+<li>the bootstrap and leave-one-out cross-validation</li>
+<li>100-fold cross-validation and the train-tune-test split</li>
+<li>the bootstrap and the train-tune-test split</li>
+</ul>
+</section>
+<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1" class="slide level2">
+<h2>Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?</h2>
+<ul>
+<li>5-fold cross-validation and the bootstrap <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>the bootstrap and leave-one-out cross-validation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>100-fold cross-validation and the train-tune-test split <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>the bootstrap and the train-tune-test split <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to" class="slide level2">
+<h2>Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…</h2>
+<ul>
+<li>simple statistical analysis</li>
+<li>utilization of all observations for testing</li>
+<li>being the default method in many packages</li>
+<li>minimal computational effort</li>
+</ul>
+</section>
+<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1" class="slide level2">
+<h2>Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…</h2>
+<ul>
+<li>simple statistical analysis <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>utilization of all observations for testing <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>being the default method in many packages <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>minimal computational effort <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q4-for-small-datasets" class="slide level2">
+<h2>Q4: For small datasets, …</h2>
+<ul>
+<li>a proper model comparison and evaluation is usually simpler</li>
+<li>nested data splitting techniques have increased relevance</li>
+<li>no data should be wasted for method evaluation</li>
+<li>the importance of power estimation is increased</li>
+</ul>
+</section>
+<section id="q4-for-small-datasets-1" class="slide level2">
+<h2>Q4: For small datasets, …</h2>
+<ul>
+<li>a proper model comparison and evaluation is usually simpler <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>nested data splitting techniques have increased relevance <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>no data should be wasted for method evaluation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>the importance of power estimation is increased <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q5-which-of-the-following-statements-is-true" class="slide level2">
+<h2>Q5: Which of the following statements is true?</h2>
+<ul>
+<li>stratification is required for hierarchical data structures</li>
+<li>grouping is required for hierarchical data structures</li>
+<li>stratification is required to retain the class distribution</li>
+<li>grouping is required to retain the class distribution</li>
+</ul>
+</section>
+<section id="q5-which-of-the-following-statements-is-true-1" class="slide level2">
+<h2>Q5: Which of the following statements is true?</h2>
+<ul>
+<li>stratification is required for hierarchical data structures <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>grouping is required for hierarchical data structures <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>stratification is required to retain the class distribution <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>grouping is required to retain the class distribution <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section></section>
+<section id="que-questions-2" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="hos-hands-on-session-1" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="int-recap-questions" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-play" aria-label="play"></i> Recap &amp; questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section>
+<section id="sa-statistical-analysis" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Statistical analysis</h1>
+
+</section>
+<section id="goals-of-statistical-inference" class="slide level2">
+<h2>Goals of statistical inference</h2>
+<ul>
+<li><p>Estimation</p></li>
+<li><p><strong>Uncertainty quantification</strong></p>
+<ul>
+<li>standard error</li>
+<li>confidence interval</li>
+</ul></li>
+<li><p>Decision making</p>
+<ul>
+<li>hypothesis testing</li>
+</ul></li>
+</ul>
+</section>
+<section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li><p>Classical (frequentist) inference</p></li>
+<li><p>Nonparametric methods</p>
+<ul>
+<li>bootstrap</li>
+<li>hierarchical bootstrap</li>
+</ul></li>
+<li><p>Complex procedures</p>
+<ul>
+<li>mixed models</li>
+<li>Bayesian inference</li>
+</ul></li>
+</ul>
+</section>
+<section id="choice-of-comparator" class="slide level2">
+<h2>Choice of comparator</h2>
+<ul>
+<li>none (descriptive analysis)</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>fixed performance threshold <span class="math inline">\(\vartheta_0 = 0.8\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>another (established) prediction model: <span class="math inline">\(\vartheta_0 = \vartheta(\hat{f}_0)\)</span>
+<ul>
+<li>same test data</li>
+<li>paired comparison (!)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="evaluation-data-train-tune-test-model-comparison" class="slide level2">
+<h2>Evaluation data: train-tune-test (model comparison)</h2>
+<ul>
+<li>Scenario: a random forest model was (hyperparameter) tuned on the train/tune data. The best/final model (w.r.t. tuning AUC) shall now be compared against an established elastic net model.</li>
+<li>Null hypothesis: <span class="math inline">\(\vartheta^\text{ranger}_* = \vartheta^\text{glmnet}_0\)</span> (no difference in performance)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">head</span>(data_eval_ttt_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   row_ids  truth response_glmnet prob.suspect_glmnet prob.normal_glmnet
+     &lt;int&gt; &lt;fctr&gt;          &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;
+1:       3 normal          normal        2.663412e-02          0.9733659
+2:      19 normal          normal        7.350806e-03          0.9926492
+3:      28 normal          normal        2.207659e-04          0.9997792
+4:      31 normal          normal        2.015005e-05          0.9999798
+5:      47 normal          normal        1.646076e-04          0.9998354
+6:      48 normal          normal        4.657763e-04          0.9995342
+   response_ranger prob.suspect_ranger prob.normal_ranger
+            &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;
+1:          normal          0.42001441          0.5799856
+2:          normal          0.00000000          1.0000000
+3:          normal          0.03574335          0.9642566
+4:          normal          0.04821049          0.9517895
+5:          normal          0.00000000          1.0000000
+6:          normal          0.00000000          1.0000000</code></pre>
+</div>
+</div>
+</section>
+<section id="data-preparation" class="slide level2">
+<h2>Data preparation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>actual <span class="ot">&lt;-</span> data_eval_ttt_2<span class="sc">$</span>truth</span>
+<span id="cb36-2"><a></a>actual_01 <span class="ot">&lt;-</span> (actual <span class="sc">==</span> <span class="st">"suspect"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb36-3"><a></a></span>
+<span id="cb36-4"><a></a>pred_glmnet <span class="ot">&lt;-</span> data_eval_ttt_2<span class="sc">$</span>response_glmnet </span>
+<span id="cb36-5"><a></a>pred_glmnet_01 <span class="ot">&lt;-</span> (pred_glmnet<span class="sc">==</span> <span class="st">"suspect"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb36-6"><a></a>correct_glmnet_01 <span class="ot">&lt;-</span> (pred_glmnet_01 <span class="sc">==</span> actual_01) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb36-7"><a></a></span>
+<span id="cb36-8"><a></a>pred_ranger <span class="ot">&lt;-</span> data_eval_ttt_2<span class="sc">$</span>response_ranger </span>
+<span id="cb36-9"><a></a>pred_ranger_01 <span class="ot">&lt;-</span> (pred_ranger<span class="sc">==</span> <span class="st">"suspect"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb36-10"><a></a>correct_ranger_01 <span class="ot">&lt;-</span> (pred_ranger_01 <span class="sc">==</span> actual_01) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-1-elastic-net-glmnet" class="slide level2">
+<h2>Model 1: elastic net (glmnet)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>caret<span class="sc">::</span><span class="fu">confusionMatrix</span>(<span class="at">data =</span> pred_glmnet, <span class="at">reference =</span> actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction suspect normal
+   suspect      69      8
+   normal       21    314
+                                          
+               Accuracy : 0.9296          
+                 95% CI : (0.9005, 0.9524)
+    No Information Rate : 0.7816          
+    P-Value [Acc &gt; NIR] : 2.668e-16       
+                                          
+                  Kappa : 0.7825          
+                                          
+ Mcnemar's Test P-Value : 0.02586         
+                                          
+            Sensitivity : 0.7667          
+            Specificity : 0.9752          
+         Pos Pred Value : 0.8961          
+         Neg Pred Value : 0.9373          
+             Prevalence : 0.2184          
+         Detection Rate : 0.1675          
+   Detection Prevalence : 0.1869          
+      Balanced Accuracy : 0.8709          
+                                          
+       'Positive' Class : suspect         
+                                          </code></pre>
+</div>
+</div>
+</section>
+<section id="model-2-random-forest-ranger" class="slide level2">
+<h2>Model 2: random forest (ranger)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>caret<span class="sc">::</span><span class="fu">confusionMatrix</span>(<span class="at">data =</span> pred_ranger, <span class="at">reference =</span> actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction suspect normal
+   suspect      75      3
+   normal       15    319
+                                          
+               Accuracy : 0.9563          
+                 95% CI : (0.9318, 0.9739)
+    No Information Rate : 0.7816          
+    P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+                                          
+                  Kappa : 0.8656          
+                                          
+ Mcnemar's Test P-Value : 0.009522        
+                                          
+            Sensitivity : 0.8333          
+            Specificity : 0.9907          
+         Pos Pred Value : 0.9615          
+         Neg Pred Value : 0.9551          
+             Prevalence : 0.2184          
+         Detection Rate : 0.1820          
+   Detection Prevalence : 0.1893          
+      Balanced Accuracy : 0.9120          
+                                          
+       'Positive' Class : suspect         
+                                          </code></pre>
+</div>
+</div>
+</section>
+<section id="difference-in-proportions-t-test" class="slide level2">
+<h2>Difference in proportions: t-test</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">t.test</span>(<span class="at">x=</span>correct_ranger_01, </span>
+<span id="cb41-2"><a></a>       <span class="at">y=</span>correct_glmnet_01,</span>
+<span id="cb41-3"><a></a>       <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  correct_ranger_01 and correct_glmnet_01
+t = 1.6531, df = 783.85, p-value = 0.09872
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.005005757  0.058403816
+sample estimates:
+mean of x mean of y 
+0.9563107 0.9296117 </code></pre>
+</div>
+</div>
+</section>
+<section id="difference-in-proportions-paired-t-test" class="slide level2">
+<h2>Difference in proportions: paired t-test</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">t.test</span>(<span class="at">x=</span>correct_ranger_01, </span>
+<span id="cb43-2"><a></a>       <span class="at">y=</span>correct_glmnet_01,</span>
+<span id="cb43-3"><a></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb43-4"><a></a>       <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  correct_ranger_01 and correct_glmnet_01
+t = 2.126, df = 411, p-value = 0.0341
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.002012143 0.051385915
+sample estimates:
+mean difference 
+     0.02669903 </code></pre>
+</div>
+</div>
+</section>
+<section id="difference-in-proportions-newcombe-interval" class="slide level2">
+<h2>Difference in proportions: Newcombe interval</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>misty<span class="sc">::</span><span class="fu">ci.prop.diff</span>(<span class="at">x =</span> correct_ranger_01,</span>
+<span id="cb45-2"><a></a>                    <span class="at">y =</span> correct_glmnet_01,</span>
+<span id="cb45-3"><a></a>                    <span class="at">method =</span><span class="st">"newcombe"</span>,</span>
+<span id="cb45-4"><a></a>                    <span class="at">paired =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb45-5"><a></a>                    <span class="at">conf.level =</span> <span class="fl">0.95</span>, </span>
+<span id="cb45-6"><a></a>                    <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Two-Sided 95% Confidence Interval: Difference in Proportions from Paired Samples
+
+    n nNA     p1     p2  p.Diff     Low     Upp
+  412   0 0.9563 0.9296 -0.0267 -0.0534 -0.0019</code></pre>
+</div>
+</div>
+
+<aside><div>
+<ul>
+<li>Newcombe, R. G. (1998a). Interval estimation for the difference between independent proportions: Comparison of eleven methods. Statistics in Medicine, 17, 873-890.</li>
+<li>Newcombe, R. G. (1998b). Improved confidence intervals for the difference between binomial proportions based on paired data. Statistics in Medicine, 17, 2635-2650.</li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval" class="uri">https://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval</a></li>
+<li><a href="https://CRAN.R-project.org/package=misty" class="uri">https://CRAN.R-project.org/package=misty</a></li>
+</ul>
+</div></aside></section>
+<section id="nonparametric-inference-bootstrap" class="slide level2">
+<h2>Nonparametric inference: Bootstrap</h2>
+<ul>
+<li>Very versatile tool</li>
+<li>Minimal assumptions</li>
+<li>Not depending on asymptotics (large sample size) <br></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Efron, B., &amp; Tibshirani, R. J. (1994). An introduction to the bootstrap. CRC press.</li>
+</ul>
+</div></aside></section>
+<section id="nonparametric-inference-bootstrap-1" class="slide level2">
+<h2>Nonparametric inference: Bootstrap</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/wikipedia_illustration_bootstrap.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)" class="uri">https://en.wikipedia.org/wiki/Bootstrapping_(statistics)</a></li>
+</ul>
+</div></aside></section>
+<section id="boostrap-inference-for-single-metric" class="slide level2">
+<h2>Boostrap inference for single metric</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>DescTools<span class="sc">::</span><span class="fu">BootCI</span>(</span>
+<span id="cb47-2"><a></a>  <span class="at">x =</span> actual,</span>
+<span id="cb47-3"><a></a>  <span class="at">y =</span> pred_ranger,</span>
+<span id="cb47-4"><a></a>  <span class="at">FUN =</span> Metrics<span class="sc">::</span>accuracy,</span>
+<span id="cb47-5"><a></a>  <span class="at">bci.method =</span> <span class="st">"bca"</span>,</span>
+<span id="cb47-6"><a></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb47-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Metrics::accuracy            lwr.ci            upr.ci 
+        0.9563107         0.9248697         0.9708738 </code></pre>
+</div>
+</div>
+
+<aside><div>
+<ul>
+<li><a href="https://CRAN.R-project.org/package=DescTools" class="uri">https://CRAN.R-project.org/package=DescTools</a></li>
+</ul>
+</div></aside></section>
+<section id="bootstrap-inference-for-model-comparison" class="slide level2">
+<h2>Bootstrap inference for model comparison</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>delta_acc_paired <span class="ot">&lt;-</span> <span class="cf">function</span>(correct_model_a, correct_model_b){</span>
+<span id="cb49-2"><a></a>  <span class="fu">mean</span>(correct_model_a <span class="sc">-</span> correct_model_b)</span>
+<span id="cb49-3"><a></a>}</span>
+<span id="cb49-4"><a></a></span>
+<span id="cb49-5"><a></a>DescTools<span class="sc">::</span><span class="fu">BootCI</span>(</span>
+<span id="cb49-6"><a></a>  <span class="at">x =</span> correct_ranger_01,</span>
+<span id="cb49-7"><a></a>  <span class="at">y =</span> correct_glmnet_01,</span>
+<span id="cb49-8"><a></a>  <span class="at">FUN =</span> delta_acc_paired,</span>
+<span id="cb49-9"><a></a>  <span class="at">bci.method =</span> <span class="st">"bca"</span>,</span>
+<span id="cb49-10"><a></a>  <span class="at">conf.level =</span> <span class="fl">0.95</span></span>
+<span id="cb49-11"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>delta_acc_paired           lwr.ci           upr.ci 
+     0.026699029      0.002427184      0.049784828 </code></pre>
+</div>
+</div>
+</section>
+<section id="bootstrap-inference-for-model-comparison-1" class="slide level2">
+<h2>Bootstrap inference for model comparison</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>delta_acc_paired_df <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df)){</span>
+<span id="cb51-2"><a></a>  df <span class="ot">&lt;-</span> df[i,]</span>
+<span id="cb51-3"><a></a>  Metrics<span class="sc">::</span><span class="fu">accuracy</span>(df<span class="sc">$</span>actual, df<span class="sc">$</span>pred_model_a) <span class="sc">-</span> </span>
+<span id="cb51-4"><a></a>    Metrics<span class="sc">::</span><span class="fu">accuracy</span>(df<span class="sc">$</span>actual, df<span class="sc">$</span>pred_model_b)</span>
+<span id="cb51-5"><a></a>}</span>
+<span id="cb51-6"><a></a></span>
+<span id="cb51-7"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">actual =</span> actual_01,</span>
+<span id="cb51-8"><a></a>                 <span class="at">pred_model_a =</span> pred_ranger_01,</span>
+<span id="cb51-9"><a></a>                 <span class="at">pred_model_b =</span> pred_glmnet_01)</span>
+<span id="cb51-10"><a></a></span>
+<span id="cb51-11"><a></a>boot<span class="sc">::</span><span class="fu">boot</span>(<span class="at">data =</span> df, </span>
+<span id="cb51-12"><a></a>           <span class="at">statistic =</span> delta_acc_paired_df,</span>
+<span id="cb51-13"><a></a>           <span class="at">R =</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-14"><a></a>  boot<span class="sc">::</span><span class="fu">boot.ci</span>(<span class="at">conv=</span><span class="fl">0.95</span>, <span class="at">type=</span><span class="st">"bca"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot::boot.ci(boot.out = ., type = "bca", conv = 0.95)
+
+Intervals : 
+Level       BCa          
+95%   ( 0.0000,  0.0494 )  
+Calculations and Intervals on Original Scale</code></pre>
+</div>
+</div>
+</section>
+<section id="ci-for-difference-in-aucs" class="slide level2">
+<h2>CI for difference in AUCs</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>rocc_glmnet <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(data_eval_ttt_2, <span class="at">response=</span><span class="st">"truth"</span>, <span class="at">predictor=</span><span class="st">"prob.suspect_glmnet"</span>, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"normal"</span>, <span class="st">"suspect"</span>))</span>
+<span id="cb53-2"><a></a></span>
+<span id="cb53-3"><a></a>rocc_ranger <span class="ot">&lt;-</span> pROC<span class="sc">::</span><span class="fu">roc</span>(data_eval_ttt_2, <span class="at">response=</span><span class="st">"truth"</span>, <span class="at">predictor=</span><span class="st">"prob.suspect_ranger"</span>, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"normal"</span>, <span class="st">"suspect"</span>))</span>
+<span id="cb53-4"><a></a></span>
+<span id="cb53-5"><a></a><span class="fu">plot</span>(rocc_glmnet, <span class="at">col=</span><span class="st">"blue"</span>)</span>
+<span id="cb53-6"><a></a><span class="fu">plot</span>(rocc_ranger, <span class="at">add=</span><span class="cn">TRUE</span>, <span class="at">col=</span><span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch"></section>
+<section id="ci-for-difference-in-aucs-delong" class="slide level2">
+<h2>CI for difference in AUCs (Delong)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(rocc_ranger, rocc_glmnet, </span>
+<span id="cb54-2"><a></a>               <span class="at">paired=</span><span class="cn">TRUE</span>, <span class="at">method=</span><span class="st">"delong"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    DeLong's test for two correlated ROC curves
+
+data:  rocc_ranger and rocc_glmnet
+Z = 0.40273, p-value = 0.6871
+alternative hypothesis: true difference in AUC is not equal to 0
+95 percent confidence interval:
+ -0.009339915  0.014170832
+sample estimates:
+AUC of roc1 AUC of roc2 
+  0.9830918   0.9806763 </code></pre>
+</div>
+</div>
+</section>
+<section id="ci-for-difference-in-aucs-bootstrap" class="slide level2">
+<h2>CI for difference in AUCs (bootstrap)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>pROC<span class="sc">::</span><span class="fu">roc.test</span>(rocc_ranger, rocc_glmnet, </span>
+<span id="cb56-2"><a></a>               <span class="at">paired=</span><span class="cn">TRUE</span>, <span class="at">method=</span><span class="st">"bootstrap"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Bootstrap test for two correlated ROC curves
+
+data:  rocc_ranger and rocc_glmnet
+D = 0.39739, boot.n = 2000, boot.stratified = 1, p-value = 0.6911
+alternative hypothesis: true difference in AUC is not equal to 0
+sample estimates:
+AUC of roc1 AUC of roc2 
+  0.9830918   0.9806763 </code></pre>
+</div>
+</div>
+</section>
+<section id="uq-for-nested-cv" class="slide level2">
+<h2>UQ for (nested) CV</h2>
+<ul>
+<li>Scenario: Algorithm evaluation or comparison in the outer loop of nested CV
+<ul>
+<li>glmnet, ranger were tuned in the inner loop</li>
+<li>comparison of best hyperparameter combination of each approach</li>
+<li>on each fold (1:5), compare model that was trained on remaining observations</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>How can we quantify uncertainty for (difference of) performance estimate?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>A few recommendations do exist (Raschka, 2018)</li>
+<li>We will focus again on the bootstrap and a hierarchical bootstrap variant</li>
+</ul>
+
+</div>
+<aside><div>
+<ul>
+<li>Raschka, S. (2018). Model evaluation, model selection, and algorithm selection in machine learning. arXiv preprint arXiv:1811.12808.</li>
+</ul>
+</div></aside></section>
+<section id="uq-for-nested-cv-1" class="slide level2">
+<h2>UQ for (nested) CV</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">head</span>(data_eval_ncv_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    fold row_ids  truth response_glmnet prob.suspect_glmnet prob.normal_glmnet
+   &lt;int&gt;   &lt;int&gt; &lt;fctr&gt;          &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;
+1:     1       3 normal          normal        3.057173e-02          0.9694283
+2:     1      15 normal          normal        4.057469e-04          0.9995943
+3:     1      27 normal          normal        7.387341e-07          0.9999993
+4:     1      30 normal          normal        1.959313e-04          0.9998041
+5:     1      33 normal          normal        1.123090e-04          0.9998877
+6:     1      34 normal          normal        8.422928e-04          0.9991577
+   response_ranger prob.suspect_ranger prob.normal_ranger
+            &lt;fctr&gt;               &lt;num&gt;              &lt;num&gt;
+1:          normal         0.306187443          0.6938126
+2:          normal         0.000000000          1.0000000
+3:          normal         0.001503821          0.9984962
+4:          normal         0.004442368          0.9955576
+5:          normal         0.004255131          0.9957449
+6:          normal         0.000000000          1.0000000</code></pre>
+</div>
+</div>
+</section>
+<section id="uq-for-nested-cv---bootstrap-approaches" class="slide level2">
+<h2>UQ for (nested) CV - bootstrap approaches</h2>
+<ul>
+<li><strong>Simple bootstrap</strong>
+<ul>
+<li>resample observations/rows of original evaluation data with replacement</li>
+<li>apply function (metric/statistic) to each resampled dataset</li>
+<li>repeat…</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Hierarchical bootstrap</strong>
+<ul>
+<li>resample fold id (in this case 1:5) with replacement</li>
+<li>resample observations within these folds with replacement</li>
+<li>apply function (metric/statistic) to each resampled dataset</li>
+<li>repeat…</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="uq-for-nested-cv---hierarchical-bootstrap-in-r" class="slide level2">
+<h2>UQ for (nested) CV - hierarchical bootstrap in R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>fabricatr<span class="sc">::</span><span class="fu">resample_data</span>(data_eval_ncv_2,</span>
+<span id="cb60-2"><a></a>                         <span class="at">N=</span><span class="fu">c</span>(n_fold, n_obs_per_fold),</span>
+<span id="cb60-3"><a></a>                         <span class="at">ID_labels =</span> <span class="fu">c</span>(<span class="st">"fold"</span>, <span class="st">"row_ids"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+
+<aside><div>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/fabricatr/index.html" class="uri">https://cran.r-project.org/web/packages/fabricatr/index.html</a></li>
+</ul>
+</div></aside></section>
+<section id="uq-for-nested-cv---bootstrap-approaches-1" class="slide level2">
+<h2>UQ for (nested) CV - bootstrap approaches</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a><span class="fu">summary</span>(resampled_cv_simple<span class="sc">$</span>delta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.01122 0.02110 0.02334 0.02344 0.02568 0.03747 </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a></a><span class="fu">summary</span>(resampled_cv_nested<span class="sc">$</span>delta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+0.008422 0.020422 0.023595 0.023605 0.026817 0.040722 </code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="uq-for-nested-cv---bootstrap-approaches-2" class="slide level2">
+<h2>UQ for (nested) CV - bootstrap approaches</h2>
+<ul>
+<li>delta = AUC(ranger) - AUC(glmnet)</li>
+<li>quantile computation below amounts to type “percentile” in boot::boot.ci <br></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a><span class="fu">quantile</span>(resampled_cv_simple<span class="sc">$</span>delta, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      2.5%      97.5% 
+0.01693917 0.03068130 </code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a><span class="fu">quantile</span>(resampled_cv_nested<span class="sc">$</span>delta, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      2.5%      97.5% 
+0.01454324 0.03271745 </code></pre>
+</div>
+</div>
+</section>
+<section id="multiple-metrics" class="slide level2">
+<h2>Multiple metrics</h2>
+<ul>
+<li>When multiple metrics are assessed simultaneously (on the same test dataset), an adjustment for multiple comparisons may be appropriate/required (e.g.&nbsp;Bonferroni, maxT)</li>
+<li>This is at least true, when multiple metrics for the same performance dimension are considered (discrimination, calibration, …)</li>
+<li>Such adjustments are rarely performed in practice</li>
+<li>Alternatively / in addition (per performance dimension):
+<ul>
+<li>define primary metric of interest,</li>
+<li>additional secondary metrics can be investigated.</li>
+</ul></li>
+</ul>
+</section>
+<section id="train-tune-test-with-single-test-model" class="slide level2">
+<h2>Train-tune-test with single “test” model</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ttt_westphal_single.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="train-tune-test-with-multiple-comparisons" class="slide level2">
+<h2>Train-tune-test with multiple comparisons</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ttt_westphal_multiple.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="train-tune-test-with-multiple-comparisons-1" class="slide level2">
+<h2>Train-tune-test with multiple comparisons</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/westphal_multiple_models_final_performance.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="train-tune-test-with-multiple-comparisons-2" class="slide level2">
+<h2>Train-tune-test with multiple comparisons</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/westphal_multiple_models_rejection_rate.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<ul>
+<li>Westphal, M. (2020). Model Selection and Evaluation in Supervised Machine Learning (Doctoral dissertation, Universität Bremen).</li>
+</ul>
+</div></aside></section>
+<section id="multiple-models-multiple-metrics" class="slide level2">
+<h2>Multiple models, multiple metrics</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/conf_vs_comp_1.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+<!-- -------------------------------------------------------------------------------- -->
+
+<aside><div>
+<ul>
+<li>Westphal, M., &amp; Zapf, A. (2021). Statistical Inference for Diagnostic Test Accuracy Studies with Multiple Comparisons. arXiv preprint arXiv:2105.13469.</li>
+<li><a href="https://CRAN.R-project.org/package=cases" class="uri">https://CRAN.R-project.org/package=cases</a></li>
+</ul>
+</div></aside></section></section>
+<section>
+<section id="is-interactive-summary-3" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
+
+</section>
+<section id="q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies" class="slide level2">
+<h2>Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?</h2>
+<ul>
+<li>hyperparameter optimization</li>
+<li>performance estimation</li>
+<li>hypothesis testing</li>
+<li>uncertainty quantification</li>
+</ul>
+</section>
+<section id="q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1" class="slide level2">
+<h2>Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?</h2>
+<ul>
+<li>hyperparameter optimization <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>performance estimation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>hypothesis testing <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>uncertainty quantification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q2-which-is-a-valid-choice-of-a-comparator" class="slide level2">
+<h2>Q2: Which is a valid choice of a comparator?</h2>
+<ul>
+<li>another performance metric</li>
+<li>another prediction model</li>
+<li>a fixed threshold</li>
+<li>a significance level of 0.05</li>
+</ul>
+</section>
+<section id="q2-which-is-a-valid-choice-of-a-comparator-1" class="slide level2">
+<h2>Q2: Which is a valid choice of a comparator?</h2>
+<ul>
+<li>another performance metric <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>another prediction model <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>a fixed threshold <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>a significance level of 0.05 <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if" class="slide level2">
+<h2>Q3: The width of a confidence interval for model performance is usually smaller if …</h2>
+<ul>
+<li>less test data is available</li>
+<li>the test similarity values have smaller variance</li>
+<li>the test similarity values have larger variance</li>
+<li>more test data is available</li>
+</ul>
+</section>
+<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1" class="slide level2">
+<h2>Q3: The width of a confidence interval for model performance is usually smaller if …</h2>
+<ul>
+<li>less test data is available <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>the test similarity values have smaller variance <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>the test similarity values have larger variance <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>more test data is available <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q4-the-classical-boostrap-should-in-general-not-be-used" class="slide level2">
+<h2>Q4: The classical boostrap should in general NOT be used…</h2>
+<ul>
+<li>for data resampling</li>
+<li>as part of learning algorithms</li>
+<li>for uncertainty quantification in simple scenarios</li>
+<li>for statistical anaylsis of hierarchical data</li>
+</ul>
+</section>
+<section id="q4-the-classical-boostrap-should-in-general-not-be-used-1" class="slide level2">
+<h2>Q4: The classical boostrap should in general NOT be used…</h2>
+<ul>
+<li>for data resampling <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>as part of learning algorithms <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>for uncertainty quantification in simple scenarios <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>for statistical anaylsis of hierarchical data <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless" class="slide level2">
+<h2>Q5: Multiple models should not be assessed on the test dataset, unless…</h2>
+<ul>
+<li>they are all trained by the same learning algorithm</li>
+<li>they have been developed by different persons/groups</li>
+<li>a correction for multiple comparisons is employed</li>
+<li>the paper will be submitted to “Nature Machine Intelligence”</li>
+</ul>
+</section>
+<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1" class="slide level2">
+<h2>Q5: Multiple models should not be assessed on the test dataset, unless…</h2>
+<ul>
+<li>they are all trained by the same learning algorithm <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>they have been developed by different persons/groups <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>a correction for multiple comparisons is employed <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>the paper will be submitted to “Nature Machine Intelligence” <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section></section>
+<section id="que-questions-3" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="bre-break-1" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-mug-saucer" aria-label="mug-saucer"></i> Break</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="hos-hands-on-session-2" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section>
+<section id="pa-practical-aspects" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Practical aspects</h1>
+
+</section>
+<section id="reporting-guidelines" class="slide level2">
+<h2>Reporting guidelines</h2>
+<ul>
+<li><strong>TRIPOD</strong>: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)</li>
+<li><strong>TRIPOD-AI</strong> (in preparation)</li>
+<li><strong>REFORMS</strong>: Reporting Standards for ML-based Science (2023)</li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Collins, G. S., Reitsma, J. B., Altman, D. G., &amp; Moons, K. G. (2015). Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD) the TRIPOD statement. Circulation, 131(2), 211-219.</li>
+<li><a href="https://www.equator-network.org/reporting-guidelines/tripod-statement/" class="uri">https://www.equator-network.org/reporting-guidelines/tripod-statement/</a></li>
+<li><a href="https://www.tripod-statement.org/" class="uri">https://www.tripod-statement.org/</a></li>
+<li><a href="https://osf.io/zyacb/" class="uri">https://osf.io/zyacb/</a></li>
+<li><a href="https://reforms.cs.princeton.edu/" class="uri">https://reforms.cs.princeton.edu/</a></li>
+</ul>
+</div></aside></section>
+<section id="tripod" class="slide level2">
+<h2>TRIPOD</h2>
+
+<img data-src="figures/TRIPOD_1.png" class="quarto-figure quarto-figure-center r-stretch" width="800"></section>
+<section id="planning-ahead" class="slide level2">
+<h2>Planning ahead</h2>
+<div class="cell" data-reveal="true" data-fig-width="12" data-fig-height="6" data-fig-responsive="false" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  MS(Metric selection) --&gt; SA(Statistical analysis)
+  DS(Data splitting) --&gt; SA
+  SA --&gt; R(Reporting)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Study protocol (e.g.&nbsp;for prospective data aquisition)</li>
+<li>Statistical analysis plan</li>
+</ul>
+</section>
+<section id="project-organization" class="slide level2">
+<h2>Project organization</h2>
+<ul>
+<li>The <strong>“conflict of interest”</strong> of applied ML
+<ul>
+<li>we want high numbers (empirical performance estimates)</li>
+<li>we want meaningful numbers (e.g.&nbsp;unbiased estimates)</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Splitting up work</strong> for development, evaluation (between persons, teams, institutions) makes things a whole lot easier
+<ul>
+<li>different teams should still work together</li>
+<li>a good evaluation effort can support model development</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="requirement-analysis" class="slide level2">
+<h2>Requirement analysis</h2>
+<ul>
+<li>Typical requirements for ML solutions
+<ul>
+<li>need for predicted probabilities</li>
+<li>sufficient interpretability (limited complexity)</li>
+<li>fast inference speed</li>
+<li>…</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Requirements should be assessed initially, not after performance evaluation.</li>
+<li>This usually requires discussion with domain experts.</li>
+</ul>
+</div>
+</section>
+<section id="power-calculation" class="slide level2">
+<h2>Power calculation</h2>
+<ul>
+<li>Power: probability to be able to demonstrate suitability of a/your (new) model/algorithm</li>
+<li>For evaluation on test set after training and tuning: a wide variety of methods exists (classification <span class="math inline">\(\leftrightarrow\)</span> diagnostic accuracy studies)
+<ul>
+<li>Hypothesis testing based</li>
+<li>Precision based, e.g.&nbsp;here: <a href="https://shiny.ctu.unibe.ch/app_direct/presize/" class="uri">https://shiny.ctu.unibe.ch/app_direct/presize/</a> <br></li>
+</ul></li>
+</ul>
+
+<aside><div>
+<ul>
+<li>Pepe, M. S. (2003). The statistical evaluation of medical tests for classification and prediction. Oxford university press.</li>
+<li>Haynes, A. G., Lenz, A., Stalder, O., &amp; Limacher, A. (2021). presize: An R-package for precision-based sample size calculation in clinical research. Journal of Open Source Software, 6(60), 3118.</li>
+<li>Homeyer, A., Geißler, C., Schwen, L. O., Zakrzewski, F., Evans, T., Strohmenger, K., … &amp; Zerbe, N. (2022). Recommendations on compiling test datasets for evaluating artificial intelligence solutions in pathology. Modern Pathology, 35(12), 1759-1769.</li>
+</ul>
+</div></aside></section>
+<section id="target-populationsetting" class="slide level2">
+<h2>Target population/setting</h2>
+<ul>
+<li>What is the target population/setting?
+<ul>
+<li>Define sensible inclusion/exclusion criteria</li>
+<li>Helps to assemble the test set (IEC are met)</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>During development, things may well be (and often are) a little “wilder”:
+<ul>
+<li>Synthetic data</li>
+<li>Transfer learning (other population/setting)</li>
+<li>Data augmentation (e.g.&nbsp;manipulation of medical images)</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>None of these is sensible in an evaluation context!</li>
+<li>Exception: sensitivity analyses…</li>
+</ul>
+</div>
+</section>
+<section id="reproducibility" class="slide level2">
+<h2>Reproducibility</h2>
+<ul>
+<li>Reproducibility is important but also hard (in particular in ML)
+<ul>
+<li>many sources of variability</li>
+<li>volatile software packages</li>
+<li>non-deterministic learning</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Some practical considerations
+<ul>
+<li>random seed(ing) (set.seed(123))</li>
+<li>version control (e.g.&nbsp;github)</li>
+<li>experiment handling (e.g.&nbsp;batchtools package)</li>
+<li>pipeline management (e.g.&nbsp;targets package)</li>
+</ul></li>
+</ul>
+
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+<aside><div>
+<ul>
+<li>Heil, B. J., Hoffman, M. M., Markowetz, F., Lee, S. I., Greene, C. S., &amp; Hicks, S. C. (2021). Reproducibility standards for machine learning in the life sciences. Nature Methods, 18(10), 1132-1135.</li>
+</ul>
+</div></aside></section></section>
+<section>
+<section id="is-interactive-summary-4" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
+
+</section>
+<section id="q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies" class="slide level2">
+<h2>Q1: What is NOT a reporting guideline for predictive modelling studies?</h2>
+<ul>
+<li>TRIPOD</li>
+<li>TRIPOD-AI</li>
+<li>REPORT-AI</li>
+<li>REFORMS</li>
+</ul>
+</section>
+<section id="q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1" class="slide level2">
+<h2>Q1: What is NOT a reporting guideline for predictive modelling studies?</h2>
+<ul>
+<li>TRIPOD <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>TRIPOD-AI <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>REPORT-AI <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>REFORMS <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially" class="slide level2">
+<h2>Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?</h2>
+<ul>
+<li>data splitting</li>
+<li>statistical analysis</li>
+<li>metric selection</li>
+<li>reporting</li>
+</ul>
+</section>
+<section id="q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1" class="slide level2">
+<h2>Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?</h2>
+<ul>
+<li>data splitting <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>statistical analysis <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>metric selection <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>reporting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by" class="slide level2">
+<h2>Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…</h2>
+<ul>
+<li>avoiding any claims on statistical significance</li>
+<li>separating model development and model evaluation</li>
+<li>adequate &amp; transparent study planning</li>
+<li>nontransparent reporting</li>
+</ul>
+</section>
+<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1" class="slide level2">
+<h2>Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…</h2>
+<ul>
+<li>avoiding any claims on statistical significance <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>separating model development and model evaluation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>adequate &amp; transparent study planning <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>nontransparent reporting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section>
+<section id="q4-power-analyses" class="slide level2">
+<h2>Q4: Power analyses…</h2>
+<ul>
+<li>can help to avoid conducting unreasonably large studies</li>
+<li>are independent of the chosen evaluation metric</li>
+<li>are only useful if hypothesis testing is planned for evaluation</li>
+<li>should be reported according to the TRIPOD statement</li>
+</ul>
+</section>
+<section id="q4-power-analyses-1" class="slide level2">
+<h2>Q4: Power analyses…</h2>
+<ul>
+<li>can help to avoid conducting unreasonably large studies <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>are independent of the chosen evaluation metric <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>are only useful if hypothesis testing is planned for evaluation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>should be reported according to the TRIPOD statement <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+</ul>
+</section>
+<section id="q5-for-prospective-studies-additional-care-is-required" class="slide level2">
+<h2>Q5: For prospective studies, additional care is required…</h2>
+<ul>
+<li>to avoid leakage</li>
+<li>to avoid statistically significant results</li>
+<li>to end up with an adequate test set</li>
+<li>to define the performance metric(s)</li>
+</ul>
+</section>
+<section id="q5-for-prospective-studies-additional-care-is-required-1" class="slide level2">
+<h2>Q5: For prospective studies, additional care is required…</h2>
+<ul>
+<li>to avoid leakage <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>to avoid statistically significant results <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+<li>to end up with an adequate test set <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
+<li>to define the performance metric(s) <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
+</ul>
+</section></section>
+<section id="que-questions-4" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section>
+<section id="wu-wrap-up" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-flag" aria-label="flag"></i> Wrap-up</h1>
+
+</section>
+<section id="learnings" class="slide level2">
+<h2>Learnings</h2>
+<ul>
+<li><i class="fa-solid fa-power-off" aria-label="power-off"></i> Several pitfalls are very prevalent in applied ML.</li>
+<li><i class="fa-solid fa-power-off" aria-label="power-off"></i> Overfitting and selection-induced bias cause overoptimistic evaluation results.</li>
+<li><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Performance metric(s) should be chosen deliberately.</li>
+<li><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Multiple dimensions can/should to be considered: discrimination, calibration, fairness, …</li>
+<li><i class="fa-solid fa-database" aria-label="database"></i> Data splitting is mandatory to avoid overoptimism.</li>
+<li><i class="fa-solid fa-database" aria-label="database"></i> Large(r) samples: train-tune-test <span class="math inline">\(\rightarrow\)</span> simple(r).</li>
+<li><i class="fa-solid fa-database" aria-label="database"></i> Fewe(r) samples: (nested) CV (+test) <span class="math inline">\(\rightarrow\)</span> (more) complex.</li>
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Statistical analysis depends on metric choice and data splitting approach.</li>
+<li><i class="fa-solid fa-chart-column" aria-label="chart-column"></i> Bootstrap can deal with any metric and requires minimal assumptions.</li>
+<li><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Plan ahead (requirement analysis) and involve important stakeholders.</li>
+<li><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Evaluation should guide/support development, still be conducted independently.</li>
+</ul>
+</section>
+<section id="contact" class="slide level2">
+<h2>Contact</h2>
+<ul>
+<li><i class="fa-solid fa-envelope" aria-label="envelope"></i> <script type="text/javascript">
+<!--
+h='&#x6d;&#x65;&#118;&#x69;&#x73;&#46;&#102;&#114;&#x61;&#x75;&#110;&#104;&#x6f;&#102;&#x65;&#114;&#46;&#100;&#x65;';a='&#64;';n='&#x6d;&#x61;&#120;&#46;&#x77;&#x65;&#x73;&#116;&#112;&#104;&#x61;&#108;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>max.westphal at mevis dot fraunhofer dot de</noscript>
+<ul>
+<li>Feedback</li>
+<li>Further questions</li>
+<li>Collaboration requests</li>
+</ul></li>
+<li><i class="fa-brands fa-twitter" aria-label="twitter"></i> @MaxWestphal89
+<ul>
+<li>Get/stay in touch</li>
+</ul></li>
+<li><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues" class="uri">https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues</a>
+<ul>
+<li>Issues with slides/code</li>
+</ul></li>
+</ul>
+</section>
+<section id="have-15-minutes-to-spare" class="slide level2">
+<h2>Have 15 minutes to spare?</h2>
+<ul>
+<li>In a current research project, we develop an interactive expert system for methodological guidance in applied ML (beyond model evaluation).</li>
+<li>We have setup a short survey to assess user needs and requirements.</li>
+<li>Thank you for your time!</li>
+</ul>
+<p><strong><a href="https://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23" class="uri">https://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23</a></strong></p>
+</section></section>
+<section id="que-questions-5" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</section>
+
+<section id="thank-you-for-your-participation" class="title-slide slide level1 center">
+<h1>Thank you for your participation! <i class="fa-regular fa-face-smile" aria-label="face-smile"></i></h1>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="figures/mevis.svg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Max Westphal &nbsp; - &nbsp; Evaluating machine learning and artificial intelligence algorithms &nbsp; - &nbsp; Data Train course 2025</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/maxwestphal\.github\.io\/evaluation_in_ml_datatrain_2025\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+      });
+      </script>
+    
+
+</body></html>
