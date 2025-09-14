@@ -1,0 +1,254 @@
+---
+title: "Exercise 3 - Statistical Analysis"
+subtitle: "Data Train course 'Evaluating of machine learning and artificial intelligence algorithms'"
+author: "Max Westphal (max.westphal@mevis.fraunhofer.de)"
+date: 2025-09-14
+---
+
+
+```{r, setup, include=FALSE}
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+```{r, message=FALSE, warning=FALSE}
+## load packages:
+library(dplyr)
+```
+
+## Learning goals
+
+To be able to conduct statistical inference for performance metrics in R, via 
+
+- approximate confidence intervals,
+- exact confidence intervals,
+- and to translate such methods to method comparison.
+
+## Preparation
+
+Load the evaluation data for the experiments from the last exercise.
+
+```{r}
+data_eval_ttt_2 <- readRDS("data/data_eval_ttt_2.rds")
+data_eval_ncv_2 <- readRDS("data/data_eval_ncv_2.rds")
+```
+
+For the train-tune-test split, we derive a few binary variables which may be useful later. Investigate them, if needed
+
+```{r}
+actual <- data_eval_ttt_2$truth
+actual_01 <- (actual == "suspect") %>% as.numeric()
+
+pred_glmnet <- data_eval_ttt_2$response_glmnet 
+pred_glmnet_01 <- (pred_glmnet== "suspect") %>% as.numeric()
+correct_glmnet_01 <- (pred_glmnet_01 == actual_01) %>% as.numeric()
+
+pred_ranger <- data_eval_ttt_2$response_ranger 
+pred_ranger_01 <- (pred_ranger== "suspect") %>% as.numeric()
+correct_ranger_01 <- (pred_ranger_01 == actual_01) %>% as.numeric()
+```
+
+```{r}
+# (optional task: investigate derived binary variables)
+```
+
+
+## 3.1 Approximate inference for single proportions
+
+### Task
+
+For the train-tune-test split, calculate a 95\% (Wald) confidence interval (CI) based on the normal approximation for the classification accuracy of each model (ranger, glmnet). Don't use any packages for this purpose but rather implement the CI yourself.
+
+- In addition, calculate a 95\% Wald interval for sensitivity, specificity of each model and the respective difference of metrics.
+- What would need to be changed if only 80\% coverage was required? 
+
+Hint: you need to calculate the required quantities (the estimated proportion, its standard error and the critical value) based on the vectors `actual_01`, `correct_glmnet_01` and `correct_ranger_01` to calculate
+
+$$
+CI = \left(\ \hat{p} - c_\alpha \hat{se}(\hat{p}),\ \hat{p} + c_\alpha \hat{se}(\hat{p}) \ \right)    
+$$
+
+### Solution 
+
+```{r}
+# TODO: your solution here...
+```
+
+
+## 3.2 Approximate & exact inference for single proportions
+
+### Task 
+
+Compare the approximate results from exercise 3.1 with different (exact) alternative methods (at least those from the lecture, i.e. "wilson", "logit", "clopper-pearson") to calculate confidence intervals for for a single proportions. Also, compare the approximate CIs (method = "wald") with your own CIS from exercise 3.1. This can all be done with the following function:
+
+```{r, eval=FALSE}
+?DescTools::BinomCI
+```
+
+
+## Solution 
+
+```{r}
+# TODO: your solution here...
+```
+
+## 3.3 Exact inference for the difference of two proportions
+
+### Task 
+
+Calculate an exact confidence interval with the "newcombe" method from the following function:
+
+```{r, eval=FALSE}
+?misty::ci.prop.diff
+```
+
+Check the arguments from this function carefully and decide which of them need to be modified.
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
+## 3.4 Inference for AUC
+
+### Task
+
+Utilize the `pROC` package and its functions `roc`, `auc`, `ci.auc` and `roc.test` to
+
+- fit a ROC curve for ranger and glmnet respectively
+- plot both ROC curves
+- estimate the associated AUCs and calculate a 95\% CI for each one
+- estimate the difference in AUCs and calculate a 95\% CI as well
+
+For the confidence intervals, utilize both the "delong" (normal approximation) and "bootstrap" methods.
+
+Hint: 
+
+```{r}
+## example call of pROC::roc():
+rocc_glmnet <- pROC::roc(data_eval_ttt_2,
+                         response="truth",
+                         predictor="prob.suspect_glmnet",
+                         levels=c("normal", "suspect")) 
+```
+
+
+
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
+## 3.5 Bootstrap inference for arbitrary metrics
+
+### Task
+
+Utilize the `DescTools::BootCI()` function to calculate confidence intervals for arbitrary metrics, e.g. accuracy, sensitivity, specificity, balanced accuracy... You may restrict your attention to the ranger model.
+
+You may use the following implemented metrics/functions:
+
+- `metrica::accuracy`
+- `metrica::sensitivity`
+- `metrica::specificity`
+- `metrica::balacc`
+
+Hint: supply the function computing the metric as the `FUN` argument of `BootCI()`. `x` and `y` should be the first and second arguments of `FUN`, respectively. Specify `bci.method = "bca"`.
+
+```{r, eval=FALSE}
+?DescTools::BootCI
+```
+
+You can define a "valid" `FUN` argument, for example like this:
+
+```{r, eval=FALSE}
+?metrica::accuracy
+```
+
+
+```{r}
+acc <- function(x, y){ metrica::accuracy(NULL, x, y)[[1]] }
+acc(actual_01, pred_ranger_01)
+```
+
+
+
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
+## 3.6 Adjusting for multiple comparisons
+
+### Task (no code required)
+
+How could you adjust for multiple comparisons if you wanted to do simultaneous inference on all four metrics from the last exercise? Would that be a sensible idea?
+
+
+### Solution
+
+TODO: your solution here ...
+
+
+## 3.7 Bootstrap inference after nested CV
+
+Execute the following chunks and inspect/interpret the results, there is no need to modify any code.
+
+The first chunk illustrates how data can be resampled in a "hierarchical" manner, respecting that we have observations within different folds in our evaluation data. Note that this is only a single bootstrap resample:
+
+```{r}
+n_fold <- length(unique(data_eval_ncv_2$fold))
+n_obs_per_fold <- round(nrow(data_eval_ncv_2)/n_fold )
+resample <- fabricatr::resample_data(data_eval_ncv_2,
+                                     N=c(n_fold, n_obs_per_fold),
+                                     ID_labels = c("fold", "row_ids"),
+                                     unique_labels = TRUE) 
+head(resample)
+```
+
+
+To perform the entire (naive and nested) bootstrap resampling, requires actually quite a bit of effort/code. If you are interested in the details, please check the R script "scripts/3_nested_cv_bootstrap.R". Here, we will just load the resampled data.
+
+```{r}
+resampled_cv_simple <- readRDS("data/resampled_auc_delta_cv_simple_ncv_2.rds")
+
+resampled_cv_nested <- readRDS("data/resampled_auc_delta_cv_nested_ncv_2.rds")
+```
+
+Preview bootstrap distribution:
+
+```{r}
+head(resampled_cv_simple$delta)
+head(resampled_cv_nested$delta)
+```
+
+Mean of bootstrap distribution:
+
+```{r}
+mean(resampled_cv_simple$delta)
+mean(resampled_cv_nested$delta)
+```
+
+
+Calculate percentile confidence intervals:
+
+```{r}
+quantile(resampled_cv_simple$delta, c(0.025, 0.975))
+quantile(resampled_cv_nested$delta, c(0.025, 0.975))
+```
+
+
+
+## 3.8 Continue with your own evaluation study (open-ended)
+
+Congratulations, you made it through the prepared tasks.
+
+You can use the remaining time of the exercise to
+
+- specify appropriate metrics for your (upcoming) ML task,
+- think about appropriate methods for data splitting,
+- plan (or conduct) a sensible statistical analysis of your evaluation data.
+

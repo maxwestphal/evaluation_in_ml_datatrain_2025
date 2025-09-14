@@ -1,0 +1,10 @@
+project:
+  title: "evaluation_in_supervised_ml_cen2025"
+  type: website
+  output-dir: docs
+  execute-dir: project
+  render: 
+    - slides/slides.qmd
+
+
+

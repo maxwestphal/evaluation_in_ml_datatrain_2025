@@ -1,0 +1,213 @@
+---
+title: "Exercise 2 - Data Splitting"
+subtitle: "Data Train course 'Evaluating of machine learning and artificial intelligence algorithms'"
+author: "Max Westphal (max.westphal@mevis.fraunhofer.de)"
+date: 2023-09-20
+---
+
+
+```{r, setup, include=FALSE}
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+```{r, message=FALSE, warning=FALSE}
+## load packages:
+library(dplyr)
+library(mlr3verse)
+```
+
+## Learning goals
+
+Be able to...
+
+- define and utilize different data splitting techniques,
+- compare and interpret evaluation results depending on the experimental designs.
+
+## Introduction
+
+From previous exercise 
+
+```{r}
+# Load data:
+data_ctg <- readRDS("data/data_ctg.rds")
+
+# Task definition:
+task_ctg <- as_task_classif(data_ctg %>% select(-Year),
+                            target = "status",
+                            positive = "suspect",
+                            id = "task_ctg")
+
+task_ctg$set_col_roles("status", add_to = "stratum") 
+# -> more about this line in upcoming session on "data splitting"...
+
+task_ctg
+```
+
+
+
+## Setup: algorithms \& hyperparamers 
+
+```{r}
+## How many hyperparameters should we sample randomly per algorithm?
+n_hp <- 50 
+
+## Prepare multisession:
+future::availableCores()
+n_threads <- round(0.8*future::availableCores())
+future::plan("multisession")
+```
+
+
+```{r}
+## Prep learner glmnet:
+ts_glmnet <- mlr3tuningspaces::lts("classif.glmnet.default")
+learner_glmnet <- ts_glmnet$get_learner()
+learner_glmnet$predict_type <- "prob"
+set_threads(learner_glmnet, n = n_threads)
+learner_glmnet
+
+set.seed(123)
+space_glmnet <- learner_glmnet$param_set$search_space()
+hp_glmnet <- generate_design_lhs(space_glmnet, n_hp)
+hp_glmnet
+```
+
+
+```{r}
+## Prep learner ranger:
+ts_ranger <- mlr3tuningspaces::lts("classif.ranger.default")
+learner_ranger <- ts_ranger$get_learner()
+learner_ranger$predict_type <- "prob"
+set_threads(learner_ranger, n = n_threads)
+learner_ranger
+
+set.seed(123)
+space_ranger <- learner_ranger$param_set$search_space()
+hp_ranger <- generate_design_lhs(space_ranger, n_hp)
+hp_ranger
+```
+
+
+
+## 2.1 Train-tune-test split (20 min)
+
+### Task
+
+Derive a random train-tune-test (60-20-20) split such that by explicitly three sets of indices (row_ids). Hereby, make sure to set the random seed first and to stratify the splits for the outcome variable.
+
+- `train <- ...`
+- `tune <- ...`
+- `test <- ...`
+
+Instantiate an appropriate **mlr3** object storing this information via
+
+```{r, eval=FALSE}
+design_ttt <- rsmp("custom")
+design_ttt$instantiate(task_ctg,
+                       train_sets = list(...),
+                       test_sets = list(...))
+```
+
+What about refitting the best model after tuning (on training + tuning data)? 
+How could we represent this in **mlr3**?
+
+
+### Solution 
+
+```{r}
+# TODO: your solution here...
+```
+
+
+## 2.2 Nested cross-validation
+
+### Task
+
+Define a nested CV design with 5 folds for the outer loop and a simple holdout design for the inner loop (75% training, 25% tuning).
+(It is sufficient to define two independent designs for outer and inner loop respectively via `rsmp()`.)
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
+
+
+
+## 2.3 Temporal data split
+
+### Task
+
+Similar to tasks 2.1 and 2.2, create a temporal data split. For this, we want to utilize data from 
+one year for training and data from the next year for testing.
+
+
+- What is different for this splitting strategy compared to cross-validation?
+- Are there other temporal splits that may be reasonable here? 
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
+
+
+## 2.4 Model training and selection (for completeness only, no tasks here)
+
+After hyperparameter tuning, we need to select models for testing/evaluation. 
+Neither tuning, nor model selection are shown here directly as this would be out of scope
+for this course.
+If you are interested in the code and/or want to reproduce the results, you can examine the script `"scripts/2_rwd_ctg_model_dev"` for that matter.
+
+To continue with our ultimate goal, model evaluation, we will load the pre-computed evaluation datasets.
+
+```{r}
+data_eval_ttt_2 <- readRDS("data/data_eval_ttt_2.rds")
+head(data_eval_ttt_2)
+```
+
+```{r}
+data_eval_ncv_2 <- readRDS("data/data_eval_ncv_2.rds")
+head(data_eval_ncv_2)
+```
+
+
+```{r}
+data_eval_tmp_2 <- readRDS("data/data_eval_tmp_2.rds")
+head(data_eval_tmp_2)
+```
+
+This leaves us with 3 evaluation scenarios:
+
+- ttt: models tuned via simple hold-out, the two respective winners (glmnet vs. ranger) are evaluated on the test data (after refitting)
+- ncv: models tuned in inner loop of nested CV, the two respective winners (glmnet vs. ranger) are evaluated in the outer loop (after refitting, one model for each of the 5 folds)
+- tmp: for a sensitivity analysis, we use the respective best hyperparameters for the glmnet and random forest from the train-tune-test design and evaluate the "winners" again for the temporal split (train one year, evaluate next year)
+(note that for a really consistent evaluation an independent "inner" loop is missing here...)
+
+
+## 2.6 (Hypothetical) comparison of evaluation designs
+
+For a real-world ML problem, we would decide for a single experimental design a priori. 
+In this exercise, we will compare different evaluation approaches for learning purposes. 
+
+### Task
+
+For each design mentioned in section 2.5, calculate test performance estimates, initially for the AUC. 
+(`pROC::roc()` and `pROC::auc()` should be helpful for this.)
+Here, you should report the individual performances (ranger, glmnet) and, in addition, the difference
+of performances for comparison (ranger - glmnet).
+
+Note that for nested CV, you have to write a small custom loop or function that calculate the metric
+per fold and then average the results for an overall (expected) performance assessment.
+
+When you are done, repeat with other metrics (tasks, design, ...) and try to interpret the results.
+
+
+### Solution
+
+```{r}
+# TODO: your solution here...
+```
+
