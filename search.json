@@ -1110,7 +1110,7 @@
     "href": "slides/slides.html#hands-on-session-statistical-analysis",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Hands-on session: Statistical analysis",
-    "text": "Hands-on session: Statistical analysis\n\nAnswer the following questions for your own ML problem(s):\n\nHow many observations are available for testing?\nWhat (new and established) models will be evaluated on the test data?\nWhat are the relevant comparisons (contrasts)?\nDo you need to perform formal hypothesis testing? If yes: what are the relevant hypotheses?\nWhat statistical method is suitable to calculate confidence intervals and/or test decisions for the relevant comparisons and metrics?\nIs an adjustment for multiple comparisons required?\nHave a look at the mentioned reporting guidelines. Take notes on relevant items.\n\n\n\n\nNo own ML problem(s) (yet)?\n\nYou can work through the tasks of exercise 3…"
+    "text": "Hands-on session: Statistical analysis\n\nAnswer the following questions for your own ML problem(s):\n\nHow many observations are available for testing?\nWhat (new and established) models will be evaluated on the test data?\nWhat are the relevant comparisons (contrasts)?\nDo you need to perform formal hypothesis testing? If yes: what are the relevant hypotheses?\nWhat statistical method is suitable to calculate confidence intervals and/or test decisions for the relevant comparisons and metrics?\nIs an adjustment for multiple comparisons required?\nHave a look at the mentioned reporting guidelines. Document relevant items.\n\n\n\n\nNo own ML problem(s) (yet)?\n\nYou can work through the tasks of exercise 3…"
   },
   {
     "objectID": "slides/slides.html#learnings",
