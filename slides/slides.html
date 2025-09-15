@@ -252,16 +252,16 @@ Max Westphal
 </div>
 <div class="fragment">
 <ul>
-<li>Learning goal:
+<li><strong>Learning goal</strong>:
 <ul>
-<li>be able to identify common pitfalls for your ML problem…</li>
+<li>Be able to identify common pitfalls for your ML problem…</li>
 <li>… and find suitable (evaluation) solutions.</li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="general-information" class="slide level2">
-<h2>General information</h2>
+<section id="housekeeping" class="slide level2">
+<h2>Housekeeping</h2>
 <ul>
 <li><i class="fa-brands fa-github" aria-label="github"></i> Slides &amp; reproducible code
 <ul>
@@ -269,6 +269,15 @@ Max Westphal
 <li><a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)</a> license</li>
 </ul></li>
 </ul>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-mug-saucer" aria-label="mug-saucer"></i> Breaks
+<ul>
+<li>Lunch breaks (60-75 minutes): around noon</li>
+<li>Coffee breaks (around 15 minutes): flexible</li>
+</ul></li>
+</ul>
+</div>
 <div class="fragment">
 <ul>
 <li><i class="fa-solid fa-users" aria-label="users"></i> Interactive summaries
@@ -285,20 +294,37 @@ Max Westphal
 </ul></li>
 </ul>
 </div>
-<div class="fragment">
+</section>
+<section id="housekeeping-1" class="slide level2">
+<h2>Housekeeping</h2>
 <ul>
 <li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on-sessions
 <ul>
-<li>application of concepts in R</li>
-<li>example datasets or own problems</li>
+<li>best case: apply concepts/methods to <strong>your own ML problem(s)</strong></li>
+<li>no own ML problem(s) (yet)? We brought some exercises…</li>
+<li>coding can be done in any programming language
+<ul>
+<li>support and (partial) sample solutions in R and Python</li>
+<li>R and Python versions are similar, but not identical</li>
 </ul></li>
+<li>we encourage you to work in small groups, if you want to</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-comments" aria-label="comments"></i> Be curious/active!</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><i class="fa-solid fa-face-smile" aria-label="face-smile"></i> Have fun!</li>
 </ul>
 </div>
 </section>
 <section id="agenda-day-1" class="slide level2 scrollable">
 <h2>Agenda (Day 1)</h2>
 <ol type="1">
-<li><i class="fa-solid fa-play" aria-label="play"></i> Introduction <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i></li>
+<li><i class="fa-solid fa-play" aria-label="play"></i> Introduction</li>
 <li><i class="fa-solid fa-power-off" aria-label="power-off"></i> Core Concepts <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
 <li><i class="fa-solid fa-bullseye" aria-label="bullseye"></i> Performance metrics <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
 </ol>
@@ -309,7 +335,7 @@ Max Westphal
 </div>
 <div class="fragment">
 <ol start="5" type="1">
-<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: ML basics</li>
+<li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: ML basics and performance metrics</li>
 <li><i class="fa-solid fa-database" aria-label="database"></i> Data splitting <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-users" aria-label="users"></i> <span class="math inline">\(\longrightarrow\)</span> <i class="fa-solid fa-circle-question" aria-label="circle-question"></i></li>
 <li><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session: data splitting</li>
 </ol>
@@ -581,7 +607,7 @@ Max Westphal
 <ul>
 <li>Solutions
 <ul>
-<li>extensive experiments</li>
+<li>extensive experiments (model comparison and hyperparameter tuning)</li>
 <li>inductive bias (prior knowledge)</li>
 <li>a mixture of both</li>
 </ul></li>
@@ -629,95 +655,95 @@ Max Westphal
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
 
 </section>
-<section id="q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies" class="slide level2">
-<h2>Q1: What is NOT a typical pitfall in ML evaluation studies?</h2>
-<ul>
-<li>data augmentation before data splitting</li>
-<li>ignoring temporal dependencies</li>
-<li>only evaluate each model once on the test data</li>
-<li>combined model tuning and evaluation on the test data</li>
-</ul>
+<section id="q1-what-are-typical-pitfalls-in-ml-evaluation-studies" class="slide level2 scrollable">
+<h2>Q1: What are typical pitfalls in ML evaluation studies?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> data augmentation before data splitting</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> ignoring temporal dependencies</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> only evaluate a single model once on the test data</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> combined model tuning and evaluation on the test data</li>
+</ol>
 </section>
-<section id="q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1" class="slide level2">
-<h2>Q1: What is NOT a typical pitfall in ML evaluation studies?</h2>
-<ul>
-<li>data augmentation before data splitting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>ignoring temporal dependencies <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>only evaluate each model once on the test data <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>combined model tuning and evaluation on the test data <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1" class="slide level2 scrollable">
+<h2>Q1: What are typical pitfalls in ML evaluation studies?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> data augmentation before data splitting</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> ignoring temporal dependencies</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> only evaluate a single model once on the test data</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> combined model tuning and evaluation on the test data</li>
+</ol>
 </section>
-<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose" class="slide level2">
+<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose" class="slide level2 scrollable">
 <h2>Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …</h2>
-<ul>
-<li>overfitting and underfitting</li>
-<li>overfitting and selection-induced bias</li>
-<li>underfitting and selection-induced bias</li>
-<li>overfitting, underfitting and selection-induced bias</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> overfitting</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> underfitting</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> high label noise</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> selection-induced bias</li>
+</ol>
 </section>
-<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1" class="slide level2">
+<section id="q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1" class="slide level2 scrollable">
 <h2>Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …</h2>
-<ul>
-<li>overfitting and underfitting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>overfitting and selection-induced bias <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>underfitting and selection-induced bias <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>overfitting, underfitting and selection-induced bias <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> overfitting</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> underfitting</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> high label noise</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> selection-induced bias</li>
+</ol>
 </section>
-<section id="q3-what-type-of-validation-does-not-exist" class="slide level2">
-<h2>Q3: What type of validation does NOT exist?</h2>
-<ul>
-<li>external-internal</li>
-<li>internal-external</li>
-<li>external</li>
-<li>internal</li>
-</ul>
+<section id="q3-what-types-of-validation-do-exist" class="slide level2 scrollable">
+<h2>Q3: What types of validation do exist?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> internal</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> internal-external</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> external</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> external-internal</li>
+</ol>
 </section>
-<section id="q3-what-type-of-validation-does-not-exist-1" class="slide level2">
-<h2>Q3: What type of validation does NOT exist?</h2>
-<ul>
-<li>external-internal <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>internal-external <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>external <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>internal <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q3-what-types-of-validation-do-exist-1" class="slide level2 scrollable">
+<h2>Q3: What types of validation do exist?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> internal</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> internal-external</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> external</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> external-internal</li>
+</ol>
 </section>
-<section id="q4-what-is-not-a-valid-ml-task" class="slide level2">
-<h2>Q4: What is NOT a valid ML task?</h2>
-<ul>
-<li>multi-label classification</li>
-<li>time-to-event analysis</li>
-<li>binary classification</li>
-<li>multi-class regression</li>
-</ul>
+<section id="q4-what-are-valid-ml-tasks" class="slide level2 scrollable">
+<h2>Q4: What are valid ML tasks?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> multi-class regression</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> multi-label classification</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> time-to-event analysis</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> binary classification</li>
+</ol>
 </section>
-<section id="q4-what-is-not-a-valid-ml-task-1" class="slide level2">
-<h2>Q4: What is NOT a valid ML task?</h2>
-<ul>
-<li>multi-label classification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>time-to-event analysis <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>binary classification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>multi-class regression <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<section id="q4-what-are-valid-ml-tasks-1" class="slide level2 scrollable">
+<h2>Q4: What are valid ML tasks?</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> multi-class regression</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> multi-label classification</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> time-to-event analysis</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> binary classification</li>
+</ol>
 </section>
-<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias" class="slide level2">
+<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias" class="slide level2 scrollable">
 <h2>Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…</h2>
-<ul>
-<li>decreases with model similarity</li>
-<li>decreases with the number of models</li>
-<li>decreases with spread of true performances</li>
-<li>increases with spread of true performances</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> increases with similarity of model predictions</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> increases with the number of models</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> increases with spread of true performances</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> increases with number of observations</li>
+</ol>
 </section>
-<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1" class="slide level2">
+<section id="q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1" class="slide level2 scrollable">
 <h2>Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…</h2>
-<ul>
-<li>decreases with model similarity <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>decreases with the number of models <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>decreases with spread of true performances <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>increases with spread of true performances <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> increases with similarity of model predictions</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> increases with the number of models</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> increases with spread of true performances</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> increases with number of observations</li>
+</ol>
 </section></section>
 <section id="que-questions" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
@@ -1337,95 +1363,95 @@ Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
 
 </section>
-<section id="q1-what-is-displayed-in-the-confusion-matrix" class="slide level2">
+<section id="q1-what-is-displayed-in-the-confusion-matrix" class="slide level2 scrollable">
 <h2>Q1: What is displayed in the confusion matrix?</h2>
-<ul>
-<li>actual labels vs.&nbsp;predicted labels</li>
-<li>predicted labels vs.&nbsp;estimated probabilities</li>
-<li>actual labels vs.&nbsp;observed frequencies</li>
-<li>observed frequencies vs.&nbsp;estimated probabilities</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> actual labels vs.&nbsp;predicted labels</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> predicted labels vs.&nbsp;estimated probabilities</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> actual labels vs.&nbsp;observed frequencies</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> observed frequencies vs.&nbsp;estimated probabilities</li>
+</ol>
 </section>
-<section id="q1-what-is-displayed-in-the-confusion-matrix-1" class="slide level2">
+<section id="q1-what-is-displayed-in-the-confusion-matrix-1" class="slide level2 scrollable">
 <h2>Q1: What is displayed in the confusion matrix?</h2>
-<ul>
-<li>actual labels vs.&nbsp;predicted labels <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>predicted labels vs.&nbsp;estimated probabilities <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>actual labels vs.&nbsp;observed frequencies <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>observed frequencies vs.&nbsp;estimated probabilities <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> actual labels vs.&nbsp;predicted labels</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> predicted labels vs.&nbsp;estimated probabilities</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> actual labels vs.&nbsp;observed frequencies</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> observed frequencies vs.&nbsp;estimated probabilities</li>
+</ol>
 </section>
-<section id="q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers" class="slide level2">
-<h2>Q2: Which of the following metrics is NOT applicable to all binary classifiers?</h2>
-<ul>
-<li>specificity</li>
-<li>accuracy</li>
-<li>positive predictive value</li>
-<li>area under the curve</li>
-</ul>
+<section id="q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier" class="slide level2 scrollable">
+<h2>Q2: Which metrics are useful to assess discrimination for any binary classifier?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> specificity</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> mean squared error</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> positive predictive value</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> area under the curve</li>
+</ol>
 </section>
-<section id="q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1" class="slide level2">
-<h2>Q2: Which of the following metrics is NOT applicable to all binary classifiers?</h2>
-<ul>
-<li>specificity <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>accuracy <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>positive predictive value <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>area under the curve <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<section id="q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier-1" class="slide level2 scrollable">
+<h2>Q2: Which metrics are useful to assess discrimination for any binary classifier?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> specificity</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> mean squared error</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> positive predictive value</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> area under the curve</li>
+</ol>
 </section>
-<section id="q3-calibration-assesses" class="slide level2">
-<h2>Q3: Calibration assesses …</h2>
-<ul>
-<li>predicted probabilities relative to observed class labels</li>
-<li>predicted probabilities relative to observed class frequencies</li>
-<li>predicted class labels relative to the majority class</li>
-<li>predicted class labels relative to the minority class</li>
-</ul>
+<section id="q3-calibration-assesses-the-relation-between" class="slide level2 scrollable">
+<h2>Q3: Calibration assesses the relation between…</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> predicted probabilities and the prevalence</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> predicted probabilities and observed class frequencies</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> predicted class labels and the majority class</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> predicted class labels and the minority class</li>
+</ol>
 </section>
-<section id="q3-calibration-assesses-1" class="slide level2">
-<h2>Q3: Calibration assesses …</h2>
-<ul>
-<li>predicted probabilities relative to observed class labels <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>predicted probabilities relative to observed class frequencies <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>predicted class labels relative to the majority class <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>predicted class labels relative to the minority class <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q3-calibration-assesses-the-relation-between-1" class="slide level2 scrollable">
+<h2>Q3: Calibration assesses the relation between…</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> predicted probabilities and the prevalence</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> predicted probabilities and observed class frequencies</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> predicted class labels and the majority class</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> predicted class labels and the minority class</li>
+</ol>
 </section>
-<section id="q4-which-of-the-following-statements-is-true" class="slide level2">
-<h2>Q4: Which of the following statements is true?</h2>
-<ul>
-<li>only sensitivity OR specificity should be considered, not both</li>
-<li>balanced accuracy can be calculated from the confusing matrix</li>
-<li>overall accuracy is independent of class prevalences</li>
-<li>all classification metrics can be calculated from the confusion matrix</li>
-</ul>
+<section id="q4-which-of-the-following-statements-are-true" class="slide level2 scrollable">
+<h2>Q4: Which of the following statements are true?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> only sensitivity or specificity should be considered, not both</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> balanced accuracy can be calculated from the confusing matrix</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> overall accuracy is independent of class prevalences</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> all classification metrics can be calculated from the confusion matrix</li>
+</ol>
 </section>
-<section id="q4-which-of-the-following-statements-is-true-1" class="slide level2">
-<h2>Q4: Which of the following statements is true?</h2>
-<ul>
-<li>only sensitivity OR specificity should be considered, not both <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>balanced accuracy can be calculated from the confusing matrix <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>overall accuracy is independent of class prevalences <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>all classification metrics can be calculated from the confusion matrix <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q4-which-of-the-following-statements-are-true-1" class="slide level2 scrollable">
+<h2>Q4: Which of the following statements are true?</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> only sensitivity or specificity should be considered, not both</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> balanced accuracy can be calculated from the confusing matrix</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> overall accuracy is independent of class prevalences</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> all classification metrics can be calculated from the confusion matrix</li>
+</ol>
 </section>
-<section id="q5-which-metrics-can-be-used-for-the-same-ml-task" class="slide level2">
-<h2>Q5: Which metrics can be used for the same ML task?</h2>
-<ul>
-<li>balanced accuracy and mean squared error</li>
-<li>mean squared error and maximum calibration error</li>
-<li>area under the curve and maximum calibration error</li>
-<li>mean squared error and area under the curve</li>
-</ul>
+<section id="q5-which-calibration-metrics-are-based-on-the-calibration-plot" class="slide level2 scrollable">
+<h2>Q5: Which calibration metrics are based on the calibration plot?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Expected calibration error</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Maximum calibration error</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Root mean squared error</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Calibration slope</li>
+</ol>
 </section>
-<section id="q5-which-metrics-can-be-used-for-the-same-ml-task-1" class="slide level2">
-<h2>Q5: Which metrics can be used for the same ML task?</h2>
-<ul>
-<li>balanced accuracy and mean squared error <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>mean squared error and maximum calibration error <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>area under the curve and maximum calibration error <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>mean squared error and area under the curve <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q5-which-calibration-metrics-are-based-on-the-calibration-plot-1" class="slide level2 scrollable">
+<h2>Q5: Which calibration metrics are based on the calibration plot?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Expected calibration error</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Maximum calibration error</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Root mean squared error</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> Calibration slope</li>
+</ol>
 </section></section>
 <section id="que-questions-1" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
@@ -1441,12 +1467,34 @@ Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
 <!-- -------------------------------------------------------------------------------- -->
 </section>
 
+<section>
 <section id="hos-hands-on-session" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
-<!-- -------------------------------------------------------------------------------- -->
-<!-- -------------------------------------------------------------------------------- -->
-</section>
 
+</section>
+<section id="hands-on-session-ml-basics-and-performance-metrics" class="slide level2">
+<h2>Hands-on session: ML basics and performance metrics</h2>
+<ul>
+<li>Answer the following questions for your own ML problem(s):
+<ul>
+<li>What ML task type do you want to solve?</li>
+<li>What are standard metrics in your field?</li>
+<li>What metrics are relevant for your specific problem? Why?</li>
+<li>Which metric is most relevant?</li>
+<li>Find a suitable implementation for each relevant metric?</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>No own ML problem(s) (yet)?
+<ul>
+<li>You can work through the tasks of exercise 1…</li>
+</ul></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+</section></section>
 <section>
 <section id="ds-data-splitting" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-database" aria-label="database"></i> Data splitting</h1>
@@ -1690,7 +1738,7 @@ Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
 <!-- -------------------------------------------------------------------------------- -->
 <aside><div>
 <ul>
-<li>Alpers, R. and Westphal, M. (2023). An estimand framework to guide model and algorithm evaluation in predictive modelling. Manuscript in preparation.</li>
+<li>Alpers, R. and Westphal, M. (2025). An estimand framework to guide model and algorithm evaluation in predictive modelling. Submitted for publication.</li>
 </ul>
 </div></aside></section></section>
 <section>
@@ -1698,95 +1746,95 @@ Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
 
 </section>
-<section id="q1-what-is-a-commonly-used-data-splitting-technique" class="slide level2">
+<section id="q1-what-is-a-commonly-used-data-splitting-technique" class="slide level2 scrollable">
 <h2>Q1: What is a commonly used data splitting technique?</h2>
-<ul>
-<li>train-validation-test</li>
-<li>train-tune-test</li>
-<li>tune-validation</li>
-<li>cross-validation</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> train-validation-test</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> train-tune-test</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> double validation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> cross-validation</li>
+</ol>
 </section>
-<section id="q1-what-is-a-commonly-used-data-splitting-technique-1" class="slide level2">
+<section id="q1-what-is-a-commonly-used-data-splitting-technique-1" class="slide level2 scrollable">
 <h2>Q1: What is a commonly used data splitting technique?</h2>
-<ul>
-<li>train-validation-test <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>train-tune-test <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>tune-validation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>cross-validation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> train-validation-test</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> train-tune-test</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> double validation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> cross-validation</li>
+</ol>
 </section>
-<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training" class="slide level2">
+<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training" class="slide level2 scrollable">
 <h2>Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?</h2>
-<ul>
-<li>5-fold cross-validation and the bootstrap</li>
-<li>the bootstrap and leave-one-out cross-validation</li>
-<li>100-fold cross-validation and the train-tune-test split</li>
-<li>the bootstrap and the train-tune-test split</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> 5-fold cross-validation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> bootstrap</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> leave-one-out cross-validation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> train-tune-test</li>
+</ol>
 </section>
-<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1" class="slide level2">
+<section id="q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1" class="slide level2 scrollable">
 <h2>Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?</h2>
-<ul>
-<li>5-fold cross-validation and the bootstrap <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>the bootstrap and leave-one-out cross-validation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>100-fold cross-validation and the train-tune-test split <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>the bootstrap and the train-tune-test split <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> 5-fold cross-validation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> bootstrap</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> leave-one-out cross-validation</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> train-tune-test</li>
+</ol>
 </section>
-<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to" class="slide level2">
+<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to" class="slide level2 scrollable">
 <h2>Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…</h2>
-<ul>
-<li>simple statistical analysis</li>
-<li>utilization of all observations for testing</li>
-<li>being the default method in many packages</li>
-<li>minimal computational effort</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> simple statistical analysis</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> utilization of all observations for testing</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> being the default method in many packages</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> minimal computational effort</li>
+</ol>
 </section>
-<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1" class="slide level2">
+<section id="q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1" class="slide level2 scrollable">
 <h2>Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…</h2>
-<ul>
-<li>simple statistical analysis <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>utilization of all observations for testing <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>being the default method in many packages <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>minimal computational effort <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> simple statistical analysis</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> utilization of all observations for testing</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> being the default method in many packages</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> minimal computational effort</li>
+</ol>
 </section>
-<section id="q4-for-small-datasets" class="slide level2">
+<section id="q4-for-small-datasets" class="slide level2 scrollable">
 <h2>Q4: For small datasets, …</h2>
-<ul>
-<li>a proper model comparison and evaluation is usually simpler</li>
-<li>nested data splitting techniques have increased relevance</li>
-<li>no data should be wasted for method evaluation</li>
-<li>the importance of power estimation is increased</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> a proper model comparison and evaluation is usually simpler</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> nested data splitting techniques have increased relevance</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> no data should be wasted for method evaluation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> the importance of appropirate study planning is increased</li>
+</ol>
 </section>
-<section id="q4-for-small-datasets-1" class="slide level2">
+<section id="q4-for-small-datasets-1" class="slide level2 scrollable">
 <h2>Q4: For small datasets, …</h2>
-<ul>
-<li>a proper model comparison and evaluation is usually simpler <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>nested data splitting techniques have increased relevance <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>no data should be wasted for method evaluation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>the importance of power estimation is increased <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> a proper model comparison and evaluation is usually simpler</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> nested data splitting techniques have increased relevance</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> no data should be wasted for method evaluation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> the importance of appropirate study planning is increased</li>
+</ol>
 </section>
-<section id="q5-which-of-the-following-statements-is-true" class="slide level2">
-<h2>Q5: Which of the following statements is true?</h2>
-<ul>
-<li>stratification is required for hierarchical data structures</li>
-<li>grouping is required for hierarchical data structures</li>
-<li>stratification is required to retain the class distribution</li>
-<li>grouping is required to retain the class distribution</li>
-</ul>
+<section id="q5-which-of-the-following-statements-are-true" class="slide level2 scrollable">
+<h2>Q5: Which of the following statements are true?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> stratification is recommended for hierarchical data structures</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> grouping is recommended for hierarchical data structures</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> stratification is recommended to retain the class distribution</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> grouping is recommended to retain the class distribution</li>
+</ol>
 </section>
-<section id="q5-which-of-the-following-statements-is-true-1" class="slide level2">
-<h2>Q5: Which of the following statements is true?</h2>
-<ul>
-<li>stratification is required for hierarchical data structures <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>grouping is required for hierarchical data structures <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>stratification is required to retain the class distribution <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>grouping is required to retain the class distribution <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q5-which-of-the-following-statements-are-true-1" class="slide level2 scrollable">
+<h2>Q5: Which of the following statements are true?</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> stratification is recommended for hierarchical data structures</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> grouping is recommended for hierarchical data structures</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> stratification is recommended to retain the class distribution</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> grouping is recommended to retain the class distribution</li>
+</ol>
 <!-- -------------------------------------------------------------------------------- -->
 <!-- -------------------------------------------------------------------------------- -->
 </section></section>
@@ -1796,12 +1844,35 @@ Balanced Accuracy    0.517857  0.52404  0.52083  0.50568   0.5200</code></pre>
 <!-- -------------------------------------------------------------------------------- -->
 </section>
 
+<section>
 <section id="hos-hands-on-session-1" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
-<!-- -------------------------------------------------------------------------------- -->
-<!-- -------------------------------------------------------------------------------- -->
-</section>
 
+</section>
+<section id="hands-on-session-data-splitting" class="slide level2">
+<h2>Hands-on session: Data splitting</h2>
+<ul>
+<li>Answer the following questions for your own ML problem(s):
+<ul>
+<li>How many observations do you have access to (in the future)?</li>
+<li>Is the dataset a single sample or a collection of samples?</li>
+<li>What are the computational constraints for data splitting?</li>
+<li>What is an appropriate data splitting scheme? Why?</li>
+<li>Should you use grouping or stratification?</li>
+<li>Are you aiming for internal, external or internal-external validation?</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>No own ML problem(s) (yet)?
+<ul>
+<li>You can work through the tasks of exercise 2…</li>
+</ul></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+</section></section>
 <section id="int-recap-questions" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-play" aria-label="play"></i> Recap &amp; questions</h1>
 <!-- -------------------------------------------------------------------------------- -->
@@ -2406,95 +2477,95 @@ AUC of roc1 AUC of roc2
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
 
 </section>
-<section id="q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies" class="slide level2">
-<h2>Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?</h2>
-<ul>
-<li>hyperparameter optimization</li>
-<li>performance estimation</li>
-<li>hypothesis testing</li>
-<li>uncertainty quantification</li>
-</ul>
+<section id="q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies" class="slide level2 scrollable">
+<h2>Q1: What is a typical goal of the statistical analysis in ML evaluation studies?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> hyperparameter optimization</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> performance estimation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> hypothesis testing</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> uncertainty quantification</li>
+</ol>
 </section>
-<section id="q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1" class="slide level2">
-<h2>Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?</h2>
-<ul>
-<li>hyperparameter optimization <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>performance estimation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>hypothesis testing <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>uncertainty quantification <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1" class="slide level2 scrollable">
+<h2>Q1: What is a typical goal of the statistical analysis in ML evaluation studies?</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> hyperparameter optimization</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> performance estimation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> hypothesis testing</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> uncertainty quantification</li>
+</ol>
 </section>
-<section id="q2-which-is-a-valid-choice-of-a-comparator" class="slide level2">
+<section id="q2-which-is-a-valid-choice-of-a-comparator" class="slide level2 scrollable">
 <h2>Q2: Which is a valid choice of a comparator?</h2>
-<ul>
-<li>another performance metric</li>
-<li>another prediction model</li>
-<li>a fixed threshold</li>
-<li>a significance level of 0.05</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> another performance metric</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> another prediction model</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> a fixed performance threshold</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> a significance level of 0.05</li>
+</ol>
 </section>
-<section id="q2-which-is-a-valid-choice-of-a-comparator-1" class="slide level2">
+<section id="q2-which-is-a-valid-choice-of-a-comparator-1" class="slide level2 scrollable">
 <h2>Q2: Which is a valid choice of a comparator?</h2>
-<ul>
-<li>another performance metric <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>another prediction model <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>a fixed threshold <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>a significance level of 0.05 <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> another performance metric</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> another prediction model</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> a fixed performance threshold</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> a significance level of 0.05</li>
+</ol>
 </section>
-<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if" class="slide level2">
+<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if" class="slide level2 scrollable">
 <h2>Q3: The width of a confidence interval for model performance is usually smaller if …</h2>
-<ul>
-<li>less test data is available</li>
-<li>the test similarity values have smaller variance</li>
-<li>the test similarity values have larger variance</li>
-<li>more test data is available</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> more training data is available</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> the data splitting allows unbiased estimation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> a simpler model architecture is utilized</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> more test data is available</li>
+</ol>
 </section>
-<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1" class="slide level2">
+<section id="q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1" class="slide level2 scrollable">
 <h2>Q3: The width of a confidence interval for model performance is usually smaller if …</h2>
-<ul>
-<li>less test data is available <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>the test similarity values have smaller variance <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>the test similarity values have larger variance <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>more test data is available <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> more training data is available</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> the data splitting allows unbiased estimation</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> a simpler model architecture is utilized</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> more test data is available</li>
+</ol>
 </section>
-<section id="q4-the-classical-boostrap-should-in-general-not-be-used" class="slide level2">
-<h2>Q4: The classical boostrap should in general NOT be used…</h2>
-<ul>
-<li>for data resampling</li>
-<li>as part of learning algorithms</li>
-<li>for uncertainty quantification in simple scenarios</li>
-<li>for statistical anaylsis of hierarchical data</li>
-</ul>
+<section id="q4-in-general-bootstrap-methods-have-the-following-advantages" class="slide level2 scrollable">
+<h2>Q4: In general, bootstrap methods have the following advantages…</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they produce exact confidence intervals</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they rely on fewer assumptions than other methods</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they are computationally cheap</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they are widely applicable</li>
+</ol>
 </section>
-<section id="q4-the-classical-boostrap-should-in-general-not-be-used-1" class="slide level2">
-<h2>Q4: The classical boostrap should in general NOT be used…</h2>
-<ul>
-<li>for data resampling <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>as part of learning algorithms <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>for uncertainty quantification in simple scenarios <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>for statistical anaylsis of hierarchical data <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<section id="q4-in-general-bootstrap-methods-have-the-following-advantages-1" class="slide level2 scrollable">
+<h2>Q4: In general, bootstrap methods have the following advantages…</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> they produce exact confidence intervals</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> they rely on fewer assumptions than other methods</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> they are computationally cheap</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> they are widely applicable</li>
+</ol>
 </section>
-<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless" class="slide level2">
+<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless" class="slide level2 scrollable">
 <h2>Q5: Multiple models should not be assessed on the test dataset, unless…</h2>
-<ul>
-<li>they are all trained by the same learning algorithm</li>
-<li>they have been developed by different persons/groups</li>
-<li>a correction for multiple comparisons is employed</li>
-<li>the paper will be submitted to “Nature Machine Intelligence”</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they are all trained by the same learning algorithm</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> they have been developed by different persons/groups</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> a correction for multiple comparisons is employed</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> only two models are directly compared</li>
+</ol>
 </section>
-<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1" class="slide level2">
+<section id="q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1" class="slide level2 scrollable">
 <h2>Q5: Multiple models should not be assessed on the test dataset, unless…</h2>
-<ul>
-<li>they are all trained by the same learning algorithm <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>they have been developed by different persons/groups <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>a correction for multiple comparisons is employed <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>the paper will be submitted to “Nature Machine Intelligence” <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> they are all trained by the same learning algorithm</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> they have been developed by different persons/groups</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> a correction for multiple comparisons is employed</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> only two models are directly compared</li>
+</ol>
 <!-- -------------------------------------------------------------------------------- -->
 <!-- -------------------------------------------------------------------------------- -->
 </section></section>
@@ -2510,12 +2581,6 @@ AUC of roc1 AUC of roc2
 <!-- -------------------------------------------------------------------------------- -->
 </section>
 
-<section id="hos-hands-on-session-2" class="title-slide slide level1 center">
-<h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
-<!-- -------------------------------------------------------------------------------- -->
-<!-- -------------------------------------------------------------------------------- -->
-</section>
-
 <section>
 <section id="pa-practical-aspects" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-screwdriver-wrench" aria-label="screwdriver-wrench"></i> Practical aspects</h1>
@@ -2524,20 +2589,12 @@ AUC of roc1 AUC of roc2
 <section id="reporting-guidelines" class="slide level2">
 <h2>Reporting guidelines</h2>
 <ul>
-<li><strong>TRIPOD</strong>: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)</li>
-<li><strong>TRIPOD-AI</strong> (in preparation)</li>
-<li><strong>REFORMS</strong>: Reporting Standards for ML-based Science (2023)</li>
+<li><strong><a href="https://www.tripod-statement.org/%3E">TRIPOD</a></strong>: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)</li>
+<li><strong><a href="https://www.bmj.com/content/385/bmj.q902">TRIPOD-AI</a></strong> statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods (2024)</li>
+<li><strong><a href="https://reforms.cs.princeton.edu/">REFORMS</a></strong>: Reporting Standards for ML-based Science (2023)</li>
+<li><strong><a href="https://www.bmj.com/content/388/bmj-2024-081554">FUTURE-AI</a></strong>: international consensus guideline for trustworthy and deployable artificial intelligence in healthcare (2025)</li>
 </ul>
-
-<aside><div>
-<ul>
-<li>Collins, G. S., Reitsma, J. B., Altman, D. G., &amp; Moons, K. G. (2015). Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD) the TRIPOD statement. Circulation, 131(2), 211-219.</li>
-<li><a href="https://www.equator-network.org/reporting-guidelines/tripod-statement/" class="uri">https://www.equator-network.org/reporting-guidelines/tripod-statement/</a></li>
-<li><a href="https://www.tripod-statement.org/" class="uri">https://www.tripod-statement.org/</a></li>
-<li><a href="https://osf.io/zyacb/" class="uri">https://osf.io/zyacb/</a></li>
-<li><a href="https://reforms.cs.princeton.edu/" class="uri">https://reforms.cs.princeton.edu/</a></li>
-</ul>
-</div></aside></section>
+</section>
 <section id="tripod" class="slide level2">
 <h2>TRIPOD</h2>
 
@@ -2678,95 +2735,97 @@ AUC of roc1 AUC of roc2
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
 
 </section>
-<section id="q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies" class="slide level2">
-<h2>Q1: What is NOT a reporting guideline for predictive modelling studies?</h2>
-<ul>
-<li>TRIPOD</li>
-<li>TRIPOD-AI</li>
-<li>REPORT-AI</li>
-<li>REFORMS</li>
-</ul>
+<section id="q1-what-is-a-reporting-guideline-for-predictionmlai-studies" class="slide level2 scrollable">
+<h2>Q1: What is a reporting guideline for prediction/ML/AI studies?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> TRIPOD</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> TRIPOD-AI</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> REFORMS</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> FUTURE-AI</li>
+</ol>
 </section>
-<section id="q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1" class="slide level2">
-<h2>Q1: What is NOT a reporting guideline for predictive modelling studies?</h2>
-<ul>
-<li>TRIPOD <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>TRIPOD-AI <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>REPORT-AI <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>REFORMS <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q1-what-is-a-reporting-guideline-for-predictionmlai-studies-1" class="slide level2 scrollable">
+<h2>Q1: What is a reporting guideline for prediction/ML/AI studies?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> TRIPOD</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> TRIPOD-AI</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> REFORMS</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> FUTURE-AI</li>
+</ol>
 </section>
-<section id="q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially" class="slide level2">
-<h2>Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?</h2>
-<ul>
-<li>data splitting</li>
-<li>statistical analysis</li>
-<li>metric selection</li>
-<li>reporting</li>
-</ul>
+<section id="q2-which-methdological-choices-are-usually-depending-on-other-options" class="slide level2 scrollable">
+<h2>Q2: Which methdological choices are usually depending on other options?</h2>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> data splitting</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> statistical analysis</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> metric selection</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> reporting</li>
+</ol>
 </section>
-<section id="q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1" class="slide level2">
-<h2>Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?</h2>
-<ul>
-<li>data splitting <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>statistical analysis <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>metric selection <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>reporting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<section id="q2-which-methdological-choices-are-usually-depending-on-other-options-1" class="slide level2 scrollable">
+<h2>Q2: Which methdological choices are usually depending on other options?</h2>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> data splitting</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> statistical analysis</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> metric selection</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> reporting</li>
+</ol>
 </section>
-<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by" class="slide level2">
+<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by" class="slide level2 scrollable">
 <h2>Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…</h2>
-<ul>
-<li>avoiding any claims on statistical significance</li>
-<li>separating model development and model evaluation</li>
-<li>adequate &amp; transparent study planning</li>
-<li>nontransparent reporting</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> avoiding claims on statistical significance</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> separating model development and model evaluation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> adequate &amp; transparent study planning</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> nontransparent reporting</li>
+</ol>
 </section>
-<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1" class="slide level2">
+<section id="q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1" class="slide level2 scrollable">
 <h2>Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…</h2>
-<ul>
-<li>avoiding any claims on statistical significance <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>separating model development and model evaluation <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>adequate &amp; transparent study planning <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>nontransparent reporting <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> avoiding claims on statistical significance</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> separating model development and model evaluation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> adequate &amp; transparent study planning</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> nontransparent reporting</li>
+</ol>
 </section>
-<section id="q4-power-analyses" class="slide level2">
+<section id="q4-power-analyses" class="slide level2 scrollable">
 <h2>Q4: Power analyses…</h2>
-<ul>
-<li>can help to avoid conducting unreasonably large studies</li>
-<li>are independent of the chosen evaluation metric</li>
-<li>are only useful if hypothesis testing is planned for evaluation</li>
-<li>should be reported according to the TRIPOD statement</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> can help to avoid conducting unreasonably large studies</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> are independent of the chosen evaluation metric</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> are only useful if hypothesis testing is planned for evaluation</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> should be reported according to the TRIPOD statement</li>
+</ol>
 </section>
-<section id="q4-power-analyses-1" class="slide level2">
+<section id="q4-power-analyses-1" class="slide level2 scrollable">
 <h2>Q4: Power analyses…</h2>
-<ul>
-<li>can help to avoid conducting unreasonably large studies <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>are independent of the chosen evaluation metric <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>are only useful if hypothesis testing is planned for evaluation <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>should be reported according to the TRIPOD statement <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> can help to avoid conducting unreasonably large studies</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> are independent of the chosen evaluation metric</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> are only useful if hypothesis testing is planned for evaluation</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> should be reported according to the TRIPOD statement</li>
+</ol>
 </section>
-<section id="q5-for-prospective-studies-additional-care-is-required" class="slide level2">
+<section id="q5-for-prospective-studies-additional-care-is-required" class="slide level2 scrollable">
 <h2>Q5: For prospective studies, additional care is required…</h2>
-<ul>
-<li>to avoid leakage</li>
-<li>to avoid statistically significant results</li>
-<li>to end up with an adequate test set</li>
-<li>to define the performance metric(s)</li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> to avoid leakage</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> to avoid statistically significant results</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> to end up with an adequate test set</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> to define the performance metric(s)</li>
+</ol>
 </section>
-<section id="q5-for-prospective-studies-additional-care-is-required-1" class="slide level2">
+<section id="q5-for-prospective-studies-additional-care-is-required-1" class="slide level2 scrollable">
 <h2>Q5: For prospective studies, additional care is required…</h2>
-<ul>
-<li>to avoid leakage <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>to avoid statistically significant results <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-<li>to end up with an adequate test set <i class="fa-solid fa-circle-check" aria-label="circle-check"></i></li>
-<li>to define the performance metric(s) <i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i></li>
-</ul>
+<ol type="a">
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> to avoid leakage</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> to avoid statistically significant results</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> to end up with an adequate test set</li>
+<li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> to define the performance metric(s)</li>
+</ol>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
 </section></section>
 <section id="que-questions-4" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>
@@ -2774,6 +2833,36 @@ AUC of roc1 AUC of roc2
 <!-- -------------------------------------------------------------------------------- -->
 </section>
 
+<section>
+<section id="hos-hands-on-session-2" class="title-slide slide level1 center">
+<h1><i class="fa-solid fa-keyboard" aria-label="keyboard"></i> Hands-on session</h1>
+
+</section>
+<section id="hands-on-session-statistical-analysis" class="slide level2">
+<h2>Hands-on session: Statistical analysis</h2>
+<ul>
+<li>Answer the following questions for your own ML problem(s):
+<ul>
+<li>How many observations are available for testing?</li>
+<li>What (new and established) models will be evaluated on the test data?</li>
+<li>What are the relevant comparisons (contrasts)?</li>
+<li>Do you need to perform formal hypothesis testing? If yes: what are the relevant hypotheses?</li>
+<li>What statistical method is suitable to calculate confidence intervals and/or test decisions for the relevant comparisons and metrics?</li>
+<li>Is an adjustment for multiple comparisons required?</li>
+<li>Have a look at the mentioned reporting guidelines. Take notes on relevant items.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>No own ML problem(s) (yet)?
+<ul>
+<li>You can work through the tasks of exercise 3…</li>
+</ul></li>
+</ul>
+<!-- -------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------- -->
+</div>
+</section></section>
 <section>
 <section id="wu-wrap-up" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-flag" aria-label="flag"></i> Wrap-up</h1>
@@ -2809,24 +2898,11 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\
 <li>Further questions</li>
 <li>Collaboration requests</li>
 </ul></li>
-<li><i class="fa-brands fa-twitter" aria-label="twitter"></i> @MaxWestphal89
-<ul>
-<li>Get/stay in touch</li>
-</ul></li>
-<li><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues" class="uri">https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues</a>
+<li><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2025/issues" class="uri">https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2025/issues</a>
 <ul>
 <li>Issues with slides/code</li>
 </ul></li>
 </ul>
-</section>
-<section id="have-15-minutes-to-spare" class="slide level2">
-<h2>Have 15 minutes to spare?</h2>
-<ul>
-<li>In a current research project, we develop an interactive expert system for methodological guidance in applied ML (beyond model evaluation).</li>
-<li>We have setup a short survey to assess user needs and requirements.</li>
-<li>Thank you for your time!</li>
-</ul>
-<p><strong><a href="https://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23" class="uri">https://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23</a></strong></p>
 </section></section>
 <section id="que-questions-5" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> Questions</h1>

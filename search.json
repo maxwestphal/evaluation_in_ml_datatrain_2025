@@ -4,21 +4,28 @@
     "href": "slides/slides.html#scope",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Scope",
-    "text": "Scope\n\nImportant topics (50-80%):\n\n Core concepts\n Performance metrics\n Data splitting\n Statistical analysis\n\n\n\n\nFurther considerations (20-50%)\n\n Practical aspects\n topics not covered in this course…\n\n\n\n\n\nLearning goal:\n\nbe able to identify common pitfalls for your ML problem…\n… and find suitable (evaluation) solutions."
+    "text": "Scope\n\nImportant topics (50-80%):\n\n Core concepts\n Performance metrics\n Data splitting\n Statistical analysis\n\n\n\n\nFurther considerations (20-50%)\n\n Practical aspects\n topics not covered in this course…\n\n\n\n\n\nLearning goal:\n\nBe able to identify common pitfalls for your ML problem…\n… and find suitable (evaluation) solutions."
   },
   {
-    "objectID": "slides/slides.html#general-information",
-    "href": "slides/slides.html#general-information",
+    "objectID": "slides/slides.html#housekeeping",
+    "href": "slides/slides.html#housekeeping",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "General information",
-    "text": "General information\n\n Slides & reproducible code\n\nhttps://github.com/maxwestphal/evaluation_in_ml_datatrain_2025\nAttribution-ShareAlike 4.0 International (CC BY-SA 4.0) license\n\n\n\n\n Interactive summaries\n\nat the end of each section\n\n\n\n\n\n Questions\n\nat the end of each section\n\n\n\n\n\n Hands-on-sessions\n\napplication of concepts in R\nexample datasets or own problems"
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\n Slides & reproducible code\n\nhttps://github.com/maxwestphal/evaluation_in_ml_datatrain_2025\nAttribution-ShareAlike 4.0 International (CC BY-SA 4.0) license\n\n\n\n\n Breaks\n\nLunch breaks (60-75 minutes): around noon\nCoffee breaks (around 15 minutes): flexible\n\n\n\n\n\n Interactive summaries\n\nat the end of each section\n\n\n\n\n\n Questions\n\nat the end of each section"
+  },
+  {
+    "objectID": "slides/slides.html#housekeeping-1",
+    "href": "slides/slides.html#housekeeping-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\n Hands-on-sessions\n\nbest case: apply concepts/methods to your own ML problem(s)\nno own ML problem(s) (yet)? We brought some exercises…\ncoding can be done in any programming language\n\nsupport and (partial) sample solutions in R and Python\nR and Python versions are similar, but not identical\n\nwe encourage you to work in small groups, if you want to\n\n\n\n\n Be curious/active!\n\n\n\n\n Have fun!"
   },
   {
     "objectID": "slides/slides.html#agenda-day-1",
     "href": "slides/slides.html#agenda-day-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Agenda (Day 1)",
-    "text": "Agenda (Day 1)\n\n Introduction \\(\\longrightarrow\\) \n Core Concepts \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Performance metrics \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n\n\n\n Lunch break\n\n\n\n\n Hands-on session: ML basics\n Data splitting \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Hands-on session: data splitting"
+    "text": "Agenda (Day 1)\n\n Introduction\n Core Concepts \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Performance metrics \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n\n\n\n Lunch break\n\n\n\n\n Hands-on session: ML basics and performance metrics\n Data splitting \\(\\longrightarrow\\)  \\(\\longrightarrow\\) \n Hands-on session: data splitting"
   },
   {
     "objectID": "slides/slides.html#agenda-day-2",
@@ -130,7 +137,7 @@
     "href": "slides/slides.html#no-free-lunch-theorem",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "No-free-lunch theorem",
-    "text": "No-free-lunch theorem\n\nNo single model (architecture) works best in all possible scenarios.\n\n\nSolutions\n\nextensive experiments\ninductive bias (prior knowledge)\na mixture of both\n\n\n\n\nSterkenburg, T. F., & Grünwald, P. D. (2021). The no-free-lunch theorems of supervised learning. Synthese, 199(3-4), 9979-10015."
+    "text": "No-free-lunch theorem\n\nNo single model (architecture) works best in all possible scenarios.\n\n\nSolutions\n\nextensive experiments (model comparison and hyperparameter tuning)\ninductive bias (prior knowledge)\na mixture of both\n\n\n\n\nSterkenburg, T. F., & Grünwald, P. D. (2021). The no-free-lunch theorems of supervised learning. Synthese, 199(3-4), 9979-10015."
   },
   {
     "objectID": "slides/slides.html#aleatoric-and-epistemic-uncertainty-in-machine-learning",
@@ -154,74 +161,74 @@
     "text": "Typical ML pitfalls\n\n\n\n\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies",
-    "href": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies",
+    "objectID": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies",
+    "href": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a typical pitfall in ML evaluation studies?",
-    "text": "Q1: What is NOT a typical pitfall in ML evaluation studies?\n\ndata augmentation before data splitting\nignoring temporal dependencies\nonly evaluate each model once on the test data\ncombined model tuning and evaluation on the test data"
+    "section": "Q1: What are typical pitfalls in ML evaluation studies?",
+    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n data augmentation before data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1",
-    "href": "slides/slides.html#q1-what-is-not-a-typical-pitfall-in-ml-evaluation-studies-1",
+    "objectID": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1",
+    "href": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a typical pitfall in ML evaluation studies?",
-    "text": "Q1: What is NOT a typical pitfall in ML evaluation studies?\n\ndata augmentation before data splitting \nignoring temporal dependencies \nonly evaluate each model once on the test data \ncombined model tuning and evaluation on the test data"
+    "section": "Q1: What are typical pitfalls in ML evaluation studies?",
+    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n data augmentation before data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
   },
   {
     "objectID": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose",
     "href": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …",
-    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\noverfitting and underfitting\noverfitting and selection-induced bias\nunderfitting and selection-induced bias\noverfitting, underfitting and selection-induced bias"
+    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\n overfitting\n underfitting\n high label noise\n selection-induced bias"
   },
   {
     "objectID": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1",
     "href": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …",
-    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\noverfitting and underfitting \noverfitting and selection-induced bias \nunderfitting and selection-induced bias \noverfitting, underfitting and selection-induced bias"
+    "text": "Q2: Three datasets are needed in the standard ML pipeline to counter and/or diagnose …\n\n overfitting\n underfitting\n high label noise\n selection-induced bias"
   },
   {
-    "objectID": "slides/slides.html#q3-what-type-of-validation-does-not-exist",
-    "href": "slides/slides.html#q3-what-type-of-validation-does-not-exist",
+    "objectID": "slides/slides.html#q3-what-types-of-validation-do-exist",
+    "href": "slides/slides.html#q3-what-types-of-validation-do-exist",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q3: What type of validation does NOT exist?",
-    "text": "Q3: What type of validation does NOT exist?\n\nexternal-internal\ninternal-external\nexternal\ninternal"
+    "section": "Q3: What types of validation do exist?",
+    "text": "Q3: What types of validation do exist?\n\n internal\n internal-external\n external\n external-internal"
   },
   {
-    "objectID": "slides/slides.html#q3-what-type-of-validation-does-not-exist-1",
-    "href": "slides/slides.html#q3-what-type-of-validation-does-not-exist-1",
+    "objectID": "slides/slides.html#q3-what-types-of-validation-do-exist-1",
+    "href": "slides/slides.html#q3-what-types-of-validation-do-exist-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q3: What type of validation does NOT exist?",
-    "text": "Q3: What type of validation does NOT exist?\n\nexternal-internal \ninternal-external \nexternal \ninternal"
+    "section": "Q3: What types of validation do exist?",
+    "text": "Q3: What types of validation do exist?\n\n internal\n internal-external\n external\n external-internal"
   },
   {
-    "objectID": "slides/slides.html#q4-what-is-not-a-valid-ml-task",
-    "href": "slides/slides.html#q4-what-is-not-a-valid-ml-task",
+    "objectID": "slides/slides.html#q4-what-are-valid-ml-tasks",
+    "href": "slides/slides.html#q4-what-are-valid-ml-tasks",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: What is NOT a valid ML task?",
-    "text": "Q4: What is NOT a valid ML task?\n\nmulti-label classification\ntime-to-event analysis\nbinary classification\nmulti-class regression"
+    "section": "Q4: What are valid ML tasks?",
+    "text": "Q4: What are valid ML tasks?\n\n multi-class regression\n multi-label classification\n time-to-event analysis\n binary classification"
   },
   {
-    "objectID": "slides/slides.html#q4-what-is-not-a-valid-ml-task-1",
-    "href": "slides/slides.html#q4-what-is-not-a-valid-ml-task-1",
+    "objectID": "slides/slides.html#q4-what-are-valid-ml-tasks-1",
+    "href": "slides/slides.html#q4-what-are-valid-ml-tasks-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: What is NOT a valid ML task?",
-    "text": "Q4: What is NOT a valid ML task?\n\nmulti-label classification \ntime-to-event analysis \nbinary classification \nmulti-class regression"
+    "section": "Q4: What are valid ML tasks?",
+    "text": "Q4: What are valid ML tasks?\n\n multi-class regression\n multi-label classification\n time-to-event analysis\n binary classification"
   },
   {
     "objectID": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias",
     "href": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…",
-    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\ndecreases with model similarity\ndecreases with the number of models\ndecreases with spread of true performances\nincreases with spread of true performances"
+    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\n increases with similarity of model predictions\n increases with the number of models\n increases with spread of true performances\n increases with number of observations"
   },
   {
     "objectID": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1",
     "href": "slides/slides.html#q5-when-comparing-multiple-models-on-the-same-dataset-the-severity-of-selection-induced-bias-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…",
-    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\ndecreases with model similarity \ndecreases with the number of models \ndecreases with spread of true performances \nincreases with spread of true performances"
+    "text": "Q5: When comparing multiple models on the same dataset, the severity of selection-induced bias…\n\n increases with similarity of model predictions\n increases with the number of models\n increases with spread of true performances\n increases with number of observations"
   },
   {
     "objectID": "slides/slides.html#performance-dimensions",
@@ -445,70 +452,77 @@
     "href": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What is displayed in the confusion matrix?",
-    "text": "Q1: What is displayed in the confusion matrix?\n\nactual labels vs. predicted labels\npredicted labels vs. estimated probabilities\nactual labels vs. observed frequencies\nobserved frequencies vs. estimated probabilities"
+    "text": "Q1: What is displayed in the confusion matrix?\n\n actual labels vs. predicted labels\n predicted labels vs. estimated probabilities\n actual labels vs. observed frequencies\n observed frequencies vs. estimated probabilities"
   },
   {
     "objectID": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix-1",
     "href": "slides/slides.html#q1-what-is-displayed-in-the-confusion-matrix-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What is displayed in the confusion matrix?",
-    "text": "Q1: What is displayed in the confusion matrix?\n\nactual labels vs. predicted labels \npredicted labels vs. estimated probabilities \nactual labels vs. observed frequencies \nobserved frequencies vs. estimated probabilities"
+    "text": "Q1: What is displayed in the confusion matrix?\n\n actual labels vs. predicted labels\n predicted labels vs. estimated probabilities\n actual labels vs. observed frequencies\n observed frequencies vs. estimated probabilities"
   },
   {
-    "objectID": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers",
-    "href": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers",
+    "objectID": "slides/slides.html#q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier",
+    "href": "slides/slides.html#q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?",
-    "text": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?\n\nspecificity\naccuracy\npositive predictive value\narea under the curve"
+    "section": "Q2: Which metrics are useful to assess discrimination for any binary classifier?",
+    "text": "Q2: Which metrics are useful to assess discrimination for any binary classifier?\n\n specificity\n mean squared error\n positive predictive value\n area under the curve"
   },
   {
-    "objectID": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1",
-    "href": "slides/slides.html#q2-which-of-the-following-metrics-is-not-applicable-to-all-binary-classifiers-1",
+    "objectID": "slides/slides.html#q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier-1",
+    "href": "slides/slides.html#q2-which-metrics-are-useful-to-assess-discrimination-for-any-binary-classifier-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?",
-    "text": "Q2: Which of the following metrics is NOT applicable to all binary classifiers?\n\nspecificity \naccuracy \npositive predictive value \narea under the curve"
+    "section": "Q2: Which metrics are useful to assess discrimination for any binary classifier?",
+    "text": "Q2: Which metrics are useful to assess discrimination for any binary classifier?\n\n specificity\n mean squared error\n positive predictive value\n area under the curve"
   },
   {
-    "objectID": "slides/slides.html#q3-calibration-assesses",
-    "href": "slides/slides.html#q3-calibration-assesses",
+    "objectID": "slides/slides.html#q3-calibration-assesses-the-relation-between",
+    "href": "slides/slides.html#q3-calibration-assesses-the-relation-between",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q3: Calibration assesses …",
-    "text": "Q3: Calibration assesses …\n\npredicted probabilities relative to observed class labels\npredicted probabilities relative to observed class frequencies\npredicted class labels relative to the majority class\npredicted class labels relative to the minority class"
+    "section": "Q3: Calibration assesses the relation between…",
+    "text": "Q3: Calibration assesses the relation between…\n\n predicted probabilities and the prevalence\n predicted probabilities and observed class frequencies\n predicted class labels and the majority class\n predicted class labels and the minority class"
   },
   {
-    "objectID": "slides/slides.html#q3-calibration-assesses-1",
-    "href": "slides/slides.html#q3-calibration-assesses-1",
+    "objectID": "slides/slides.html#q3-calibration-assesses-the-relation-between-1",
+    "href": "slides/slides.html#q3-calibration-assesses-the-relation-between-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q3: Calibration assesses …",
-    "text": "Q3: Calibration assesses …\n\npredicted probabilities relative to observed class labels \npredicted probabilities relative to observed class frequencies \npredicted class labels relative to the majority class \npredicted class labels relative to the minority class"
+    "section": "Q3: Calibration assesses the relation between…",
+    "text": "Q3: Calibration assesses the relation between…\n\n predicted probabilities and the prevalence\n predicted probabilities and observed class frequencies\n predicted class labels and the majority class\n predicted class labels and the minority class"
   },
   {
-    "objectID": "slides/slides.html#q4-which-of-the-following-statements-is-true",
-    "href": "slides/slides.html#q4-which-of-the-following-statements-is-true",
+    "objectID": "slides/slides.html#q4-which-of-the-following-statements-are-true",
+    "href": "slides/slides.html#q4-which-of-the-following-statements-are-true",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: Which of the following statements is true?",
-    "text": "Q4: Which of the following statements is true?\n\nonly sensitivity OR specificity should be considered, not both\nbalanced accuracy can be calculated from the confusing matrix\noverall accuracy is independent of class prevalences\nall classification metrics can be calculated from the confusion matrix"
+    "section": "Q4: Which of the following statements are true?",
+    "text": "Q4: Which of the following statements are true?\n\n only sensitivity or specificity should be considered, not both\n balanced accuracy can be calculated from the confusing matrix\n overall accuracy is independent of class prevalences\n all classification metrics can be calculated from the confusion matrix"
   },
   {
-    "objectID": "slides/slides.html#q4-which-of-the-following-statements-is-true-1",
-    "href": "slides/slides.html#q4-which-of-the-following-statements-is-true-1",
+    "objectID": "slides/slides.html#q4-which-of-the-following-statements-are-true-1",
+    "href": "slides/slides.html#q4-which-of-the-following-statements-are-true-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: Which of the following statements is true?",
-    "text": "Q4: Which of the following statements is true?\n\nonly sensitivity OR specificity should be considered, not both \nbalanced accuracy can be calculated from the confusing matrix \noverall accuracy is independent of class prevalences \nall classification metrics can be calculated from the confusion matrix"
+    "section": "Q4: Which of the following statements are true?",
+    "text": "Q4: Which of the following statements are true?\n\n only sensitivity or specificity should be considered, not both\n balanced accuracy can be calculated from the confusing matrix\n overall accuracy is independent of class prevalences\n all classification metrics can be calculated from the confusion matrix"
   },
   {
-    "objectID": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task",
-    "href": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task",
+    "objectID": "slides/slides.html#q5-which-calibration-metrics-are-based-on-the-calibration-plot",
+    "href": "slides/slides.html#q5-which-calibration-metrics-are-based-on-the-calibration-plot",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q5: Which metrics can be used for the same ML task?",
-    "text": "Q5: Which metrics can be used for the same ML task?\n\nbalanced accuracy and mean squared error\nmean squared error and maximum calibration error\narea under the curve and maximum calibration error\nmean squared error and area under the curve"
+    "section": "Q5: Which calibration metrics are based on the calibration plot?",
+    "text": "Q5: Which calibration metrics are based on the calibration plot?\n\n Expected calibration error\n Maximum calibration error\n Root mean squared error\n Calibration slope"
   },
   {
-    "objectID": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task-1",
-    "href": "slides/slides.html#q5-which-metrics-can-be-used-for-the-same-ml-task-1",
+    "objectID": "slides/slides.html#q5-which-calibration-metrics-are-based-on-the-calibration-plot-1",
+    "href": "slides/slides.html#q5-which-calibration-metrics-are-based-on-the-calibration-plot-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q5: Which metrics can be used for the same ML task?",
-    "text": "Q5: Which metrics can be used for the same ML task?\n\nbalanced accuracy and mean squared error \nmean squared error and maximum calibration error \narea under the curve and maximum calibration error \nmean squared error and area under the curve"
+    "section": "Q5: Which calibration metrics are based on the calibration plot?",
+    "text": "Q5: Which calibration metrics are based on the calibration plot?\n\n Expected calibration error\n Maximum calibration error\n Root mean squared error\n Calibration slope"
+  },
+  {
+    "objectID": "slides/slides.html#hands-on-session-ml-basics-and-performance-metrics",
+    "href": "slides/slides.html#hands-on-session-ml-basics-and-performance-metrics",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Hands-on session: ML basics and performance metrics",
+    "text": "Hands-on session: ML basics and performance metrics\n\nAnswer the following questions for your own ML problem(s):\n\nWhat ML task type do you want to solve?\nWhat are standard metrics in your field?\nWhat metrics are relevant for your specific problem? Why?\nWhich metric is most relevant?\nFind a suitable implementation for each relevant metric?\n\n\n\n\nNo own ML problem(s) (yet)?\n\nYou can work through the tasks of exercise 1…"
   },
   {
     "objectID": "slides/slides.html#motivation-overfitting",
@@ -606,77 +620,84 @@
     "href": "slides/slides.html#estimand-framework",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Estimand framework",
-    "text": "Estimand framework\n\n\n\n\n\n\n\n\n\nAlpers, R. and Westphal, M. (2023). An estimand framework to guide model and algorithm evaluation in predictive modelling. Manuscript in preparation."
+    "text": "Estimand framework\n\n\n\n\n\n\n\n\n\nAlpers, R. and Westphal, M. (2025). An estimand framework to guide model and algorithm evaluation in predictive modelling. Submitted for publication."
   },
   {
     "objectID": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique",
     "href": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What is a commonly used data splitting technique?",
-    "text": "Q1: What is a commonly used data splitting technique?\n\ntrain-validation-test\ntrain-tune-test\ntune-validation\ncross-validation"
+    "text": "Q1: What is a commonly used data splitting technique?\n\n train-validation-test\n train-tune-test\n double validation\n cross-validation"
   },
   {
     "objectID": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique-1",
     "href": "slides/slides.html#q1-what-is-a-commonly-used-data-splitting-technique-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What is a commonly used data splitting technique?",
-    "text": "Q1: What is a commonly used data splitting technique?\n\ntrain-validation-test \ntrain-tune-test \ntune-validation \ncross-validation"
+    "text": "Q1: What is a commonly used data splitting technique?\n\n train-validation-test\n train-tune-test\n double validation\n cross-validation"
   },
   {
     "objectID": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training",
     "href": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?",
-    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n5-fold cross-validation and the bootstrap\nthe bootstrap and leave-one-out cross-validation\n100-fold cross-validation and the train-tune-test split\nthe bootstrap and the train-tune-test split"
+    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n 5-fold cross-validation\n bootstrap\n leave-one-out cross-validation\n train-tune-test"
   },
   {
     "objectID": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1",
     "href": "slides/slides.html#q2-which-data-splitting-techniques-are-rarely-used-due-to-very-high-computational-effort-for-model-training-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?",
-    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n5-fold cross-validation and the bootstrap \nthe bootstrap and leave-one-out cross-validation \n100-fold cross-validation and the train-tune-test split \nthe bootstrap and the train-tune-test split"
+    "text": "Q2: Which data splitting techniques are rarely used due to very high computational effort for model training?\n\n 5-fold cross-validation\n bootstrap\n leave-one-out cross-validation\n train-tune-test"
   },
   {
     "objectID": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to",
     "href": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…",
-    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\nsimple statistical analysis\nutilization of all observations for testing\nbeing the default method in many packages\nminimal computational effort"
+    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\n simple statistical analysis\n utilization of all observations for testing\n being the default method in many packages\n minimal computational effort"
   },
   {
     "objectID": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1",
     "href": "slides/slides.html#q3-for-large-datasets-the-classical-train-tune-test-split-can-be-recommended-due-to-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…",
-    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\nsimple statistical analysis \nutilization of all observations for testing \nbeing the default method in many packages \nminimal computational effort"
+    "text": "Q3: For large datasets, the classical “train-tune-test” split can be recommended due to…\n\n simple statistical analysis\n utilization of all observations for testing\n being the default method in many packages\n minimal computational effort"
   },
   {
     "objectID": "slides/slides.html#q4-for-small-datasets",
     "href": "slides/slides.html#q4-for-small-datasets",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q4: For small datasets, …",
-    "text": "Q4: For small datasets, …\n\na proper model comparison and evaluation is usually simpler\nnested data splitting techniques have increased relevance\nno data should be wasted for method evaluation\nthe importance of power estimation is increased"
+    "text": "Q4: For small datasets, …\n\n a proper model comparison and evaluation is usually simpler\n nested data splitting techniques have increased relevance\n no data should be wasted for method evaluation\n the importance of appropirate study planning is increased"
   },
   {
     "objectID": "slides/slides.html#q4-for-small-datasets-1",
     "href": "slides/slides.html#q4-for-small-datasets-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q4: For small datasets, …",
-    "text": "Q4: For small datasets, …\n\na proper model comparison and evaluation is usually simpler \nnested data splitting techniques have increased relevance \nno data should be wasted for method evaluation \nthe importance of power estimation is increased"
+    "text": "Q4: For small datasets, …\n\n a proper model comparison and evaluation is usually simpler\n nested data splitting techniques have increased relevance\n no data should be wasted for method evaluation\n the importance of appropirate study planning is increased"
   },
   {
-    "objectID": "slides/slides.html#q5-which-of-the-following-statements-is-true",
-    "href": "slides/slides.html#q5-which-of-the-following-statements-is-true",
+    "objectID": "slides/slides.html#q5-which-of-the-following-statements-are-true",
+    "href": "slides/slides.html#q5-which-of-the-following-statements-are-true",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q5: Which of the following statements is true?",
-    "text": "Q5: Which of the following statements is true?\n\nstratification is required for hierarchical data structures\ngrouping is required for hierarchical data structures\nstratification is required to retain the class distribution\ngrouping is required to retain the class distribution"
+    "section": "Q5: Which of the following statements are true?",
+    "text": "Q5: Which of the following statements are true?\n\n stratification is recommended for hierarchical data structures\n grouping is recommended for hierarchical data structures\n stratification is recommended to retain the class distribution\n grouping is recommended to retain the class distribution"
   },
   {
-    "objectID": "slides/slides.html#q5-which-of-the-following-statements-is-true-1",
-    "href": "slides/slides.html#q5-which-of-the-following-statements-is-true-1",
+    "objectID": "slides/slides.html#q5-which-of-the-following-statements-are-true-1",
+    "href": "slides/slides.html#q5-which-of-the-following-statements-are-true-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q5: Which of the following statements is true?",
-    "text": "Q5: Which of the following statements is true?\n\nstratification is required for hierarchical data structures \ngrouping is required for hierarchical data structures \nstratification is required to retain the class distribution \ngrouping is required to retain the class distribution"
+    "section": "Q5: Which of the following statements are true?",
+    "text": "Q5: Which of the following statements are true?\n\n stratification is recommended for hierarchical data structures\n grouping is recommended for hierarchical data structures\n stratification is recommended to retain the class distribution\n grouping is recommended to retain the class distribution"
+  },
+  {
+    "objectID": "slides/slides.html#hands-on-session-data-splitting",
+    "href": "slides/slides.html#hands-on-session-data-splitting",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Hands-on session: Data splitting",
+    "text": "Hands-on session: Data splitting\n\nAnswer the following questions for your own ML problem(s):\n\nHow many observations do you have access to (in the future)?\nIs the dataset a single sample or a collection of samples?\nWhat are the computational constraints for data splitting?\nWhat is an appropriate data splitting scheme? Why?\nShould you use grouping or stratification?\nAre you aiming for internal, external or internal-external validation?\n\n\n\n\nNo own ML problem(s) (yet)?\n\nYou can work through the tasks of exercise 2…"
   },
   {
     "objectID": "slides/slides.html#goals-of-statistical-inference",
@@ -889,81 +910,81 @@
     "text": "Multiple models, multiple metrics\n\n\n\n\n\n\n\n\n\nWestphal, M., & Zapf, A. (2021). Statistical Inference for Diagnostic Test Accuracy Studies with Multiple Comparisons. arXiv preprint arXiv:2105.13469.\nhttps://CRAN.R-project.org/package=cases"
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
-    "href": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
+    "objectID": "slides/slides.html#q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
+    "href": "slides/slides.html#q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?",
-    "text": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?\n\nhyperparameter optimization\nperformance estimation\nhypothesis testing\nuncertainty quantification"
+    "section": "Q1: What is a typical goal of the statistical analysis in ML evaluation studies?",
+    "text": "Q1: What is a typical goal of the statistical analysis in ML evaluation studies?\n\n hyperparameter optimization\n performance estimation\n hypothesis testing\n uncertainty quantification"
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
-    "href": "slides/slides.html#q1-what-is-not-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
+    "objectID": "slides/slides.html#q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
+    "href": "slides/slides.html#q1-what-is-a-typical-goal-of-the-statistical-analysis-in-ml-evaluation-studies-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?",
-    "text": "Q1: What is NOT a typical goal of the statistical analysis in ML evaluation studies?\n\nhyperparameter optimization \nperformance estimation \nhypothesis testing \nuncertainty quantification"
+    "section": "Q1: What is a typical goal of the statistical analysis in ML evaluation studies?",
+    "text": "Q1: What is a typical goal of the statistical analysis in ML evaluation studies?\n\n hyperparameter optimization\n performance estimation\n hypothesis testing\n uncertainty quantification"
   },
   {
     "objectID": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator",
     "href": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Which is a valid choice of a comparator?",
-    "text": "Q2: Which is a valid choice of a comparator?\n\nanother performance metric\nanother prediction model\na fixed threshold\na significance level of 0.05"
+    "text": "Q2: Which is a valid choice of a comparator?\n\n another performance metric\n another prediction model\n a fixed performance threshold\n a significance level of 0.05"
   },
   {
     "objectID": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator-1",
     "href": "slides/slides.html#q2-which-is-a-valid-choice-of-a-comparator-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q2: Which is a valid choice of a comparator?",
-    "text": "Q2: Which is a valid choice of a comparator?\n\nanother performance metric \nanother prediction model \na fixed threshold \na significance level of 0.05"
+    "text": "Q2: Which is a valid choice of a comparator?\n\n another performance metric\n another prediction model\n a fixed performance threshold\n a significance level of 0.05"
   },
   {
     "objectID": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if",
     "href": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: The width of a confidence interval for model performance is usually smaller if …",
-    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\nless test data is available\nthe test similarity values have smaller variance\nthe test similarity values have larger variance\nmore test data is available"
+    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\n more training data is available\n the data splitting allows unbiased estimation\n a simpler model architecture is utilized\n more test data is available"
   },
   {
     "objectID": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1",
     "href": "slides/slides.html#q3-the-width-of-a-confidence-interval-for-model-performance-is-usually-smaller-if-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: The width of a confidence interval for model performance is usually smaller if …",
-    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\nless test data is available \nthe test similarity values have smaller variance \nthe test similarity values have larger variance \nmore test data is available"
+    "text": "Q3: The width of a confidence interval for model performance is usually smaller if …\n\n more training data is available\n the data splitting allows unbiased estimation\n a simpler model architecture is utilized\n more test data is available"
   },
   {
-    "objectID": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used",
-    "href": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used",
+    "objectID": "slides/slides.html#q4-in-general-bootstrap-methods-have-the-following-advantages",
+    "href": "slides/slides.html#q4-in-general-bootstrap-methods-have-the-following-advantages",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: The classical boostrap should in general NOT be used…",
-    "text": "Q4: The classical boostrap should in general NOT be used…\n\nfor data resampling\nas part of learning algorithms\nfor uncertainty quantification in simple scenarios\nfor statistical anaylsis of hierarchical data"
+    "section": "Q4: In general, bootstrap methods have the following advantages…",
+    "text": "Q4: In general, bootstrap methods have the following advantages…\n\n they produce exact confidence intervals\n they rely on fewer assumptions than other methods\n they are computationally cheap\n they are widely applicable"
   },
   {
-    "objectID": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used-1",
-    "href": "slides/slides.html#q4-the-classical-boostrap-should-in-general-not-be-used-1",
+    "objectID": "slides/slides.html#q4-in-general-bootstrap-methods-have-the-following-advantages-1",
+    "href": "slides/slides.html#q4-in-general-bootstrap-methods-have-the-following-advantages-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q4: The classical boostrap should in general NOT be used…",
-    "text": "Q4: The classical boostrap should in general NOT be used…\n\nfor data resampling \nas part of learning algorithms \nfor uncertainty quantification in simple scenarios \nfor statistical anaylsis of hierarchical data"
+    "section": "Q4: In general, bootstrap methods have the following advantages…",
+    "text": "Q4: In general, bootstrap methods have the following advantages…\n\n they produce exact confidence intervals\n they rely on fewer assumptions than other methods\n they are computationally cheap\n they are widely applicable"
   },
   {
     "objectID": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless",
     "href": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: Multiple models should not be assessed on the test dataset, unless…",
-    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\nthey are all trained by the same learning algorithm\nthey have been developed by different persons/groups\na correction for multiple comparisons is employed\nthe paper will be submitted to “Nature Machine Intelligence”"
+    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\n they are all trained by the same learning algorithm\n they have been developed by different persons/groups\n a correction for multiple comparisons is employed\n only two models are directly compared"
   },
   {
     "objectID": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1",
     "href": "slides/slides.html#q5-multiple-models-should-not-be-assessed-on-the-test-dataset-unless-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: Multiple models should not be assessed on the test dataset, unless…",
-    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\nthey are all trained by the same learning algorithm \nthey have been developed by different persons/groups \na correction for multiple comparisons is employed \nthe paper will be submitted to “Nature Machine Intelligence”"
+    "text": "Q5: Multiple models should not be assessed on the test dataset, unless…\n\n they are all trained by the same learning algorithm\n they have been developed by different persons/groups\n a correction for multiple comparisons is employed\n only two models are directly compared"
   },
   {
     "objectID": "slides/slides.html#reporting-guidelines",
     "href": "slides/slides.html#reporting-guidelines",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Reporting guidelines",
-    "text": "Reporting guidelines\n\nTRIPOD: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)\nTRIPOD-AI (in preparation)\nREFORMS: Reporting Standards for ML-based Science (2023)\n\n\n\n\nCollins, G. S., Reitsma, J. B., Altman, D. G., & Moons, K. G. (2015). Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD) the TRIPOD statement. Circulation, 131(2), 211-219.\nhttps://www.equator-network.org/reporting-guidelines/tripod-statement/\nhttps://www.tripod-statement.org/\nhttps://osf.io/zyacb/\nhttps://reforms.cs.princeton.edu/"
+    "text": "Reporting guidelines\n\nTRIPOD: Transparent reporting of a multivariable prediction model for individual prognosis or diagnosis (TRIPOD): The TRIPOD statement (2015)\nTRIPOD-AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods (2024)\nREFORMS: Reporting Standards for ML-based Science (2023)\nFUTURE-AI: international consensus guideline for trustworthy and deployable artificial intelligence in healthcare (2025)"
   },
   {
     "objectID": "slides/slides.html#tripod",
@@ -1015,74 +1036,81 @@
     "text": "Reproducibility\n\nReproducibility is important but also hard (in particular in ML)\n\nmany sources of variability\nvolatile software packages\nnon-deterministic learning\n\n\n\n\nSome practical considerations\n\nrandom seed(ing) (set.seed(123))\nversion control (e.g. github)\nexperiment handling (e.g. batchtools package)\npipeline management (e.g. targets package)\n\n\n\n\n\n\n\nHeil, B. J., Hoffman, M. M., Markowetz, F., Lee, S. I., Greene, C. S., & Hicks, S. C. (2021). Reproducibility standards for machine learning in the life sciences. Nature Methods, 18(10), 1132-1135."
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies",
-    "href": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies",
+    "objectID": "slides/slides.html#q1-what-is-a-reporting-guideline-for-predictionmlai-studies",
+    "href": "slides/slides.html#q1-what-is-a-reporting-guideline-for-predictionmlai-studies",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a reporting guideline for predictive modelling studies?",
-    "text": "Q1: What is NOT a reporting guideline for predictive modelling studies?\n\nTRIPOD\nTRIPOD-AI\nREPORT-AI\nREFORMS"
+    "section": "Q1: What is a reporting guideline for prediction/ML/AI studies?",
+    "text": "Q1: What is a reporting guideline for prediction/ML/AI studies?\n\n TRIPOD\n TRIPOD-AI\n REFORMS\n FUTURE-AI"
   },
   {
-    "objectID": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1",
-    "href": "slides/slides.html#q1-what-is-not-a-reporting-guideline-for-predictive-modelling-studies-1",
+    "objectID": "slides/slides.html#q1-what-is-a-reporting-guideline-for-predictionmlai-studies-1",
+    "href": "slides/slides.html#q1-what-is-a-reporting-guideline-for-predictionmlai-studies-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q1: What is NOT a reporting guideline for predictive modelling studies?",
-    "text": "Q1: What is NOT a reporting guideline for predictive modelling studies?\n\nTRIPOD \nTRIPOD-AI \nREPORT-AI \nREFORMS"
+    "section": "Q1: What is a reporting guideline for prediction/ML/AI studies?",
+    "text": "Q1: What is a reporting guideline for prediction/ML/AI studies?\n\n TRIPOD\n TRIPOD-AI\n REFORMS\n FUTURE-AI"
   },
   {
-    "objectID": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially",
-    "href": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially",
+    "objectID": "slides/slides.html#q2-which-methdological-choices-are-usually-depending-on-other-options",
+    "href": "slides/slides.html#q2-which-methdological-choices-are-usually-depending-on-other-options",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?",
-    "text": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?\n\ndata splitting\nstatistical analysis\nmetric selection\nreporting"
+    "section": "Q2: Which methdological choices are usually depending on other options?",
+    "text": "Q2: Which methdological choices are usually depending on other options?\n\n data splitting\n statistical analysis\n metric selection\n reporting"
   },
   {
-    "objectID": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1",
-    "href": "slides/slides.html#q2-what-is-mostly-not-depending-on-the-other-choices-and-should-thus-be-decided-upon-initially-1",
+    "objectID": "slides/slides.html#q2-which-methdological-choices-are-usually-depending-on-other-options-1",
+    "href": "slides/slides.html#q2-which-methdological-choices-are-usually-depending-on-other-options-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?",
-    "text": "Q2: What is mostly NOT depending on the other choices and should thus be decided upon initially?\n\ndata splitting \nstatistical analysis \nmetric selection \nreporting"
+    "section": "Q2: Which methdological choices are usually depending on other options?",
+    "text": "Q2: Which methdological choices are usually depending on other options?\n\n data splitting\n statistical analysis\n metric selection\n reporting"
   },
   {
     "objectID": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by",
     "href": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…",
-    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\navoiding any claims on statistical significance\nseparating model development and model evaluation\nadequate & transparent study planning\nnontransparent reporting"
+    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\n avoiding claims on statistical significance\n separating model development and model evaluation\n adequate & transparent study planning\n nontransparent reporting"
   },
   {
     "objectID": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1",
     "href": "slides/slides.html#q3-the-conflict-of-interest-of-predictive-modelling-can-be-partially-avoided-by-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…",
-    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\navoiding any claims on statistical significance \nseparating model development and model evaluation \nadequate & transparent study planning \nnontransparent reporting"
+    "text": "Q3: The “conflict of interest of predictive modelling” can be (partially) avoided by…\n\n avoiding claims on statistical significance\n separating model development and model evaluation\n adequate & transparent study planning\n nontransparent reporting"
   },
   {
     "objectID": "slides/slides.html#q4-power-analyses",
     "href": "slides/slides.html#q4-power-analyses",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q4: Power analyses…",
-    "text": "Q4: Power analyses…\n\ncan help to avoid conducting unreasonably large studies\nare independent of the chosen evaluation metric\nare only useful if hypothesis testing is planned for evaluation\nshould be reported according to the TRIPOD statement"
+    "text": "Q4: Power analyses…\n\n can help to avoid conducting unreasonably large studies\n are independent of the chosen evaluation metric\n are only useful if hypothesis testing is planned for evaluation\n should be reported according to the TRIPOD statement"
   },
   {
     "objectID": "slides/slides.html#q4-power-analyses-1",
     "href": "slides/slides.html#q4-power-analyses-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q4: Power analyses…",
-    "text": "Q4: Power analyses…\n\ncan help to avoid conducting unreasonably large studies \nare independent of the chosen evaluation metric \nare only useful if hypothesis testing is planned for evaluation \nshould be reported according to the TRIPOD statement"
+    "text": "Q4: Power analyses…\n\n can help to avoid conducting unreasonably large studies\n are independent of the chosen evaluation metric\n are only useful if hypothesis testing is planned for evaluation\n should be reported according to the TRIPOD statement"
   },
   {
     "objectID": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required",
     "href": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: For prospective studies, additional care is required…",
-    "text": "Q5: For prospective studies, additional care is required…\n\nto avoid leakage\nto avoid statistically significant results\nto end up with an adequate test set\nto define the performance metric(s)"
+    "text": "Q5: For prospective studies, additional care is required…\n\n to avoid leakage\n to avoid statistically significant results\n to end up with an adequate test set\n to define the performance metric(s)"
   },
   {
     "objectID": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required-1",
     "href": "slides/slides.html#q5-for-prospective-studies-additional-care-is-required-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q5: For prospective studies, additional care is required…",
-    "text": "Q5: For prospective studies, additional care is required…\n\nto avoid leakage \nto avoid statistically significant results \nto end up with an adequate test set \nto define the performance metric(s)"
+    "text": "Q5: For prospective studies, additional care is required…\n\n to avoid leakage\n to avoid statistically significant results\n to end up with an adequate test set\n to define the performance metric(s)"
+  },
+  {
+    "objectID": "slides/slides.html#hands-on-session-statistical-analysis",
+    "href": "slides/slides.html#hands-on-session-statistical-analysis",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Hands-on session: Statistical analysis",
+    "text": "Hands-on session: Statistical analysis\n\nAnswer the following questions for your own ML problem(s):\n\nHow many observations are available for testing?\nWhat (new and established) models will be evaluated on the test data?\nWhat are the relevant comparisons (contrasts)?\nDo you need to perform formal hypothesis testing? If yes: what are the relevant hypotheses?\nWhat statistical method is suitable to calculate confidence intervals and/or test decisions for the relevant comparisons and metrics?\nIs an adjustment for multiple comparisons required?\nHave a look at the mentioned reporting guidelines. Take notes on relevant items.\n\n\n\n\nNo own ML problem(s) (yet)?\n\nYou can work through the tasks of exercise 3…"
   },
   {
     "objectID": "slides/slides.html#learnings",
@@ -1096,13 +1124,6 @@
     "href": "slides/slides.html#contact",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Contact",
-    "text": "Contact\n\n max.westphal at mevis dot fraunhofer dot de\n\nFeedback\nFurther questions\nCollaboration requests\n\n @MaxWestphal89\n\nGet/stay in touch\n\n  https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2023/issues\n\nIssues with slides/code"
-  },
-  {
-    "objectID": "slides/slides.html#have-15-minutes-to-spare",
-    "href": "slides/slides.html#have-15-minutes-to-spare",
-    "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Have 15 minutes to spare?",
-    "text": "Have 15 minutes to spare?\n\nIn a current research project, we develop an interactive expert system for methodological guidance in applied ML (beyond model evaluation).\nWe have setup a short survey to assess user needs and requirements.\nThank you for your time!\n\nhttps://websites.fraunhofer.de/mlguide-user-survey/index.php/578345/newtest/Y?G00Q23=DT23"
+    "text": "Contact\n\n max.westphal at mevis dot fraunhofer dot de\n\nFeedback\nFurther questions\nCollaboration requests\n\n  https://github.com/maxwestphal/evaluation_in_supervised_ml_datatrain_2025/issues\n\nIssues with slides/code"
   }
 ]
