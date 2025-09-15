@@ -15,11 +15,12 @@ This repository contains course materials from the
 <center>
 
 **"Evaluating machine learning and artificial intelligence algorithms"** </br>
-[Data Train Course 2025](https://www.bremen-research.de/data-train/courses/course-catalogue/course-details?event_id=45). 
+[Data Train Course 2025](https://www.bremen-research.de/data-train/courses/course-details?event_id=116). 
 
 </center>
 
 The rendered html slides can be accessed here:
+
 <center>
 
 **<https://maxwestphal.github.io/evaluation_in_ml_datatrain_2025/>**
@@ -34,43 +35,51 @@ Course instructors:
 - Werner Brannath
 - Tom Splittgerber
 
-## Instructions for Course Participants
-
-### R users
-
-To prepare for the course,
-
-- install R + Rstudio from <https://posit.co/download/rstudio-desktop/>
-- clone this repository: `git clone https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025.git` [terminal] (in desired parent directory),
-  - alternatively, without Git, you can choose the option "Code" > "Download ZIP" at [https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025](https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025) and unzip the files locally
-- open the project "evaluation_in_ml_datatrain_2025.Rproj" in RStudio
-- install renv: `install.packages(c("yaml", "renv"), dependencies = TRUE)` [R]
-- activate renv: `renv::activate()` [R]
-- install packages `renv::install()` [R] (confirm if asked to)
-- restore dependencies: `renv::restore()` [R] (confirm if asked to)
-
-### Python users
-
-...
-
-
 ## License
 
 This work is released under a [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license.
 
+
+## Instructions for the hands-on sessions
+
+In the hands-on sessions, you will have the opportunity to work on your own ML/AI evaluation 
+problem(s) or the exercises provided by us. 
+
+Please follow the relevant set of instructions below to be prepare.
+
+### If you work on your own ML/AI evaluation problem(s)
+
+- You may work on your own ML/AI problems that you are currently working on and apply the new
+evaluation concepts and methods. 
+- A set of guiding questions is contained in the slides. 
+- You may use any programming language.
+- No further preparation is needed.
+
+### If you work on the provided exercises in R
+
+- Clone this repository: `git clone https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025.git` [terminal] (in desired parent directory),
+  - Alternatively, without Git, you can choose the option "Code" > "Download ZIP" at [https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025](https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025) and unzip the files locally
+- Install the latest versions of R + Rstudio from <https://posit.co/download/rstudio-desktop/>
+- Open the project "evaluation_in_ml_datatrain_2025.Rproj" in RStudio
+- Install renv: `install.packages(c("yaml", "renv"), dependencies = TRUE)` [R]
+- Activate renv: `renv::activate()` [R]
+- Install packages `renv::install()` [R] (confirm if asked to)
+- Restore dependencies: `renv::restore()` [R] (confirm if asked to)
+- In the exercises, navigate to the subfolder **exercises/R** and open the relevant notebook
+
+### If you work on the provided exercises in Python
+
+- Clone this repository: `git clone https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025.git` [terminal] (in desired parent directory),
+  - Alternatively, without Git, you can choose the option "Code" > "Download ZIP" at [https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025](https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025) and unzip the files locally
+- Install the latest version of Python (e.g. [here](https://www.python.org/)) and an IDE you like (see e.g. [this comparison](https://pieces.app/blog/best-ide-for-python))
+- In the exercises, navigate to the subfolder **exercises/Python** and open the relevant notebook
+- You may have to manually install some of the utilized Python packages.
 
 ## Issues
 
 If you find an error or have suggestions for improvements, please create a new issue here:
 
 <https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025/issues>
-
-## Reproduction
-
-If you are interested in reproducing the course materials (i.e. train prediction models and produce the evaluation data), please conduct the following steps:
-
-- re-produce pre-computed results: `source("scripts/_run.R)` [R]
-- render the file "slides.qmd": `quarto::quarto_render()` [R]
 
 
 ## R Version Info
