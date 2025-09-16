@@ -59,9 +59,6 @@ dev/
 # renv folder
 renv/
 
-# data folder
-data/
-
 # figures folder
 figures/
 
