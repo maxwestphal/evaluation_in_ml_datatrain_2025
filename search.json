@@ -63,6 +63,20 @@
     "text": "Example project: CTG\n\n\n\n“Cardiotocography (CTG) is a technique used to monitor the fetal heartbeat and uterine contractions during pregnancy and labour. The machine used to perform the monitoring is called a cardiotocograph.”\n“CTG monitoring is widely used to assess fetal well-being by identifying babies at risk of hypoxia (lack of oxygen). CTG is mainly used during labour.”\nFigure: “The display of a cardiotocograph. The fetal heartbeat is shown in orange, uterine contractions are shown in green, and the small green numbers (lower right) show the mother’s heartbeat.”\n\n\n\n\n\n\n\n\n\nhttps://en.wikipedia.org/wiki/Cardiotocography"
   },
   {
+    "objectID": "slides/slides.html#supervised-machine-learning",
+    "href": "slides/slides.html#supervised-machine-learning",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Supervised machine learning",
+    "text": "Supervised machine learning"
+  },
+  {
+    "objectID": "slides/slides.html#supervised-machine-learning-1",
+    "href": "slides/slides.html#supervised-machine-learning-1",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "Supervised machine learning",
+    "text": "Supervised machine learning"
+  },
+  {
     "objectID": "slides/slides.html#task-types-in-supervised-learning",
     "href": "slides/slides.html#task-types-in-supervised-learning",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
@@ -147,32 +161,46 @@
     "text": "Aleatoric and epistemic uncertainty in machine learning\n\n“Aleatoric (aka statistical) uncertainty refers to the notion of randomness, that is, the variability in the outcome of an experiment which is due to inherently random effects.”\n“Epistemic (aka systematic) uncertainty refers to uncertainty caused by a lack of knowledge, i.e., to the epistemic state of the agent.”\n\n\n\n\nEyke Hüllermeier, 2021, https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf"
   },
   {
-    "objectID": "slides/slides.html#typical-ml-evaluation-pitfalls",
-    "href": "slides/slides.html#typical-ml-evaluation-pitfalls",
+    "objectID": "slides/slides.html#ml-pitfalls-guidance-for-evaluation",
+    "href": "slides/slides.html#ml-pitfalls-guidance-for-evaluation",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Typical ML evaluation pitfalls",
-    "text": "Typical ML evaluation pitfalls\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
+    "section": "ML pitfalls: guidance for evaluation",
+    "text": "ML pitfalls: guidance for evaluation\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
   },
   {
-    "objectID": "slides/slides.html#typical-ml-pitfalls",
-    "href": "slides/slides.html#typical-ml-pitfalls",
+    "objectID": "slides/slides.html#ml-pitfalls-overall-guidance",
+    "href": "slides/slides.html#ml-pitfalls-overall-guidance",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
-    "section": "Typical ML pitfalls",
-    "text": "Typical ML pitfalls\n\n\n\n\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
+    "section": "ML pitfalls: overall guidance",
+    "text": "ML pitfalls: overall guidance\n\n\n\n\n\n\n\n\nLones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497."
+  },
+  {
+    "objectID": "slides/slides.html#ml-pitfalls-empirical-assessment",
+    "href": "slides/slides.html#ml-pitfalls-empirical-assessment",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "ML pitfalls: empirical assessment",
+    "text": "ML pitfalls: empirical assessment\n\n\n\n\n\n\n\nWynants, L., Van Calster, B., Collins, G. S., Riley, R. D., Heinze, G., Schuit, E., … & van Smeden, M. (2020). Prediction models for diagnosis and prognosis of covid-19: systematic review and critical appraisal. bmj, 369."
+  },
+  {
+    "objectID": "slides/slides.html#ml-pitfalls-overview",
+    "href": "slides/slides.html#ml-pitfalls-overview",
+    "title": "Evaluating machine learning and artificial intelligence algorithms",
+    "section": "ML pitfalls: overview",
+    "text": "ML pitfalls: overview"
   },
   {
     "objectID": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies",
     "href": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What are typical pitfalls in ML evaluation studies?",
-    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n data augmentation before data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
+    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n inadequate data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
   },
   {
     "objectID": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1",
     "href": "slides/slides.html#q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1",
     "title": "Evaluating machine learning and artificial intelligence algorithms",
     "section": "Q1: What are typical pitfalls in ML evaluation studies?",
-    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n data augmentation before data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
+    "text": "Q1: What are typical pitfalls in ML evaluation studies?\n\n inadequate data splitting\n ignoring temporal dependencies\n only evaluate a single model once on the test data\n combined model tuning and evaluation on the test data"
   },
   {
     "objectID": "slides/slides.html#q2-three-datasets-are-needed-in-the-standard-ml-pipeline-to-counter-andor-diagnose",

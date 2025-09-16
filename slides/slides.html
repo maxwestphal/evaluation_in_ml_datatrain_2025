@@ -429,6 +429,14 @@ Max Westphal
 <li><a href="https://en.wikipedia.org/wiki/Cardiotocography" class="uri">https://en.wikipedia.org/wiki/Cardiotocography</a></li>
 </ul>
 </div></aside></section>
+<section id="supervised-machine-learning" class="slide level2">
+<h2>Supervised machine learning</h2>
+
+<img data-src="figures/inference.png" class="quarto-figure quarto-figure-center r-stretch" size="70%"></section>
+<section id="supervised-machine-learning-1" class="slide level2">
+<h2>Supervised machine learning</h2>
+
+<img data-src="figures/learning.png" class="quarto-figure quarto-figure-center r-stretch" size="70%"></section>
 <section id="task-types-in-supervised-learning" class="slide level2">
 <h2>Task types in supervised learning</h2>
 <!-- https://mermaid.js.org/syntax/flowchart.html -->
@@ -628,8 +636,8 @@ Max Westphal
 <li>Eyke Hüllermeier, 2021, <a href="https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf" class="uri">https://www.gdsd.statistik.uni-muenchen.de/2021/gdsd_huellermeier.pdf</a></li>
 </ul>
 </div></aside></section>
-<section id="typical-ml-evaluation-pitfalls" class="slide level2">
-<h2>Typical ML evaluation pitfalls</h2>
+<section id="ml-pitfalls-guidance-for-evaluation" class="slide level2">
+<h2>ML pitfalls: guidance for evaluation</h2>
 <img data-src="figures/lones_2023_toc_detail.png" class="r-stretch">
 
 <aside><div>
@@ -637,8 +645,8 @@ Max Westphal
 <li>Lones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497.</li>
 </ul>
 </div></aside></section>
-<section id="typical-ml-pitfalls" class="slide level2">
-<h2>Typical ML pitfalls</h2>
+<section id="ml-pitfalls-overall-guidance" class="slide level2">
+<h2>ML pitfalls: overall guidance</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="figures/lones_2023_toc.png" class="quarto-figure quarto-figure-center" height="700"></p>
@@ -649,7 +657,26 @@ Max Westphal
 <ul>
 <li>Lones, M. A. (2023). How to avoid machine learning pitfalls: A guide for academic researchers. arXiv preprint arXiv:2108.02497.</li>
 </ul>
-</div></aside></section></section>
+</div></aside></section>
+<section id="ml-pitfalls-empirical-assessment" class="slide level2">
+<h2>ML pitfalls: empirical assessment</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/covid19_pm_review.png" class="quarto-figure quarto-figure-center" height="650"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Wynants, L., Van Calster, B., Collins, G. S., Riley, R. D., Heinze, G., Schuit, E., … &amp; van Smeden, M. (2020). Prediction models for diagnosis and prognosis of covid-19: systematic review and critical appraisal. bmj, 369.</p>
+</div></aside></section>
+<section id="ml-pitfalls-overview" class="slide level2">
+<h2>ML pitfalls: overview</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/pitfalls.png" class="quarto-figure quarto-figure-center" height="700"></p>
+</figure>
+</div>
+</section></section>
 <section>
 <section id="is-interactive-summary" class="title-slide slide level1 center">
 <h1><i class="fa-solid fa-users" aria-label="users"></i> Interactive summary</h1>
@@ -658,7 +685,7 @@ Max Westphal
 <section id="q1-what-are-typical-pitfalls-in-ml-evaluation-studies" class="slide level2 scrollable">
 <h2>Q1: What are typical pitfalls in ML evaluation studies?</h2>
 <ol type="a">
-<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> data augmentation before data splitting</li>
+<li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> inadequate data splitting</li>
 <li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> ignoring temporal dependencies</li>
 <li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> only evaluate a single model once on the test data</li>
 <li><i class="fa-solid fa-circle-question" aria-label="circle-question"></i> combined model tuning and evaluation on the test data</li>
@@ -667,7 +694,7 @@ Max Westphal
 <section id="q1-what-are-typical-pitfalls-in-ml-evaluation-studies-1" class="slide level2 scrollable">
 <h2>Q1: What are typical pitfalls in ML evaluation studies?</h2>
 <ol type="a">
-<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> data augmentation before data splitting</li>
+<li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> inadequate data splitting</li>
 <li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> ignoring temporal dependencies</li>
 <li><i class="fa-regular fa-circle-xmark" aria-label="circle-xmark"></i> only evaluate a single model once on the test data</li>
 <li><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> combined model tuning and evaluation on the test data</li>
