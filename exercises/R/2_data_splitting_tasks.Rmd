@@ -37,15 +37,15 @@ task_ctg <- as_task_classif(data_ctg %>% select(-Year),
                             positive = "suspect",
                             id = "task_ctg")
 
+# Ensure subsequent data splitting is stratified for the outcome variable 'status':
 task_ctg$set_col_roles("status", add_to = "stratum") 
-# -> more about this line in upcoming session on "data splitting"...
 
 task_ctg
 ```
 
 
 
-## Setup: algorithms \& hyperparamers 
+## Setup: algorithms \& hyperparameters 
 
 ```{r}
 ## How many hyperparameters should we sample randomly per algorithm?
