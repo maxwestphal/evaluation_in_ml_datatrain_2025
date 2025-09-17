@@ -63,13 +63,14 @@ Please follow the relevant set of instructions below to be prepare.
     “Download ZIP” at
     <https://github.com/maxwestphal/evaluation_in_ml_datatrain_2025> and
     unzip the files locally
-- Install the latest versions of R + Rstudio from
+- Install the latest versions of R (4.5.1) and Rstudio from
   <https://posit.co/download/rstudio-desktop/>
 - Open the project “evaluation_in_ml_datatrain_2025.Rproj” in RStudio
 - Install renv:
   `install.packages(c("yaml", "renv"), dependencies = TRUE)` \[R\]
 - Activate renv: `renv::activate()` \[R\]
-- Install packages `renv::install()` \[R\] (confirm if asked to)
+- Install packages `renv::install(type = "binary")` \[R\] (confirm if
+  asked to)
 - Restore dependencies: `renv::restore()` \[R\] (confirm if asked to)
 - In the exercises, navigate to the subfolder **exercises/R** and open
   the relevant notebook
